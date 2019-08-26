@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://59.110.213.213:3306/labwebsystem?useSSL=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: labwebsystem
+    password: labwebsystem
+
+  resources:
+    static-locations: classpath:static/,file:static/
+  freemarker:
+    suffix: .html
+  jackson:
+    date-format: yyyy/MM/dd
+    time-zone: Hongkong
+server:
+  port: 8070
