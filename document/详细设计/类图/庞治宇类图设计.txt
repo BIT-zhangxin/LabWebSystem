@@ -1,0 +1,60 @@
+InfoController
+-infoMapper: InfoMapper
++SelectStaticContent(int staticContentId): StaticContent
++SelectDynamicByType(int type,int currentPage,int pageSize): List<Dynamic>
++SelectDynamic(int dynamic): Dynamic
++SelectDynamicByCondition(int type,String condition): List<Dynamic>
++SelectTeachingInformation(int currentPage,int pageSize): List<TeachingInformation>
++SelectTeachingInformationMyCondition(String condition): List<TeachingInformation>
++SelectScientificInformation(int currentPage,int pageSize): List<ScientificInformation>
++SelectScientificInformationMyCondition(String condition): List<ScientificInformation>
++SelectResearchResult(int currentPage,int pageSize): List<ResearchResult>
++SelectResearchResultMyCondition(String condition): List<ResearchResult>
++SelectTeachResult(int currentPage,int pageSize): List<TeachResult>
++SelectTeachResultMyCondition(String condition): List<TeachResult>
++SelectResearchPaper(int currentPage,int pageSize): List<ResearchPaper>
++SelectResearchPaperMyCondition(String condition): List<ResearchPaper>
++SelectTeachPaper(int currentPage,int pageSize): List<TeachPaper>
++SelectTeachPaperMyCondition(String condition): List<TeachPaper>
++SelectPapent(int currentPage,int pageSize): List<Papent>
++SelectPapentMyCondition(String condition): List<Papent>
++SelectCopyRight(int currentPage,int pageSize): List<CopyRight>
++SelectCopyRightMyCondition(String condition): List<CopyRight>
++SelectTeachMaterial(int currentPage,int pageSize): List<TeachMaterial>
++SelectTeachMaterialMyCondition(String condition): List<TeachMaterial>
++SelectEduReform(int currentPage,int pageSize): List<EduReform>
++SelectEduReformMyCondition(String condition): List<EduReform>
++SelectGlobalCooperation(int currentPage,int pageSize): List<GlobalCooperation>
++SelectGlobalCooperationMyCondition(String condition): List<GlobalCooperation>
++SelectAdmissionsInformation(int type): AdmissionsInformation
++SelectAnnexs(int dynamicId): List<Annex>
+
+InfoMapper
++SelectStaticContent(int staticContentId): StaticContent
++SelectDynamicByType(int type,int currentPage,int pageSize): List<Dynamic>
++SelectDynamic(int dynamic): Dynamic
++SelectDynamicByCondition(int type,String condition): List<Dynamic>
++SelectTeachingInformation(int currentPage,int pageSize): List<TeachingInformation>
++SelectTeachingInformationMyCondition(String condition): List<TeachingInformation>
++SelectScientificInformation(int currentPage,int pageSize): List<ScientificInformation>
++SelectScientificInformationMyCondition(String condition): List<ScientificInformation>
++SelectResearchResult(int currentPage,int pageSize): List<ResearchResult>
++SelectResearchResultMyCondition(String condition): List<ResearchResult>
++SelectTeachResult(int currentPage,int pageSize): List<TeachResult>
++SelectTeachResultMyCondition(String condition): List<TeachResult>
++SelectResearchPaper(int currentPage,int pageSize): List<ResearchPaper>
++SelectResearchPaperMyCondition(String condition): List<ResearchPaper>
++SelectTeachPaper(int currentPage,int pageSize): List<TeachPaper>
++SelectTeachPaperMyCondition(String condition): List<TeachPaper>
++SelectPapent(int currentPage,int pageSize): List<Papent>
++SelectPapentMyCondition(String condition): List<Papent>
++SelectCopyRight(int currentPage,int pageSize): List<CopyRight>
++SelectCopyRightMyCondition(String condition): List<CopyRight>
++SelectTeachMaterial(int currentPage,int pageSize): List<TeachMaterial>
++SelectTeachMaterialMyCondition(String condition): List<TeachMaterial>
++SelectEduReform(int currentPage,int pageSize): List<EduReform>
++SelectEduReformMyCondition(String condition): List<EduReform>
++SelectGlobalCooperation(int currentPage,int pageSize): List<GlobalCooperation>
++SelectGlobalCooperationMyCondition(String condition): List<GlobalCooperation>
++SelectAdmissionsInformation(int type): AdmissionsInformation
++SelectAnnexs(int dynamicId): List<Annex>

@@ -1,0 +1,27 @@
+UserData
++userType: int
++id: int
++name: String
++lastName: String
++firstName: String
++sex: int
++category: int
++nationality: String
++birthday: Date
++email: String
++mobilePhone: String
++remarks: String
++photo: String
++jobNumber: String
++unit: String
++jobTitle: String
++tutorQualification: String
++position: String
++laboratoryPosition: String
++officePhone: String
++studentNumber: String
++addmissionTime: Date
++graduationTime: Date
++firstEmploymentUnit: String
++tutor: String
++assistantTutor: String
