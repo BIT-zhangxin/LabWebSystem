@@ -27,7 +27,7 @@ public class UserData {
     private String laboratoryPosition;
     private String officePhone;
     private String studentNumber;
-    private Date addmissionTime;
+    private Date admissionTime;
     private Date graduationTime;
     private String firstEmploymentUnit;
     private String tutor;
