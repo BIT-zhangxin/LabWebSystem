@@ -11,8 +11,8 @@ import org.springframework.core.annotation.Order;
 @Order(1)
 public interface AdministratorMapper {
 
-    @Insert("INSERT INTO t_research_paper"+
-            "(`id`,`title`,`conference`,`conference_id`,`year`)"+
+    @Insert("INSERT INTO t_research_paper "+
+            "(`id`,`title`,`conference`,`conference_id`,`year`) "+
             "VALUES(#{id},#{title},#{conference},#{conferenceId},#{year});")
     int insertResearchPaper(ResearchPaper researchPaper);
 
@@ -21,10 +21,26 @@ public interface AdministratorMapper {
             "`conference`=#{conference}, "+
             "`conference_id`=#{conferenceId}, "+
             "`year`=#{year}, "+
-            "WHERE `id`=#{id}")
+            "WHERE `id`=#{id};")
     int updateResearchPaper(ResearchPaper researchPaper);
 
     @Delete("DELETE FROM t_research_paper "+
-            "WHERE `id`=#{param1}")
+            "WHERE `id`=#{param1};")
     int deleteResearchPaper(int id);
+
+    @Insert("INSERT INTO t_papent "+
+            "(`id`,`applier`,`papent_name`,`papent_apply_id`) "+
+            "VALUES(#{id},#{applier},#{papentName},#{papentApplyId});")
+    int insertPapent(Papent papent);
+
+    @Update("UPDATE t_papent "+
+            "`applier`=#{applier}, "+
+            "`papent_name`=#{papent_name}, "+
+            "`papent_apply_id`=#{papent_apply_id}, "+
+            "WHERE `id`=#{id};")
+    int updatePapent(Papent papent);
+
+    @Delete("DELETE FROM t_papent "+
+            "WHERE `id`=#{param1};")
+    int deletePapent(int id);
 }

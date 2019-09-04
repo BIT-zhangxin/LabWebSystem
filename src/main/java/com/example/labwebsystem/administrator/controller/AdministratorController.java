@@ -26,8 +26,7 @@ public class AdministratorController {
     }
 
     @RequestMapping("/insertResearchPaperList")
-    public int insertResearchPaperList(List<ResearchPaper> researchPaperList)
-    {
+    public int insertResearchPaperList(List<ResearchPaper> researchPaperList) {
         try{
             return administratorService.insertResearchPaperList(researchPaperList);
         }catch (RuntimeException e){
@@ -55,4 +54,31 @@ public class AdministratorController {
             return 0;
         }
     }
+
+    @RequestMapping("/insertPapent")
+    public int insertPapent(Papent papent){
+        return administratorMapper.insertPapent(papent);
+    }
+
+    @RequestMapping("/insertPapentList")
+    public int insertResearchPapentList(List<Papent> papentList) {
+        try{
+            return administratorService.insertPapentList(papentList);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    @RequestMapping("/updatePapent")
+    public int updatePapent(Papent papent){
+        return administratorMapper.updatePapent(papent);
+    }
+
+    @RequestMapping("/deletePapent")
+    public int deletePapent(int id){
+        return administratorMapper.deletePapent(id);
+    }
+
+
 }
