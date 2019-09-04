@@ -20,6 +20,7 @@ public class AdministratorController {
     @Autowired
     AdministratorMapper administratorMapper;
 
+    //科研论文
     @RequestMapping("/insertResearchPaper")
     public int insertResearchPaper(ResearchPaper researchPaper){
         return administratorMapper.insertResearchPaper(researchPaper);
@@ -55,6 +56,7 @@ public class AdministratorController {
         }
     }
 
+    //专利
     @RequestMapping("/insertPapent")
     public int insertPapent(Papent papent){
         return administratorMapper.insertPapent(papent);
@@ -80,5 +82,49 @@ public class AdministratorController {
         return administratorMapper.deletePapent(id);
     }
 
+    @RequestMapping("/deletePapentList")
+    public int deletePapentList(List<Integer> papentIdList){
+        try{
+            return administratorService.deletePapentList(papentIdList);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
 
+    //著作权
+    @RequestMapping("/insertCopyRight")
+    public int insertCopyRight(CopyRight copyRight){
+        return administratorMapper.insertCopyRight(copyRight);
+    }
+
+    @RequestMapping("/insertCopyRightList")
+    public int insertResearchCopyRightList(List<CopyRight> copyRights) {
+        try{
+            return administratorService.insertCopyRightList(copyRights);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    @RequestMapping("/updateCopyRight")
+    public int updateCopyRight(CopyRight copyRight){
+        return administratorMapper.updateCopyRight(copyRight);
+    }
+
+    @RequestMapping("/deleteCopyRight")
+    public int deleteCopyRight(int id){
+        return administratorMapper.deleteCopyRight(id);
+    }
+
+    @RequestMapping("/deleteCopyRightList")
+    public int deleteCopyRightList(List<Integer> copyRightIdList){
+        try{
+            return administratorService.deleteCopyRightList(copyRightIdList);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }

@@ -14,6 +14,7 @@ public class AdministratorService {
     @Autowired
     AdministratorMapper administratorMapper;
 
+    //科研论文
     @Transactional
     public int insertResearchPaperList(List<ResearchPaper> researchPaperList) throws RuntimeException {
         for (ResearchPaper researchPaper : researchPaperList) {
@@ -36,6 +37,7 @@ public class AdministratorService {
         return 1;
     }
 
+    //专利
     @Transactional
     public int insertPapentList(List<Papent> papentList) throws RuntimeException {
         for (Papent papent : papentList) {
@@ -51,6 +53,29 @@ public class AdministratorService {
     public int deletePapentList(List<Integer> papentIdList) throws RuntimeException{
         for(Integer papentId : papentIdList){
             int result = administratorMapper.deletePapent(papentId);
+            if(result == 0){
+                throw  new RuntimeException("出错信息");
+            }
+        }
+        return 1;
+    }
+
+    //著作权
+    @Transactional
+    public int insertCopyRightList(List<CopyRight> copyRightsList) throws RuntimeException{
+        for (CopyRight copyRight : copyRightsList) {
+            int result = administratorMapper.insertCopyRight(copyRight);
+            if (result == 0) {
+                throw new RuntimeException("出错信息");
+            }
+        }
+        return 1;
+    }
+
+    @Transactional
+    public int deleteCopyRightList(List<Integer> copyRightIdList) throws RuntimeException{
+        for(Integer copyRightId : copyRightIdList){
+            int result = administratorMapper.deleteCopyRight(copyRightId);
             if(result == 0){
                 throw  new RuntimeException("出错信息");
             }

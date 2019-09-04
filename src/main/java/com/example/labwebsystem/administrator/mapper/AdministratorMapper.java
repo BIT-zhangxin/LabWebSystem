@@ -43,4 +43,21 @@ public interface AdministratorMapper {
     @Delete("DELETE FROM t_papent "+
             "WHERE `id`=#{param1};")
     int deletePapent(int id);
+
+    @Insert("INSERT INTO t_copy_right "+
+            "(`id`,`code`,`righter`,`right_name`,`signed_id`) "+
+            "VALUES(#{id},#{code},#{righter},#{rightName},#{signedId});")
+    int insertCopyRight(CopyRight copyRight);
+
+    @Update("UPDATE t_copy_right "+
+            "`code`=#{code}, "+
+            "`righter`=#{righter}, "+
+            "`right_name`=#{rightName}, "+
+            "`signed_id`=#{signedId}, "+
+            "WHERE `id`=#{id};")
+    int updateCopyRight(CopyRight copyRight);
+
+    @Delete("DELETE FROM t_copy_right "+
+            "WHERE `id`=#{param1};")
+    int deleteCopyRight(int id);
 }
