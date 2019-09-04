@@ -11,8 +11,8 @@ public class Teacher {
     private String name;//中文姓名
     private String lastName;//英文姓
     private String firstName;//英文名
-    private Integer sex;//0代表男，1代表女
-    private Integer category;//0代表专职，1代表兼职
+    private int sex;//0代表男，1代表女
+    private int category;//0代表专职，1代表兼职
     private String nationality;//国籍
     private String unit;//单位
     private String jobTitle;//职称，分为正高、副高、中级、初级、无

@@ -6,13 +6,13 @@ import java.sql.Date;
 
 @Data
 public class UserData {
-    private Integer userType;
+    private int userType;
     private Integer id;
     private String name;
     private String lastName;
     private String firstName;
-    private Integer sex;
-    private Integer category;
+    private int sex;
+    private int category;
     private String nationality;
     private Date birthday;
     private String email;
