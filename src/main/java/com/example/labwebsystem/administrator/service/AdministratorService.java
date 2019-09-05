@@ -18,6 +18,7 @@ public class AdministratorService {
     @Transactional
     public int insertResearchPaperList(List<ResearchPaper> researchPaperList) throws RuntimeException {
         for (ResearchPaper researchPaper : researchPaperList) {
+
             int result = administratorMapper.insertResearchPaper(researchPaper);
             if (result == 0) {
                 throw new RuntimeException("出错信息");

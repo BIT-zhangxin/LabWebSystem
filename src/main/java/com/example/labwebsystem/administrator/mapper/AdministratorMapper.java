@@ -21,7 +21,7 @@ public interface AdministratorMapper {
             "`title`=#{title}, "+
             "`conference`=#{conference}, "+
             "`conference_id`=#{conferenceId}, "+
-            "`year`=#{year}, "+
+            "`year`=#{year} "+
             "WHERE `id`=#{id};")
     int updateResearchPaper(ResearchPaper researchPaper);
 
@@ -35,10 +35,10 @@ public interface AdministratorMapper {
             "VALUES(#{id},#{applier},#{papentName},#{papentApplyId});")
     int insertPapent(Papent papent);
 
-    @Update("UPDATE t_papent "+
+    @Update("UPDATE t_papent SET"+
             "`applier`=#{applier}, "+
-            "`papent_name`=#{papent_name}, "+
-            "`papent_apply_id`=#{papent_apply_id}, "+
+            "`papent_name`=#{papentName}, "+
+            "`papent_apply_id`=#{papentApplyId} "+
             "WHERE `id`=#{id};")
     int updatePapent(Papent papent);
 
@@ -52,11 +52,11 @@ public interface AdministratorMapper {
             "VALUES(#{id},#{code},#{righter},#{rightName},#{signedId});")
     int insertCopyRight(CopyRight copyRight);
 
-    @Update("UPDATE t_copy_right "+
+    @Update("UPDATE t_copy_right SET"+
             "`code`=#{code}, "+
             "`righter`=#{righter}, "+
             "`right_name`=#{rightName}, "+
-            "`signed_id`=#{signedId}, "+
+            "`signed_id`=#{signedId} "+
             "WHERE `id`=#{id};")
     int updateCopyRight(CopyRight copyRight);
 
@@ -70,10 +70,10 @@ public interface AdministratorMapper {
             "VALUES(#{id},#{name},#{prizeInfo},#{year});")
     int insertTeachMaterial(TeachMaterial teachMaterial);
 
-    @Update("UPDATE t_teach_material "+
+    @Update("UPDATE t_teach_material SET"+
             "`name`=#{name}, "+
             "`prize_info`=#{prizeInfo}, "+
-            "`year`=#{year}, "+
+            "`year`=#{year} "+
             "WHERE `id`=#{id};")
     int updateTeachMaterial(TeachMaterial teachMaterial);
 
@@ -87,10 +87,10 @@ public interface AdministratorMapper {
             "VALUES(#{id},#{name},#{level},#{year});")
     int insertEduReform(EduReform eduReform);
 
-    @Update("UPDATE t_edu_reform "+
+    @Update("UPDATE t_edu_reform SET"+
             "`name`=#{name}, "+
             "`level`=#{level}, "+
-            "`year`=#{year}, "+
+            "`year`=#{year} "+
             "WHERE `id`=#{id};")
     int updateEduReform(EduReform eduReform);
 
@@ -104,10 +104,10 @@ public interface AdministratorMapper {
             "VALUES(#{id},#{institutionName},#{country},#{cooperationProjects});")
     int insertGlobalCooperation(GlobalCooperation globalCooperation);
 
-    @Update("UPDATE t_global_cooperation "+
+    @Update("UPDATE t_global_cooperation SET"+
             "`institution_name`=#{institutionName}, "+
             "`country`=#{country}, "+
-            "`cooperation_projects`=#{cooperationProjects}, "+
+            "`cooperation_projects`=#{cooperationProjects} "+
             "WHERE `id`=#{id};")
     int updateGlobalCooperation(GlobalCooperation globalCooperation);
 
@@ -116,11 +116,11 @@ public interface AdministratorMapper {
     int deleteGlobalCooperation(int id);
 
     //招生信息
-    @Update("UPDATE t_admissions_information "+
+    @Update("UPDATE t_admissions_information SET"+
             "`skills_requirement`=#{skillsRequirement}, "+
             "`operating_hours`=#{operatingHours}, "+
             "`contact`=#{contact}, "+
-            "`other`=#{other}, "+
+            "`other`=#{other} "+
             "WHERE `id`=#{id};")
     int updateAdmissionsInformation(AdmissionsInformation admissionsInformation);
 }
