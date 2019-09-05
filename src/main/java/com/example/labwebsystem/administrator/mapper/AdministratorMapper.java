@@ -80,4 +80,21 @@ public interface AdministratorMapper {
     @Delete("DELETE FROM t_teach_material "+
             "WHERE `id`=#{param1};")
     int deleteTeachMaterial(int id);
+
+    //教改
+    @Insert("INSERT INTO t_edu_reform "+
+            "(`id`,`name`,`level`,`year`) "+
+            "VALUES(#{id},#{name},#{level},#{year});")
+    int insertEduReform(EduReform eduReform);
+
+    @Update("UPDATE t_edu_reform "+
+            "`name`=#{name}, "+
+            "`level`=#{level}, "+
+            "`year`=#{year}, "+
+            "WHERE `id`=#{id};")
+    int updateEduReform(EduReform eduReform);
+
+    @Delete("DELETE FROM t_edu_reform "+
+            "WHERE `id`=#{param1};")
+    int deleteEduReform(int id);
 }

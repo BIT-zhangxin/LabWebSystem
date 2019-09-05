@@ -105,4 +105,27 @@ public class AdministratorService {
         }
         return 1;
     }
+
+    //教改
+    @Transactional
+    public int insertEduReformList(List<EduReform> eduReformList) throws RuntimeException{
+        for (EduReform eduReform : eduReformList) {
+            int result = administratorMapper.insertEduReform(eduReform);
+            if (result == 0) {
+                throw new RuntimeException("出错信息");
+            }
+        }
+        return 1;
+    }
+
+    @Transactional
+    public int deleteEduReformList(List<Integer> eduReformIdList) throws RuntimeException{
+        for(Integer eduReformId : eduReformIdList){
+            int result = administratorMapper.deleteEduReform(eduReformId);
+            if(result == 0){
+                throw  new RuntimeException("出错信息");
+            }
+        }
+        return 1;
+    }
 }

@@ -163,4 +163,40 @@ public class AdministratorController {
             return 0;
         }
     }
+
+    //教改
+    @RequestMapping("/insertEduReform")
+    public int insertEduReform(EduReform eduReform){
+        return administratorMapper.insertEduReform(eduReform);
+    }
+
+    @RequestMapping("/insertEduReformList")
+    public int insertEduReformList(List<EduReform> eduReformList) {
+        try{
+            return administratorService.insertEduReformList(eduReformList);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    @RequestMapping("/updateEduReform")
+    public int updateEduReform(EduReform eduReform){
+        return administratorMapper.updateEduReform(eduReform);
+    }
+
+    @RequestMapping("/deleteEduReform")
+    public int deleteEduReform(int id){
+        return administratorMapper.deleteEduReform(id);
+    }
+
+    @RequestMapping("/deleteEduReformList")
+    public int deleteEduReformList(List<Integer> eduReformIdList){
+        try{
+            return administratorService.deleteEduReformList(eduReformIdList);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }
