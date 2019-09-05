@@ -1,8 +1,8 @@
 package com.example.labwebsystem.security.service;
 
-import com.example.labwebsystem.security.entity.UserData;
+import com.example.labwebsystem.entity.User;
 import com.example.labwebsystem.security.entity.UserDetail;
-import com.example.labwebsystem.security.mapper.UserMapper;
+import com.example.labwebsystem.security.mapper.SecurityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,20 +18,20 @@ import java.util.List;
 public class UserDetailService implements UserDetailsService {
 
     @Autowired
-    UserMapper userMapper;
+    SecurityMapper securityMapper;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserData userData = userMapper.getUserData(username);
-        if (null == userData) {
-            throw new UsernameNotFoundException(username);
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+        User user = securityMapper.getUser(name);
+        if (null == user) {
+            throw new UsernameNotFoundException(name);
         }
 
         UserDetail userDetail=new UserDetail();
-        userDetail.setId(userData.getId());
-        userDetail.setUsername(userData.getUsername());
-        userDetail.setName(userData.getName());
-        userDetail.setPassword(userData.getPassword());
+        userDetail.setId(user.getId());
+        userDetail.setName(user.getName());
+        userDetail.setPassword(user.getPassword());
+        userDetail.setCategory(user.getCategory());
         List<GrantedAuthority> authorities = new ArrayList<>();
 
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));

@@ -19,5 +19,4 @@ public class SecurityController {
         model.addAttribute("loginError", true);
         return "login";
     }
-
 }
