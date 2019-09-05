@@ -2,7 +2,7 @@ package com.example.labwebsystem.entity;
 
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 public class UserData {
@@ -15,6 +15,7 @@ public class UserData {
     private int category;
     private String nationality;
     private Date birthday;
+    private String birthdayString;
     private String email;
     private String mobilePhone;
     private String remarks;
@@ -28,7 +29,9 @@ public class UserData {
     private String officePhone;
     private String studentNumber;
     private Date admissionTime;
+    private String admissionTimeString;
     private Date graduationTime;
+    private String graduationTimeString;
     private String firstEmploymentUnit;
     private String tutor;
     private String assistantTutor;
