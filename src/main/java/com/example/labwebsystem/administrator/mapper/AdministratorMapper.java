@@ -97,4 +97,30 @@ public interface AdministratorMapper {
     @Delete("DELETE FROM t_edu_reform "+
             "WHERE `id`=#{param1};")
     int deleteEduReform(int id);
+
+    //国际合作
+    @Insert("INSERT INTO t_global_cooperation "+
+            "(`id`,`institution_name`,`country`,`cooperation_projects`) "+
+            "VALUES(#{id},#{institutionName},#{country},#{cooperationProjects});")
+    int insertGlobalCooperation(GlobalCooperation globalCooperation);
+
+    @Update("UPDATE t_global_cooperation "+
+            "`institution_name`=#{institutionName}, "+
+            "`country`=#{country}, "+
+            "`cooperation_projects`=#{cooperationProjects}, "+
+            "WHERE `id`=#{id};")
+    int updateGlobalCooperation(GlobalCooperation globalCooperation);
+
+    @Delete("DELETE FROM t_global_cooperation "+
+            "WHERE `id`=#{param1};")
+    int deleteGlobalCooperation(int id);
+
+    //招生信息
+    @Update("UPDATE t_admissions_information "+
+            "`skills_requirement`=#{skillsRequirement}, "+
+            "`operating_hours`=#{operatingHours}, "+
+            "`contact`=#{contact}, "+
+            "`other`=#{other}, "+
+            "WHERE `id`=#{id};")
+    int updateAdmissionsInformation(AdmissionsInformation admissionsInformation);
 }

@@ -128,4 +128,27 @@ public class AdministratorService {
         }
         return 1;
     }
+
+    //国际合作
+    @Transactional
+    public int insertGlobalCooperationList(List<GlobalCooperation> globalCooperationList) throws RuntimeException{
+        for (GlobalCooperation globalCooperation: globalCooperationList) {
+            int result = administratorMapper.insertGlobalCooperation(globalCooperation);
+            if (result == 0) {
+                throw new RuntimeException("出错信息");
+            }
+        }
+        return 1;
+    }
+
+    @Transactional
+    public int deleteGlobalCooperationList(List<Integer> globalCooperationIdList) throws RuntimeException{
+        for(Integer globalCooperationId : globalCooperationIdList){
+            int result = administratorMapper.deleteGlobalCooperation(globalCooperationId);
+            if(result == 0){
+                throw  new RuntimeException("出错信息");
+            }
+        }
+        return 1;
+    }
 }

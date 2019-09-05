@@ -199,4 +199,36 @@ public class AdministratorController {
             return 0;
         }
     }
+
+    //国际合作
+    @RequestMapping("/insertGlobalCooperation")
+    public int insertGlobalCooperation(GlobalCooperation globalCooperation){
+        return administratorMapper.insertGlobalCooperation(globalCooperation);
+    }
+
+    @RequestMapping("/insertGlobalCooperationList")
+    public int insertGlobalCooperationList(List<GlobalCooperation> globalCooperationList) {
+        try{
+            return administratorService.insertGlobalCooperationList(globalCooperationList);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    @RequestMapping("/updateGlobalCooperation")
+    public int updateGlobalCooperation(GlobalCooperation globalCooperation){
+        return administratorMapper.updateGlobalCooperation(globalCooperation);
+    }
+
+    @RequestMapping("/deleteGlobalCooperation")
+    public int deleteGlobalCooperation(int id){
+        return administratorMapper.deleteGlobalCooperation(id);
+    }
+
+    //招生信息
+    @RequestMapping("/updateAdmissionsInformation")
+    public int updateAdmissionsInformation(AdmissionsInformation admissionsInformation){
+        return administratorMapper.updateAdmissionsInformation(admissionsInformation);
+    }
 }
