@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 @Order(1)
 public interface AdministratorMapper {
 
+    //科研论文
     @Insert("INSERT INTO t_research_paper "+
             "(`id`,`title`,`conference`,`conference_id`,`year`) "+
             "VALUES(#{id},#{title},#{conference},#{conferenceId},#{year});")
@@ -28,6 +29,7 @@ public interface AdministratorMapper {
             "WHERE `id`=#{param1};")
     int deleteResearchPaper(int id);
 
+    //专利
     @Insert("INSERT INTO t_papent "+
             "(`id`,`applier`,`papent_name`,`papent_apply_id`) "+
             "VALUES(#{id},#{applier},#{papentName},#{papentApplyId});")
@@ -44,6 +46,7 @@ public interface AdministratorMapper {
             "WHERE `id`=#{param1};")
     int deletePapent(int id);
 
+    //著作权
     @Insert("INSERT INTO t_copy_right "+
             "(`id`,`code`,`righter`,`right_name`,`signed_id`) "+
             "VALUES(#{id},#{code},#{righter},#{rightName},#{signedId});")
@@ -60,4 +63,21 @@ public interface AdministratorMapper {
     @Delete("DELETE FROM t_copy_right "+
             "WHERE `id`=#{param1};")
     int deleteCopyRight(int id);
+
+    //教材
+    @Insert("INSERT INTO t_teach_material "+
+            "(`id`,`name`,`prize_info`,`year`) "+
+            "VALUES(#{id},#{name},#{prizeInfo},#{year});")
+    int insertTeachMaterial(TeachMaterial teachMaterial);
+
+    @Update("UPDATE t_teach_material "+
+            "`name`=#{name}, "+
+            "`prize_info`=#{prizeInfo}, "+
+            "`year`=#{year}, "+
+            "WHERE `id`=#{id};")
+    int updateTeachMaterial(TeachMaterial teachMaterial);
+
+    @Delete("DELETE FROM t_teach_material "+
+            "WHERE `id`=#{param1};")
+    int deleteTeachMaterial(int id);
 }

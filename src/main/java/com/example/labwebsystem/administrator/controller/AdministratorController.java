@@ -63,7 +63,7 @@ public class AdministratorController {
     }
 
     @RequestMapping("/insertPapentList")
-    public int insertResearchPapentList(List<Papent> papentList) {
+    public int insertPapentList(List<Papent> papentList) {
         try{
             return administratorService.insertPapentList(papentList);
         }catch (RuntimeException e){
@@ -99,9 +99,9 @@ public class AdministratorController {
     }
 
     @RequestMapping("/insertCopyRightList")
-    public int insertResearchCopyRightList(List<CopyRight> copyRights) {
+    public int insertCopyRightList(List<CopyRight> copyRightList) {
         try{
-            return administratorService.insertCopyRightList(copyRights);
+            return administratorService.insertCopyRightList(copyRightList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -122,6 +122,42 @@ public class AdministratorController {
     public int deleteCopyRightList(List<Integer> copyRightIdList){
         try{
             return administratorService.deleteCopyRightList(copyRightIdList);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    //教材
+    @RequestMapping("/insertTeachMaterial")
+    public int insertTeachMaterial(TeachMaterial teachMaterial){
+        return administratorMapper.insertTeachMaterial(teachMaterial);
+    }
+
+    @RequestMapping("/insertTeachMaterialList")
+    public int insertTeachMaterialList(List<TeachMaterial> teachMaterialList) {
+        try{
+            return administratorService.insertTeachMaterialList(teachMaterialList);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    @RequestMapping("/updateTeachMaterial")
+    public int updateTeachMaterial(TeachMaterial teachMaterial){
+        return administratorMapper.updateTeachMaterial(teachMaterial);
+    }
+
+    @RequestMapping("/deleteTeachMaterial")
+    public int deleteTeachMaterial(int id){
+        return administratorMapper.deleteTeachMaterial(id);
+    }
+
+    @RequestMapping("/deleteTeachMaterialList")
+    public int deleteTeachMaterialList(List<Integer> teachMaterialIdList){
+        try{
+            return administratorService.deleteTeachMaterialList(teachMaterialIdList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;

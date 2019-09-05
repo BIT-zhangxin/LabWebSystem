@@ -62,8 +62,8 @@ public class AdministratorService {
 
     //著作权
     @Transactional
-    public int insertCopyRightList(List<CopyRight> copyRightsList) throws RuntimeException{
-        for (CopyRight copyRight : copyRightsList) {
+    public int insertCopyRightList(List<CopyRight> copyRightList) throws RuntimeException{
+        for (CopyRight copyRight : copyRightList) {
             int result = administratorMapper.insertCopyRight(copyRight);
             if (result == 0) {
                 throw new RuntimeException("出错信息");
@@ -76,6 +76,29 @@ public class AdministratorService {
     public int deleteCopyRightList(List<Integer> copyRightIdList) throws RuntimeException{
         for(Integer copyRightId : copyRightIdList){
             int result = administratorMapper.deleteCopyRight(copyRightId);
+            if(result == 0){
+                throw  new RuntimeException("出错信息");
+            }
+        }
+        return 1;
+    }
+
+    //教材
+    @Transactional
+    public int insertTeachMaterialList(List<TeachMaterial> teachMaterialList) throws RuntimeException{
+        for (TeachMaterial teachMaterial : teachMaterialList) {
+            int result = administratorMapper.insertTeachMaterial(teachMaterial);
+            if (result == 0) {
+                throw new RuntimeException("出错信息");
+            }
+        }
+        return 1;
+    }
+
+    @Transactional
+    public int deleteTeachMaterialList(List<Integer> teachMaterialIdList) throws RuntimeException{
+        for(Integer teachMaterialId : teachMaterialIdList){
+            int result = administratorMapper.deleteTeachMaterial(teachMaterialId);
             if(result == 0){
                 throw  new RuntimeException("出错信息");
             }
