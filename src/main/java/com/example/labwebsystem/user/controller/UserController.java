@@ -36,7 +36,7 @@ public class UserController {
         return userMapper.updateStudent(student);
     }
 
-    @RequestMapping("/updateStudent")
+    @RequestMapping("/selectStudent")
     public List<Student> selectStudent(int currentPage,int pageSize){
         return userMapper.selectStudent(currentPage,pageSize);
     }
