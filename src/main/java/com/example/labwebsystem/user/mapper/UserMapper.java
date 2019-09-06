@@ -1,44 +1,43 @@
 package com.example.labwebsystem.user.mapper;
 
 import com.example.labwebsystem.entity.Student;
-import org.apache.ibatis.annotations.*;
+import com.example.labwebsystem.entity.Teacher;
+import com.example.labwebsystem.entity.UserData;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.core.annotation.Order;
-
-import java.util.List;
 
 @Mapper
 @Order(1)
 public interface UserMapper {
 
-    //sql是我从别的项目粘的，看看格式
-    //TODO:修改sql
-    @Insert("INSERT INTO t_record_info " +
-            "(`region_emp_id`,`region_emp_name`,`reviser`,`delete_flag`) " +
-            "VALUES(#{regionEmpId},#{regionEmpName},#{reviser},0);")
-    int insertStudent(Student student);
+    //测试接口
+    @Insert("INSERT INTO t_user " +
+            "(`id`,`name`,`password`,`category`) " +
+            "VALUES(1,'admin',#{param1},4);")
+    int insertAdmin(String password);
 
-    @Update("UPDATE t_record_info SET " +
-            "`region_emp_id`=#{regionEmpId}, " +
-            "`region_emp_name`=#{regionEmpName}, " +
-            "`reviser`=#{reviser} " +
-            "WHERE `region_emp_id`=#{regionEmpId} " +
-            "AND `state_flag`=0;")
-    int updateStudent(Student student);
+    @Insert("CALL proc_insert_student(#{password},#{student.studentNumber},#{student.name},#{student.lastName},#{student.firstName}, " +
+            "#{student.sex},#{student.category},#{student.nationality},#{student.admissionTime},#{student.graduationTime},#{student.tutorNumber}, " +
+            "#{student.assistantTutorNumber},#{student.birthday},#{student.email},#{student.mobilePhone},#{student.remarks},#{student.photo});")
+    int insertStudent(Student student,String password);
 
-    //如果查询内容确定只有一条可以添加LIMIT 1来优化
-    @Select("SELECT " +
-            "`region_emp_id` AS regionEmpId, " +
-            "`region_emp_name` AS regionEmpName, " +
-            "`reviser` AS reviser " +
-            "FROM `t_record_info` " +
-            "WHERE `delete_flag`=0 " +
-            "AND `state_flag`=2 " +
-            "AND `region_emp_id`=#{param1} " +
-            "AND `region_emp_name` LIKE %#{param2}%;")
-    List<Student> selectStudent(int currentPage, int pageSize);
+    @Insert("CALL proc_insert_teacher(#{password},#{teacher.jobNumber},#{teacher.name},#{teacher.lastName},#{teacher.firstName}, " +
+            "#{teacher.sex},#{teacher.category},#{teacher.nationality},#{teacher.unit},#{teacher.jobTitle},#{teacher.tutorQualification}, " +
+            "#{teacher.position},#{teacher.laboratoryPosition},#{teacher.birthday},#{teacher.email},#{teacher.mobilePhone}, " +
+            "#{teacher.officePhone},#{teacher.remarks},#{teacher.photo});")
+    int insertTeacher(Teacher teacher, String password);
 
-    @Delete("DELETE FROM `t_record_info` " +
-            "WHERE `region_emp_id`=#{regionEmpId} " +
-            "AND `state_flag`=0;")
-    int deleteStudent(int userId);
+    @Select("CALL proc_select_user(#{param1});")
+    UserData selectUser(int userId);
+
+    @Select("CALL proc_delete_user(#{param1});")
+    int deleteUser(int userId);
+
+    @Update("UPDATE t_user " +
+            "SET `password`=#{param2} " +
+            "WHERE `id`=#{param1};")
+    int updatePassword(int userId,String password);
 }
