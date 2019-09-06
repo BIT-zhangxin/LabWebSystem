@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.core.annotation.Order;
 
+import java.util.List;
+
 @Mapper
 @Order(1)
 public interface UserMapper {
@@ -24,11 +26,146 @@ public interface UserMapper {
             "#{student.assistantTutorNumber},#{student.birthday},#{student.email},#{student.mobilePhone},#{student.remarks},#{student.photo});")
     int insertStudent(Student student,String password);
 
+    @Update("UPDATE t_student SET " +
+            "student_number=#{studentNumber}, " +
+            "name=#{name}, " +
+            "last_name=#{lastName}, " +
+            "first_name=#{firstName}, " +
+            "sex=#{sex}, " +
+            "category=#{category}, " +
+            "nationality=#{nationality}, " +
+            "admission_time=#{admissionTime}, " +
+            "graduation_time=#{graduationTime}, " +
+            "first_employment_unit=#{firstEmploymentUnit}, " +
+            "tutor_number=#{tutorNumber}, " +
+            "assistant_tutor_number=#{assistantTutorNumber}, " +
+            "birthday=#{birthday}, " +
+            "email=#{email}, " +
+            "mobile_phone=#{mobilePhone}, " +
+            "remarks=#{remarks}, " +
+            "photo=#{photo} " +
+            "WHERE t_student.`id`=#{id};")
+    int updateStudent(Student student);
+
+    @Select("SELECT " +
+            "`id` AS `id`,\n" +
+            "`student_number` AS `studentNumber`,\n" +
+            "`name` AS `name`,\n" +
+            "`last_name` AS `lastName`,\n" +
+            "`first_name` AS `firstName`,\n" +
+            "`sex` AS `sex`,\n" +
+            "`category` AS `category`,\n" +
+            "`nationality` AS `nationality`,\n" +
+            "`admission_time` AS `admissionTime`,\n" +
+            "`graduation_time` AS `graduationTIme`,\n" +
+            "`first_employment_unit` AS `firstEmploymentUnit`,\n" +
+            "`tutor_number` AS `tutorNumber`,\n" +
+            "`assistant_tutor_number` AS `assistantTutorNumber`,\n" +
+            "`birthday` AS `birthday`,\n" +
+            "`email` AS `email`,\n" +
+            "`mobile_phone` AS `mobilePhone`,\n" +
+            "`remarks` AS `remarks`,\n" +
+            "`photo` AS `photo` " +
+            "FROM t_student LIMIT #{param1},#{param2};")
+    List<Student> selectStudent(int offset,int pageSize);
+
+    @Select("SELECT " +
+            "`id` AS `id`,\n" +
+            "`student_number` AS `studentNumber`,\n" +
+            "`name` AS `name`,\n" +
+            "`last_name` AS `lastName`,\n" +
+            "`first_name` AS `firstName`,\n" +
+            "`sex` AS `sex`,\n" +
+            "`category` AS `category`,\n" +
+            "`nationality` AS `nationality`,\n" +
+            "`admission_time` AS `admissionTime`,\n" +
+            "`graduation_time` AS `graduationTIme`,\n" +
+            "`first_employment_unit` AS `firstEmploymentUnit`,\n" +
+            "`tutor_number` AS `tutorNumber`,\n" +
+            "`assistant_tutor_number` AS `assistantTutorNumber`,\n" +
+            "`birthday` AS `birthday`,\n" +
+            "`email` AS `email`,\n" +
+            "`mobile_phone` AS `mobilePhone`,\n" +
+            "`remarks` AS `remarks`,\n" +
+            "`photo` AS `photo` " +
+            "FROM t_student " +
+            "WHERE student_number=#{param1} OR name LIKE %#{param1}%;")
+    List<Student> selectStudentByCondition(String condition);
+
     @Insert("CALL proc_insert_teacher(#{password},#{teacher.jobNumber},#{teacher.name},#{teacher.lastName},#{teacher.firstName}, " +
             "#{teacher.sex},#{teacher.category},#{teacher.nationality},#{teacher.unit},#{teacher.jobTitle},#{teacher.tutorQualification}, " +
             "#{teacher.position},#{teacher.laboratoryPosition},#{teacher.birthday},#{teacher.email},#{teacher.mobilePhone}, " +
             "#{teacher.officePhone},#{teacher.remarks},#{teacher.photo});")
     int insertTeacher(Teacher teacher, String password);
+
+    @Update("UPDATE t_teacher SET " +
+            "job_number=#{jobNumber}, " +
+            "name=#{name}, " +
+            "last_name=#{lastName}, " +
+            "first_name=#{firstName}, " +
+            "sex=#{sex}, " +
+            "category=#{category}, " +
+            "nationality=#{nationality}, " +
+            "unit=#{unit}, " +
+            "job_title=#{jobTitle}, " +
+            "tutor_qualification=#{tutorQualification}, " +
+            "position=#{position}, " +
+            "laboratory_position=#{laboratoryPosition}, " +
+            "birthday=#{birthday}, " +
+            "email=#{email}, " +
+            "mobile_phone=#{mobilePhone}, " +
+            "office_phone=#{officePhone}, " +
+            "remarks=#{remarks}, " +
+            "photo=#{photo} " +
+            "WHERE t_teacher.`id`=#{id};")
+    int updateTeacher(Teacher teacher);
+
+    @Select("SELECT " +
+            "`id` AS `id`,\n" +
+            "`job_number` AS `jobNumber`,\n" +
+            "`name` AS `name`,\n" +
+            "`last_name` AS `lastName`,\n" +
+            "`first_name` AS `firstName`,\n" +
+            "`sex` AS `sex`,\n" +
+            "`category` AS `category`,\n" +
+            "`nationality` AS `nationality`,\n" +
+            "`unit` AS `unit`,\n" +
+            "`job_title` AS `jobTitle`,\n" +
+            "`tutor_qualification` AS `tutorQualification`,\n" +
+            "`position` AS `position`,\n" +
+            "`laboratory_position` AS `laboratoryPosition`,\n" +
+            "`birthday` AS `birthday`,\n" +
+            "`email` AS `email`,\n" +
+            "`mobile_phone` AS `mobilePhone`,\n" +
+            "`office_phone` AS `officePhone`,\n" +
+            "`remarks` AS `remarks`,\n" +
+            "`photo` AS `photo` " +
+            "FROM t_teacher LIMIT #{param1},#{param2};")
+    List<Teacher> selectTeacher(int offset,int pageSize);
+
+    @Select("SELECT " +
+            "`id` AS `id`,\n" +
+            "`job_number` AS `jobNumber`,\n" +
+            "`name` AS `name`,\n" +
+            "`last_name` AS `lastName`,\n" +
+            "`first_name` AS `firstName`,\n" +
+            "`sex` AS `sex`,\n" +
+            "`category` AS `category`,\n" +
+            "`nationality` AS `nationality`,\n" +
+            "`unit` AS `unit`,\n" +
+            "`job_title` AS `jobTitle`,\n" +
+            "`tutor_qualification` AS `tutorQualification`,\n" +
+            "`position` AS `position`,\n" +
+            "`laboratory_position` AS `laboratoryPosition`,\n" +
+            "`birthday` AS `birthday`,\n" +
+            "`email` AS `email`,\n" +
+            "`mobile_phone` AS `mobilePhone`,\n" +
+            "`office_phone` AS `officePhone`,\n" +
+            "`remarks` AS `remarks`,\n" +
+            "`photo` AS `photo` " +
+            "FROM t_teacher " +
+            "WHERE job_number=#{param1} OR name LIKE %#{param1}%;")
+    List<Teacher> selectTeacherByCondition(String condition);
 
     @Select("CALL proc_select_user(#{param1});")
     UserData selectUser(int userId);
