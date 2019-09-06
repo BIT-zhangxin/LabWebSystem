@@ -13,8 +13,8 @@ public interface AdministratorMapper {
 
     //科研论文
     @Insert("INSERT INTO t_research_paper "+
-            "(`id`,`title`,`conference`,`conference_id`,`year`) "+
-            "VALUES(#{id},#{title},#{conference},#{conferenceId},#{year});")
+            "(`title`,`conference`,`conference_id`,`year`) "+
+            "VALUES(#{title},#{conference},#{conferenceId},#{year});")
     int insertResearchPaper(ResearchPaper researchPaper);
 
     @Update("UPDATE t_research_paper SET "+
@@ -31,8 +31,8 @@ public interface AdministratorMapper {
 
     //专利
     @Insert("INSERT INTO t_papent "+
-            "(`id`,`applier`,`papent_name`,`papent_apply_id`) "+
-            "VALUES(#{id},#{applier},#{papentName},#{papentApplyId});")
+            "(`applier`,`papent_name`,`papent_apply_id`) "+
+            "VALUES(#{applier},#{papentName},#{papentApplyId});")
     int insertPapent(Papent papent);
 
     @Update("UPDATE t_papent SET"+
@@ -48,8 +48,8 @@ public interface AdministratorMapper {
 
     //著作权
     @Insert("INSERT INTO t_copy_right "+
-            "(`id`,`code`,`righter`,`right_name`,`signed_id`) "+
-            "VALUES(#{id},#{code},#{righter},#{rightName},#{signedId});")
+            "(`code`,`righter`,`right_name`,`signed_id`) "+
+            "VALUES(#{code},#{righter},#{rightName},#{signedId});")
     int insertCopyRight(CopyRight copyRight);
 
     @Update("UPDATE t_copy_right SET"+
@@ -66,8 +66,8 @@ public interface AdministratorMapper {
 
     //教材
     @Insert("INSERT INTO t_teach_material "+
-            "(`id`,`name`,`prize_info`,`year`) "+
-            "VALUES(#{id},#{name},#{prizeInfo},#{year});")
+            "(`name`,`prize_info`,`year`) "+
+            "VALUES(#{name},#{prizeInfo},#{year});")
     int insertTeachMaterial(TeachMaterial teachMaterial);
 
     @Update("UPDATE t_teach_material SET"+
@@ -83,8 +83,8 @@ public interface AdministratorMapper {
 
     //教改
     @Insert("INSERT INTO t_edu_reform "+
-            "(`id`,`name`,`level`,`year`) "+
-            "VALUES(#{id},#{name},#{level},#{year});")
+            "(`name`,`level`,`year`) "+
+            "VALUES(#{name},#{level},#{year});")
     int insertEduReform(EduReform eduReform);
 
     @Update("UPDATE t_edu_reform SET"+
@@ -100,8 +100,8 @@ public interface AdministratorMapper {
 
     //国际合作
     @Insert("INSERT INTO t_global_cooperation "+
-            "(`id`,`institution_name`,`country`,`cooperation_projects`) "+
-            "VALUES(#{id},#{institutionName},#{country},#{cooperationProjects});")
+            "(`institution_name`,`country`,`cooperation_projects`) "+
+            "VALUES(#{institutionName},#{country},#{cooperationProjects});")
     int insertGlobalCooperation(GlobalCooperation globalCooperation);
 
     @Update("UPDATE t_global_cooperation SET"+
