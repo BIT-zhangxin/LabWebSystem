@@ -52,6 +52,7 @@ public class UserController {
         return user;
     }
 
+
     //修改密码（需要登录状态），未测试
     @RequestMapping("/updatePassword")
     public int updatePassword(UserDetail userDetail,String oldPassword,String newPassword){
