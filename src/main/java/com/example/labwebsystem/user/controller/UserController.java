@@ -15,46 +15,46 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    UserMapper userMapper;
-
-    //编码器，注册时加密密码用的
-    @Autowired
-    PasswordEncoder passwordEncoder;
-
-    //增删改查举例
-    @RequestMapping("/insertStudent")
-    public int insertStudent(Student student){
-        return userMapper.insertStudent(student);
-    }
-
-    @RequestMapping("/updateStudent")
-    public int updateStudent(Student student){
-        return userMapper.updateStudent(student);
-    }
-
-    @RequestMapping("/selectStudent")
-    public List<Student> selectStudent(int currentPage,int pageSize){
-        return userMapper.selectStudent(currentPage,pageSize);
-    }
-
-    @RequestMapping("/deleteStudent")
-    public int deleteStudent(int userId){
-        return userMapper.deleteStudent(userId);
-    }
-
-    //批量操作举例
-    //List<int>会报错，用Integer，一样的
-    @RequestMapping("/deleteUsers")
-    public int deleteUsers(List<Integer> listUserId) {
-        try {
-            return userService.deleteUsers(listUserId);
-        }catch (RuntimeException e){
-            e.printStackTrace();
-            return 0;
-        }
-    }
+//    @Autowired
+//    UserService userService;
+//
+//    @Autowired
+//    UserMapper userMapper;
+//
+//    //编码器，注册时加密密码用的
+//    @Autowired
+//    PasswordEncoder passwordEncoder;
+//
+//    //增删改查举例
+//    @RequestMapping("/insertStudent")
+//    public int insertStudent(Student student){
+//        return userMapper.insertStudent(student);
+//    }
+//
+//    @RequestMapping("/updateStudent")
+//    public int updateStudent(Student student){
+//        return userMapper.updateStudent(student);
+//    }
+//
+//    @RequestMapping("/selectStudent")
+//    public List<Student> selectStudent(int currentPage,int pageSize){
+//        return userMapper.selectStudent(currentPage,pageSize);
+//    }
+//
+//    @RequestMapping("/deleteStudent")
+//    public int deleteStudent(int userId){
+//        return userMapper.deleteStudent(userId);
+//    }
+//
+//    //批量操作举例
+//    //List<int>会报错，用Integer，一样的
+//    @RequestMapping("/deleteUsers")
+//    public int deleteUsers(List<Integer> listUserId) {
+//        try {
+//            return userService.deleteUsers(listUserId);
+//        }catch (RuntimeException e){
+//            e.printStackTrace();
+//            return 0;
+//        }
+//    }
 }
