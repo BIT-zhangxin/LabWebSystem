@@ -2,11 +2,11 @@ package com.example.labwebsystem.entity;
 
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 public class UserData {
-    private int userType;
+    private int userType;//教师为1，学生为2
     private Integer id;
     private String name;
     private String lastName;
@@ -15,6 +15,7 @@ public class UserData {
     private int category;
     private String nationality;
     private Date birthday;
+    private String birthdayString;
     private String email;
     private String mobilePhone;
     private String remarks;
@@ -27,9 +28,11 @@ public class UserData {
     private String laboratoryPosition;
     private String officePhone;
     private String studentNumber;
-    private Date addmissionTime;
+    private Date admissionTime;
+    private String admissionTimeString;
     private Date graduationTime;
+    private String graduationTimeString;
     private String firstEmploymentUnit;
-    private String tutor;
-    private String assistantTutor;
+    private String tutorNumber;
+    private String assistantTutorNumber;
 }

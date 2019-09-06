@@ -2,7 +2,7 @@ package com.example.labwebsystem.entity;
 
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 public class Student {
@@ -15,11 +15,14 @@ public class Student {
     private int category;//0代表本科，1代表硕士，2代表博士
     private String nationality;//国籍
     private Date admissionTime;//入学时间，四位年份，两位月份，两位日期
+    private String admissionTimeString;//入学时间字符串
     private Date graduationTime;//毕业时间，四位年份，两位月份，两位日期
+    private String graduationTimeString;//毕业时间字符串
     private String firstEmploymentUnit;//初次就业单位
     private String tutorNumber;//导师教师工号
     private String assistantTutorNumber;//副导师教师工号
     private Date birthday;//出生日期，四位年份，两位月份，两位日期
+    private String birthdayString;//出生日期字符串
     private String email;//电子邮箱
     private String mobilePhone;//移动电话
     private String remarks;//备注

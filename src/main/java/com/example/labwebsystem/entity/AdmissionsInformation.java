@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class AdmissionsInformation {
     private Integer id;//招生信息id
-    private int studentType;//1代表本科生，2代表硕士生，3代表博士生，4代表留学生
+    private String studentType;//本科生，硕士生，博士生，留学生
     private String skillsRequirement;//技术要求
     private String operatingHours;//工作时间
     private String contact;//联系方式
