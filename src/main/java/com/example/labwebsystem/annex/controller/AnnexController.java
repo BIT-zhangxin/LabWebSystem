@@ -26,26 +26,27 @@ public class AnnexController {
     AnnexMapper annexMapper;
 
     @RequestMapping("/uploadAnnex")
-    public int uploadAnnex(MultipartFile fileTest, HttpServletRequest request) throws IOException {
+    public int uploadAnnex(MultipartFile uploadFile, HttpServletRequest request) throws IOException {
         //获取文件的原始名
-        String filename = fileTest.getOriginalFilename();
+        String filename = uploadFile.getOriginalFilename();
         //根据相对路径获取绝对路径
         String realPath = request.getSession().getServletContext().getRealPath("/upload")+"/"+getDate();
+        //String realPath = "D://upload"+"/"+getDate();
         File file=new File(realPath,filename);
         if(!file.getParentFile().getParentFile().exists())
             file.getParentFile().getParentFile().mkdir();
         if(!file.getParentFile().exists())
             file.getParentFile().mkdir();
-        fileTest.transferTo(file);
+        uploadFile.transferTo(file);
 
         Annex annex=new Annex();
-        annex.initAnnex(realPath,filename,Long.toString(file.length()),0);
+        annex.initAnnex(filename,realPath,Long.toString(file.length()),0);
         annexMapper.insertAnnex(annex);
         return annex.getId();
     }
 
     @RequestMapping("/downloadAnnex")
-    public void downloadAnnex(int id, HttpServletRequest request, HttpServletResponse response)throws Exception{
+    public int downloadAnnex(int id, HttpServletRequest request, HttpServletResponse response)throws Exception{
         Annex annex=annexMapper.selectAnnex(id);
         String filePath=annex.getPath();
         String fileName=annex.getFileName();
@@ -61,6 +62,31 @@ public class AnnexController {
         ServletOutputStream os = response.getOutputStream();
         //下载文件,使用spring框架中的FileCopyUtils工具
         FileCopyUtils.copy(fis,os);
+
+        return 1;
+    }
+
+    @RequestMapping("/deleteAnnex")
+    public int deleteAnnex(int id)throws Exception{
+        Annex annex=annexMapper.selectAnnex(id);
+        String filePath=annex.getPath();
+        String fileName=annex.getFileName();
+
+        File file=new File(filePath, fileName);
+        file.delete();
+        annexMapper.deleteAnnex(id);
+
+        return 1;
+    }
+
+    @RequestMapping("/deleteAnnexByDynamicId")
+    public int deleteAnnexByDynamicId(int dynamicId){
+        return annexMapper.deleteAnnexByDynamicId(dynamicId);
+    }
+
+    @RequestMapping("/updateAnnexDynamicId")
+    public int updateAnnexDynamicId(int id,int dynamicId){
+        return annexMapper.updateAnnexDynamicId(id,dynamicId);
     }
 
     //防止同一文件夹文件过多，以日期分文件夹

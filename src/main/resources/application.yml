@@ -4,6 +4,8 @@ spring:
     url: jdbc:mysql://59.110.213.213:3306/labwebsystem?useSSL=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: labwebsystem
     password: labwebsystem
+    hikari:
+      minimum-idle: 2
 
   resources:
     static-locations: classpath:static/,file:static/

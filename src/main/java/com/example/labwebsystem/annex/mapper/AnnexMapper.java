@@ -17,7 +17,7 @@ public interface AnnexMapper {
     @Select("SELECT `id` as id, " +
             "`file_name` as fileName, " +
             "`path` as path, " +
-            "`size` as size " +
+            "`size` as size, " +
             "`dynamic_id` as dynamicId " +
             "from t_annex " +
             "WHERE id = #{param1} "+
