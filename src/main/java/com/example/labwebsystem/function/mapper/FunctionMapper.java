@@ -79,12 +79,12 @@ public interface FunctionMapper {
     int updateAnnouncement(Announcement announcement);
 
     @Select("SELECT " +
-            "`id` AS `id`, " +
-            "`title` AS `title`, " +
-            "`time` AS `time`, " +
-            "`editor_name` AS `editorName`, " +
-            "`content` AS `content`, " +
-            "`grouping_id` AS `groupingId` " +
+            "t_announcement.`id` AS `id`, " +
+            "t_announcement.`title` AS `title`, " +
+            "t_announcement.`time` AS `time`, " +
+            "t_announcement.`editor_name` AS `editorName`, " +
+            "t_announcement.`content` AS `content`, " +
+            "t_announcement.`grouping_id` AS `groupingId` " +
             "FROM t_announcement,t_grouping " +
             "WHERE t_announcement.`grouping_id`=t_grouping.`id` " +
             "AND ((t_grouping.`category`=3) " +
@@ -93,12 +93,12 @@ public interface FunctionMapper {
     List<Announcement> selectJoinAnnouncement(int userId);
 
     @Select("SELECT " +
-            "`id` AS `id`, " +
-            "`title` AS `title`, " +
-            "`time` AS `time`, " +
-            "`editor_name` AS `editorName`, " +
-            "`content` AS `content`, " +
-            "`grouping_id` AS `groupingId` " +
+            "t_announcement.`id` AS `id`, " +
+            "t_announcement.`title` AS `title`, " +
+            "t_announcement.`time` AS `time`, " +
+            "t_announcement.`editor_name` AS `editorName`, " +
+            "t_announcement.`content` AS `content`, " +
+            "t_announcement.`grouping_id` AS `groupingId` " +
             "FROM t_announcement,t_grouping " +
             "WHERE t_announcement.`grouping_id`=t_grouping.`id` " +
             "AND t_grouping.`creator_id`=#{param1};")
