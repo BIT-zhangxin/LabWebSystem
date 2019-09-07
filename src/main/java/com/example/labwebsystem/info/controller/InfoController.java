@@ -19,6 +19,7 @@ public class InfoController {
     @Autowired
     InfoMapper infoMapper;
 
+    //潘恋军
     //对t_teacher表格操作
     @RequestMapping("/selectTeacher")
     public  List<Teacher> selectTeacher(int category){
@@ -96,16 +97,16 @@ public class InfoController {
         return infoMapper.selectTeachResultByCondition(condition);
     }
 
-    //对t_research_paper表格操作
-    @RequestMapping("/selectResearchPaper")
-    public List<ResearchPaper> selectResearchPaper(int currentPage,int pageSize){
-        int offset = (currentPage -1 ) * pageSize;
-        return infoMapper.selectResearchPaper(offset,pageSize);
-    }
-    @RequestMapping("/selectResearchPaperByCondition")
-    public List<ResearchPaper> selectResearchPaperByCondition(String condition){
-        return infoMapper.selectResearchPaperByCondition(condition);
-    }
+//    //对t_research_paper表格操作
+//    @RequestMapping("/selectResearchPaper")
+//    public List<ResearchPaper> selectResearchPaper(int currentPage,int pageSize){
+//        int offset = (currentPage -1 ) * pageSize;
+//        return infoMapper.selectResearchPaper(offset,pageSize);
+//    }
+//    @RequestMapping("/selectResearchPaperByCondition")
+//    public List<ResearchPaper> selectResearchPaperByCondition(String condition){
+//        return infoMapper.selectResearchPaperByCondition(condition);
+//    }
 
     //对t_teach_paper表格操作
     @RequestMapping("/selectTeachPaper")
@@ -116,5 +117,86 @@ public class InfoController {
     @RequestMapping("/selectTeachPaperByCondition")
     public List<TeachPaper> selectTeachPaperByCondition(String condition){
         return infoMapper.selectTeachPaperByCondition(condition);
+    }
+
+
+
+
+
+
+
+
+
+    //何祎君
+    //科研论文
+    @RequestMapping("/selectResearchPaper")
+    public List<ResearchPaper> selectResearchPaper(int currentPage,int pageSize){
+        return infoMapper.selectResearchPaper((currentPage-1)*pageSize,pageSize);
+    }
+
+    @RequestMapping("/selectResearchPaperMyCondition")
+    public List<ResearchPaper> selectResearchPaperMyCondition(String condition,int currentPage,int pageSize){
+        condition="%"+condition+"%";
+        return infoMapper.selectResearchPaperMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    }
+
+    //专利
+    @RequestMapping("/selectPapent")
+    public List<Papent> selectPapent(int currentPage,int pageSize){
+        return infoMapper.selectPapent((currentPage-1)*pageSize,pageSize);
+    }
+
+    @RequestMapping("/selectPapentMyCondition")
+    public List<Papent> selectPapentMyCondition(String condition,int currentPage,int pageSize){
+        condition="%"+condition+"%";
+        return infoMapper.selectPapentMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    }
+
+    //教材
+    @RequestMapping("/selectTeachMaterial")
+    public List<TeachMaterial> selectTeachMaterial(int currentPage,int pageSize){
+        return infoMapper.selectTeachMaterial((currentPage-1)*pageSize,pageSize);
+    }
+
+    @RequestMapping("/selectTeachMaterialMyCondition")
+    public List<TeachMaterial> selectTeachMaterialMyCondition(String condition,int currentPage,int pageSize){
+        condition="%"+condition+"%";
+        return infoMapper.selectTeachMaterialMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    }
+
+    //教改
+    @RequestMapping("/selectEduReform")
+    public List<EduReform> selectEduReform(int currentPage,int pageSize){
+        return infoMapper.selectEduReform((currentPage-1)*pageSize,pageSize);
+    }
+
+    @RequestMapping("/selectEduReformMyCondition")
+    public List<EduReform> selectEduReformMyCondition(String condition,int currentPage,int pageSize){
+        condition="%"+condition+"%";
+        return infoMapper.selectEduReformMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    }
+
+    //国际合作
+    @RequestMapping("/selectGlobalCooperation")
+    public List<GlobalCooperation> selectGlobalCooperation(int currentPage,int pageSize){
+        return infoMapper.selectGlobalCooperation((currentPage-1)*pageSize,pageSize);
+    }
+
+    @RequestMapping("/selectGlobalCooperationMyCondition")
+    public List<GlobalCooperation> selectGlobalCooperationMyCondition(String condition,int currentPage,int pageSize){
+        condition="%"+condition+"%";
+        return infoMapper.selectGlobalCooperationMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    }
+
+    //招生信息
+    @RequestMapping("/searchAdmissionsInformation")
+    public AdmissionsInformation searchAdmissionsInformation(String type){
+        return infoMapper.selectAdmissionsInformation(type);
+    }
+
+    //附件
+    @RequestMapping("/selectAnnex")
+    public List<Annex> selectAnnex(int dynamicId){
+        return infoMapper.selectAnnex(dynamicId);
     }
 }
