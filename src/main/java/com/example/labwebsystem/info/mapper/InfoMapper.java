@@ -48,11 +48,11 @@ public interface InfoMapper {
     List<Dynamic> selectDynamicByCondition(int type,String condition);
 
     //对t_teaching_information表格操作
-    @Select("SELECT `id`,`numbering`,`name`,`properties`,`teacher_number` as teacherNumber,`teaching_time`,`student_level` as student_Level " +
+    @Select("SELECT `id`,`numbering`,`name`,`properties`,`teacher_number` as teacherNumber,`teaching_time` as teachingTime,`student_level` as studentLevel " +
             "FROM t_teaching_information;")
     List<TeachingInformation> selectTeachingInformation();
 
-    @Select("SELECT `id`,`numbering`,`name`,`properties`,`teacher_number` as teacherNumber,`teaching_time`,`student_level` as student_Level " +
+    @Select("SELECT `id`,`numbering`,`name`,`properties`,`teacher_number` as teacherNumber,`teaching_time` as teachingTime,`student_level` as studentLevel " +
             "FROM t_teaching_information " +
             "WHERE `name` like %#{param1}% or `teaching_time` like %#{param1}% or `student_level` like %#{param1}%;")
     List<TeachingInformation> selectTeachingInformationByCondition(String condition);
