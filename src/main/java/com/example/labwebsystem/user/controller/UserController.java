@@ -107,7 +107,7 @@ public class UserController {
     //条件查询学生
     @RequestMapping("/selectStudentByCondition")
     public List<Student> selectStudentByCondition(String condition){
-        return userMapper.selectStudentByCondition(condition);
+        return userMapper.selectStudentByCondition(condition,"%"+condition+"%");
     }
 
     //添加一个教师账户，已测试
@@ -147,7 +147,7 @@ public class UserController {
     //条件查询教师
     @RequestMapping("/selectTeacherByCondition")
     public List<Teacher> selectTeacherByCondition(String condition){
-        return userMapper.selectTeacherByCondition(condition);
+        return userMapper.selectTeacherByCondition(condition,"%"+condition+"%");
     }
 
     //根据id查询用户（除去管理员的所有用户），已测试

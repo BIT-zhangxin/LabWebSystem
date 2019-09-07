@@ -89,8 +89,8 @@ public interface UserMapper {
             "`remarks` AS `remarks`,\n" +
             "`photo` AS `photo` " +
             "FROM t_student " +
-            "WHERE student_number=#{param1} OR name LIKE %#{param1}%;")
-    List<Student> selectStudentByCondition(String condition);
+            "WHERE student_number=#{param1} OR name LIKE #{param2};")
+    List<Student> selectStudentByCondition(String condition1,String condition2);
 
     @Insert("CALL proc_insert_teacher(#{password},#{teacher.jobNumber},#{teacher.name},#{teacher.lastName},#{teacher.firstName}, " +
             "#{teacher.sex},#{teacher.category},#{teacher.nationality},#{teacher.unit},#{teacher.jobTitle},#{teacher.tutorQualification}, " +
@@ -164,8 +164,8 @@ public interface UserMapper {
             "`remarks` AS `remarks`,\n" +
             "`photo` AS `photo` " +
             "FROM t_teacher " +
-            "WHERE job_number=#{param1} OR name LIKE %#{param1}%;")
-    List<Teacher> selectTeacherByCondition(String condition);
+            "WHERE job_number=#{param1} OR name LIKE #{param2};")
+    List<Teacher> selectTeacherByCondition(String condition1,String condition2);
 
     @Select("CALL proc_select_user(#{param1});")
     UserData selectUser(int userId);

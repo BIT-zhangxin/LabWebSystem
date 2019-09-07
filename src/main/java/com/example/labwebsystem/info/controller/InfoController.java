@@ -50,7 +50,7 @@ public class InfoController {
     }
     @RequestMapping("/selectDynamicByCondition")
     public List<Dynamic> selectDynamicByCondition(int type,String condition){
-        return infoMapper.selectDynamicByCondition(type,condition);
+        return infoMapper.selectDynamicByCondition(type,"%"+condition+"%");
     }
 
     //对t_teaching_information表格操作
@@ -58,9 +58,10 @@ public class InfoController {
     public List<TeachingInformation> selectTeachingInformation(){
         return infoMapper.selectTeachingInformation();
     }
+
     @RequestMapping("/selectTeachingInformationByCondition")
     public List<TeachingInformation> selectTeachingInformationByCondition(String condition){
-        return infoMapper.selectTeachingInformationByCondition(condition);
+        return infoMapper.selectTeachingInformationByCondition("%"+condition+"%");
     }
 
     //对t_scientific_information表格操作
@@ -70,7 +71,7 @@ public class InfoController {
     }
     @RequestMapping("/selectScientificInformationByCondition")
     public List<ScientificInformation> selectScientificInformationByCondition(String condition){
-        return infoMapper.selectScientificInformationByCondition(condition);
+        return infoMapper.selectScientificInformationByCondition("%"+condition+"%");
     }
 
     //对t_teach_result表格操作
@@ -78,9 +79,10 @@ public class InfoController {
     public List<TeachResult> selectTeachResult(){
         return infoMapper.selectTeachResult();
     }
+
     @RequestMapping("/selectTeachResultByCondition")
     public List<TeachResult> selectTeachResultByCondition(String condition){
-        return infoMapper.selectTeachResultByCondition(condition);
+        return infoMapper.selectTeachResultByCondition("%"+condition+"%");
     }
 
     //对t_research_result表格操作
@@ -88,9 +90,10 @@ public class InfoController {
     public List<ResearchResult> selectResearchResult(){
         return infoMapper.selectResearchResult();
     }
+
     @RequestMapping("/selectResearchResultByCondition")
     public List<ResearchResult> selectResearchResultByCondition(String condition){
-        return infoMapper.selectResearchResultByCondition(condition);
+        return infoMapper.selectResearchResultByCondition("%"+condition+"%");
     }
 
     //对t_teach_paper表格操作
@@ -98,9 +101,10 @@ public class InfoController {
     public List<TeachPaper> selectTeachPaper(){
         return infoMapper.selectTeachPaper();
     }
+
     @RequestMapping("/selectTeachPaperByCondition")
     public List<TeachPaper> selectTeachPaperByCondition(String condition){
-        return infoMapper.selectTeachPaperByCondition(condition);
+        return infoMapper.selectTeachPaperByCondition("%"+condition+"%");
     }
 
 
@@ -120,7 +124,7 @@ public class InfoController {
 
     @RequestMapping("/selectResearchPaperMyCondition")
     public List<ResearchPaper> selectResearchPaperMyCondition(String condition){
-        return infoMapper.selectResearchPaperMyCondition(condition);
+        return infoMapper.selectResearchPaperMyCondition("%"+condition+"%");
     }
 
     //专利
@@ -131,7 +135,7 @@ public class InfoController {
 
     @RequestMapping("/selectPapentMyCondition")
     public List<Papent> selectPapentMyCondition(String condition){
-        return infoMapper.selectPapentMyCondition(condition);
+        return infoMapper.selectPapentMyCondition("%"+condition+"%");
     }
 
     //教材
@@ -142,7 +146,7 @@ public class InfoController {
 
     @RequestMapping("/selectTeachMaterialMyCondition")
     public List<TeachMaterial> selectTeachMaterialMyCondition(String condition){
-        return infoMapper.selectTeachMaterialMyCondition(condition);
+        return infoMapper.selectTeachMaterialMyCondition("%"+condition+"%");
     }
 
     //教改
@@ -153,7 +157,7 @@ public class InfoController {
 
     @RequestMapping("/selectEduReformMyCondition")
     public List<EduReform> selectEduReformMyCondition(String condition){
-        return infoMapper.selectEduReformMyCondition(condition);
+        return infoMapper.selectEduReformMyCondition("%"+condition+"%");
     }
 
     //国际合作
@@ -164,7 +168,7 @@ public class InfoController {
 
     @RequestMapping("/selectGlobalCooperationMyCondition")
     public List<GlobalCooperation> selectGlobalCooperationMyCondition(String condition){
-        return infoMapper.selectGlobalCooperationMyCondition(condition);
+        return infoMapper.selectGlobalCooperationMyCondition("%"+condition+"%");
     }
 
     //招生信息

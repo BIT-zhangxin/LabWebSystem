@@ -44,7 +44,7 @@ public interface InfoMapper {
 
     @Select("SELECT `id`,`title` ,`time`,`editor_name` as editorName ,`content`,`category` " +
             "FROM t_dynamic WHERE " +
-            "WHERE (`title` like %#{param2}% or `content` like %#{param2}%) AND `category' = #{param1};")
+            "WHERE (`title` like #{param2} or `content` like #{param2}) AND `category' = #{param1};")
     List<Dynamic> selectDynamicByCondition(int type,String condition);
 
     //对t_teaching_information表格操作
@@ -54,7 +54,7 @@ public interface InfoMapper {
 
     @Select("SELECT `id`,`numbering`,`name`,`properties`,`teacher_number` as teacherNumber,`teaching_time` as teachingTime,`student_level` as studentLevel " +
             "FROM t_teaching_information " +
-            "WHERE `name` like %#{param1}% or `teaching_time` like %#{param1}% or `student_level` like %#{param1}%;")
+            "WHERE `name` like #{param1} or `teaching_time` like #{param1} or `student_level` like #{param1};")
     List<TeachingInformation> selectTeachingInformationByCondition(String condition);
 
     //对t_scientific_information表格操作
@@ -64,21 +64,21 @@ public interface InfoMapper {
 
     @Select("SELECT `id`,`properties`,`name`,`teacher_number` as teacherNumber " +
             "FROM t_scientific_information " +
-            "WHERE `name` like %#{param1}% or `teacher_number` like %#{param1}%;")
+            "WHERE `name` like #{param1} or `teacher_number` like #{param1};")
     List<ScientificInformation> selectScientificInformationByCondition(String condition);
 
     //对t_research_result表格操作
     @Select("SELECT * FROM t_research_result;")
     List<ResearchResult> selectResearchResult();
 
-    @Select("SELECT * FROM t_research_result WHERE `name` like %#{param1}%;")
+    @Select("SELECT * FROM t_research_result WHERE `name` like #{param1};")
     List<ResearchResult> selectResearchResultByCondition(String condition);
 
     //对t_teach_result表格操作
     @Select("SELECT * FROM t_teach_result;")
     List<TeachResult> selectTeachResult();
 
-    @Select("SELECT * FROM t_teach_result WHERE `name` like %#{param1}%;")
+    @Select("SELECT * FROM t_teach_result WHERE `name` like #{param1};")
     List<TeachResult> selectTeachResultByCondition(String condition);
 
     //对t_teach_paper表格操作
@@ -88,7 +88,7 @@ public interface InfoMapper {
 
     @Select("SELECT `id`,`title`,`conference`,`conference_id` as conferenceId,`year` " +
             "FROM t_teach_paper " +
-            "WHERE `title` like %#{param1}% or `conference` like %#{param1}%;")
+            "WHERE `title` like #{param1} or `conference` like #{param1};")
     List<TeachPaper> selectTeachPaperByCondition(String condition);
 
 
@@ -113,8 +113,8 @@ public interface InfoMapper {
             "`conference_id` as conferenceId, " +
             "`year` as year "+
             "from t_research_paper " +
-            "WHERE title like %#{param1}% "+
-            "OR conference like %#{param1}%;")
+            "WHERE title like #{param1} "+
+            "OR conference like #{param1};")
     List<ResearchPaper> selectResearchPaperMyCondition(String condition);
 
     //专利
@@ -130,8 +130,8 @@ public interface InfoMapper {
             "`papent_name` as papentName, "+
             "`papent_apply_id` as papentApplyId "+
             "from t_papent " +
-            "WHERE papent_name like %#{param1}% "+
-            "OR papent_apply_id like %#{param1}%;")
+            "WHERE papent_name like #{param1} "+
+            "OR papent_apply_id like #{param1};")
     List<Papent> selectPapentMyCondition(String condition);
 
     //教材
@@ -147,7 +147,7 @@ public interface InfoMapper {
             "`prize_info` as prizeInfo, " +
             "`year` as year " +
             "from t_teach_material " +
-            "WHERE name like %#{param1}%;")
+            "WHERE name like #{param1};")
     List<TeachMaterial> selectTeachMaterialMyCondition(String condition);
 
     //教改
@@ -163,7 +163,7 @@ public interface InfoMapper {
             "`level` as level, " +
             "`year` as year " +
             "from t_edu_reform " +
-            "WHERE name like %#{param1}%;")
+            "WHERE name like #{param1};")
     List<EduReform> selectEduReformMyCondition(String condition);
 
     //国籍合作
@@ -179,9 +179,9 @@ public interface InfoMapper {
             "`country` as country, " +
             "`cooperation_projects` as cooperationProjects " +
             "from t_global_cooperation " +
-            "WHERE institution_name like %#{param1}% " +
-            "OR country like %#{param1}% " +
-            "OR cooperation_projects like %#{param1}%;")
+            "WHERE institution_name like #{param1} " +
+            "OR country like #{param1} " +
+            "OR cooperation_projects like #{param1};")
     List<GlobalCooperation> selectGlobalCooperationMyCondition(String condition);
 
     //招生信息
