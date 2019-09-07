@@ -97,11 +97,10 @@ public class UserController {
         return userMapper.updateStudent(student);
     }
 
-    //分页查询学生
+    //查询学生
     @RequestMapping("/selectStudent")
-    public List<Student> selectStudent(int currentPage,int pageSize){
-        int offset=(currentPage-1)*pageSize;
-        return userMapper.selectStudent(offset,pageSize);
+    public List<Student> selectStudent(){
+        return userMapper.selectStudent();
     }
 
     //条件查询学生
@@ -138,11 +137,10 @@ public class UserController {
         return userMapper.updateTeacher(teacher);
     }
 
-    //分页查询教师
+    //查询教师
     @RequestMapping("/selectTeacher")
-    public List<Teacher> selectTeacher(int currentPage,int pageSize){
-        int offset=(currentPage-1)*pageSize;
-        return userMapper.selectTeacher(offset,pageSize);
+    public List<Teacher> selectTeacher(){
+        return userMapper.selectTeacher();
     }
 
     //条件查询教师

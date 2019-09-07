@@ -40,9 +40,8 @@ public class InfoController {
 
     //对t_dynamic表格操作
     @RequestMapping("/selectDynamicByType")
-    public List<Dynamic> selectDynamicByType(int type,int currentPage,int pageSize){
-        int offset = (currentPage -1 ) * pageSize;
-        return infoMapper.selectDynamicByType(type,offset,pageSize);
+    public List<Dynamic> selectDynamicByType(int type){
+        return infoMapper.selectDynamicByType(type);
     }
     @RequestMapping("/selectDynamic")
     public Dynamic selectDynamic(int dynamicId){
@@ -55,9 +54,8 @@ public class InfoController {
 
     //对t_teaching_information表格操作
     @RequestMapping("/selectTeachingInformation")
-    public List<TeachingInformation> selectTeachingInformation(int currentPage,int pageSize){
-        int offset = (currentPage -1 ) * pageSize;
-        return infoMapper.selectTeachingInformation(offset,pageSize);
+    public List<TeachingInformation> selectTeachingInformation(){
+        return infoMapper.selectTeachingInformation();
     }
     @RequestMapping("/selectTeachingInformationByCondition")
     public List<TeachingInformation> selectTeachingInformationByCondition(String condition){
@@ -66,9 +64,8 @@ public class InfoController {
 
     //对t_scientific_information表格操作
     @RequestMapping("/selectScientificInformation")
-    public List<ScientificInformation> selectScientificInformation(int currentPage,int pageSize){
-        int offset = (currentPage -1 ) * pageSize;
-        return infoMapper.selectScientificInformation(offset,pageSize);
+    public List<ScientificInformation> selectScientificInformation(){
+        return infoMapper.selectScientificInformation();
     }
     @RequestMapping("/selectScientificInformationByCondition")
     public List<ScientificInformation> selectScientificInformationByCondition(String condition){
@@ -77,9 +74,8 @@ public class InfoController {
 
     //对t_teach_result表格操作
     @RequestMapping("/selectTeachResult")
-    public List<TeachResult> selectTeachResult(int currentPage,int pageSize){
-        int offset = (currentPage -1 ) * pageSize;
-        return infoMapper.selectTeachResult(offset,pageSize);
+    public List<TeachResult> selectTeachResult(){
+        return infoMapper.selectTeachResult();
     }
     @RequestMapping("/selectTeachResultByCondition")
     public List<TeachResult> selectTeachResultByCondition(String condition){
@@ -88,9 +84,8 @@ public class InfoController {
 
     //对t_research_result表格操作
     @RequestMapping("/selectResearchResult")
-    public List<ResearchResult> selectResearchResult(int currentPage,int pageSize){
-        int offset = (currentPage -1 ) * pageSize;
-        return infoMapper.selectResearchResult(offset,pageSize);
+    public List<ResearchResult> selectResearchResult(){
+        return infoMapper.selectResearchResult();
     }
     @RequestMapping("/selectResearchResultByCondition")
     public List<ResearchResult> selectResearchResultByCondition(String condition){
@@ -99,9 +94,8 @@ public class InfoController {
 
     //对t_teach_paper表格操作
     @RequestMapping("/selectTeachPaper")
-    public List<TeachPaper> selectTeachPaper(int currentPage,int pageSize){
-        int offset = (currentPage -1 ) * pageSize;
-        return infoMapper.selectTeachPaper(offset,pageSize);
+    public List<TeachPaper> selectTeachPaper(){
+        return infoMapper.selectTeachPaper();
     }
     @RequestMapping("/selectTeachPaperByCondition")
     public List<TeachPaper> selectTeachPaperByCondition(String condition){
@@ -119,62 +113,57 @@ public class InfoController {
     //何祎君
     //科研论文
     @RequestMapping("/selectResearchPaper")
-    public List<ResearchPaper> selectResearchPaper(int currentPage,int pageSize){
-        return infoMapper.selectResearchPaper((currentPage-1)*pageSize,pageSize);
+    public List<ResearchPaper> selectResearchPaper(){
+        return infoMapper.selectResearchPaper();
     }
 
     @RequestMapping("/selectResearchPaperMyCondition")
-    public List<ResearchPaper> selectResearchPaperMyCondition(String condition,int currentPage,int pageSize){
-        condition="%"+condition+"%";
-        return infoMapper.selectResearchPaperMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    public List<ResearchPaper> selectResearchPaperMyCondition(String condition){
+        return infoMapper.selectResearchPaperMyCondition(condition);
     }
 
     //专利
     @RequestMapping("/selectPapent")
-    public List<Papent> selectPapent(int currentPage,int pageSize){
-        return infoMapper.selectPapent((currentPage-1)*pageSize,pageSize);
+    public List<Papent> selectPapent(){
+        return infoMapper.selectPapent();
     }
 
     @RequestMapping("/selectPapentMyCondition")
-    public List<Papent> selectPapentMyCondition(String condition,int currentPage,int pageSize){
-        condition="%"+condition+"%";
-        return infoMapper.selectPapentMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    public List<Papent> selectPapentMyCondition(String condition){
+        return infoMapper.selectPapentMyCondition(condition);
     }
 
     //教材
     @RequestMapping("/selectTeachMaterial")
-    public List<TeachMaterial> selectTeachMaterial(int currentPage,int pageSize){
-        return infoMapper.selectTeachMaterial((currentPage-1)*pageSize,pageSize);
+    public List<TeachMaterial> selectTeachMaterial(){
+        return infoMapper.selectTeachMaterial();
     }
 
     @RequestMapping("/selectTeachMaterialMyCondition")
-    public List<TeachMaterial> selectTeachMaterialMyCondition(String condition,int currentPage,int pageSize){
-        condition="%"+condition+"%";
-        return infoMapper.selectTeachMaterialMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    public List<TeachMaterial> selectTeachMaterialMyCondition(String condition){
+        return infoMapper.selectTeachMaterialMyCondition(condition);
     }
 
     //教改
     @RequestMapping("/selectEduReform")
-    public List<EduReform> selectEduReform(int currentPage,int pageSize){
-        return infoMapper.selectEduReform((currentPage-1)*pageSize,pageSize);
+    public List<EduReform> selectEduReform(){
+        return infoMapper.selectEduReform();
     }
 
     @RequestMapping("/selectEduReformMyCondition")
-    public List<EduReform> selectEduReformMyCondition(String condition,int currentPage,int pageSize){
-        condition="%"+condition+"%";
-        return infoMapper.selectEduReformMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    public List<EduReform> selectEduReformMyCondition(String condition){
+        return infoMapper.selectEduReformMyCondition(condition);
     }
 
     //国际合作
     @RequestMapping("/selectGlobalCooperation")
-    public List<GlobalCooperation> selectGlobalCooperation(int currentPage,int pageSize){
-        return infoMapper.selectGlobalCooperation((currentPage-1)*pageSize,pageSize);
+    public List<GlobalCooperation> selectGlobalCooperation(){
+        return infoMapper.selectGlobalCooperation();
     }
 
     @RequestMapping("/selectGlobalCooperationMyCondition")
-    public List<GlobalCooperation> selectGlobalCooperationMyCondition(String condition,int currentPage,int pageSize){
-        condition="%"+condition+"%";
-        return infoMapper.selectGlobalCooperationMyCondition(condition,(currentPage-1)*pageSize,pageSize);
+    public List<GlobalCooperation> selectGlobalCooperationMyCondition(String condition){
+        return infoMapper.selectGlobalCooperationMyCondition(condition);
     }
 
     //招生信息

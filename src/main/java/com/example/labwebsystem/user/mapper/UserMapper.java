@@ -66,8 +66,8 @@ public interface UserMapper {
             "`mobile_phone` AS `mobilePhone`,\n" +
             "`remarks` AS `remarks`,\n" +
             "`photo` AS `photo` " +
-            "FROM t_student LIMIT #{param1},#{param2};")
-    List<Student> selectStudent(int offset,int pageSize);
+            "FROM t_student;")
+    List<Student> selectStudent();
 
     @Select("SELECT " +
             "`id` AS `id`,\n" +
@@ -140,8 +140,8 @@ public interface UserMapper {
             "`office_phone` AS `officePhone`,\n" +
             "`remarks` AS `remarks`,\n" +
             "`photo` AS `photo` " +
-            "FROM t_teacher LIMIT #{param1},#{param2};")
-    List<Teacher> selectTeacher(int offset,int pageSize);
+            "FROM t_teacher;")
+    List<Teacher> selectTeacher();
 
     @Select("SELECT " +
             "`id` AS `id`,\n" +

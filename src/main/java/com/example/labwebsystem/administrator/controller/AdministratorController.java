@@ -44,7 +44,7 @@ public class AdministratorController {
         return administratorMapper.insertTeachingInformation(teachingInformation);
     }
     @RequestMapping("/insertTeachingInformations")
-    public int insertTeachingInformations(List<TeachingInformation> listTeachingInformation){
+    public int insertTeachingInformations(@RequestBody List<TeachingInformation> listTeachingInformation){
         try {
             return administratorService.insertTeachingInformations(listTeachingInformation);
         }catch (RuntimeException e){
@@ -61,7 +61,7 @@ public class AdministratorController {
         return administratorMapper.deleteTeachingInformation(teachingInformationId);
     }
     @RequestMapping("/deleteTeachingInformations")
-    public int deleteTeachingInformations(List<Integer> listTeachingInformationId){
+    public int deleteTeachingInformations(@RequestBody List<Integer> listTeachingInformationId){
         try{
             return administratorService.deleteTeachingInformations(listTeachingInformationId);
         }catch (RuntimeException e){
@@ -75,7 +75,7 @@ public class AdministratorController {
         return administratorMapper.insertScientificInformation(scientificInformation);
     }
     @RequestMapping("/insertScientificInformations")
-    public int insertScientificInformations(List<ScientificInformation> listScientificInformation){
+    public int insertScientificInformations(@RequestBody List<ScientificInformation> listScientificInformation){
         try{
             return administratorService.insertScientificInformations(listScientificInformation);
         }catch (RuntimeException e){
@@ -92,7 +92,7 @@ public class AdministratorController {
         return administratorMapper.deleteScientificInformation(scientificInformationId);
     }
     @RequestMapping("/deleteScientificInformations")
-    public int deleteScientificInformations(List<Integer> listScientificInformationId){
+    public int deleteScientificInformations(@RequestBody List<Integer> listScientificInformationId){
         try{
             return administratorService.deleteScientificInformations(listScientificInformationId);
         }catch (RuntimeException e){
@@ -106,7 +106,7 @@ public class AdministratorController {
         return administratorMapper.insertTeachResult(teachResult);
     }
     @RequestMapping("/insertTeachResults")
-    public int insertTeachResults(List<TeachResult> listTeachResult){
+    public int insertTeachResults(@RequestBody List<TeachResult> listTeachResult){
         try{
             return administratorService.insertTeachResults(listTeachResult);
         }catch (RuntimeException e){
@@ -123,7 +123,7 @@ public class AdministratorController {
         return administratorMapper.deleteTeachResult(teachResultId);
     }
     @RequestMapping("/deleteTeachResults")
-    public int deleteTeachResults(List<Integer> listTeachResultId){
+    public int deleteTeachResults(@RequestBody List<Integer> listTeachResultId){
         try{
             return administratorService.deleteTeachResults(listTeachResultId);
         }catch (RuntimeException e){
@@ -137,7 +137,7 @@ public class AdministratorController {
         return administratorMapper.insertResearchResult(researchResult);
     }
     @RequestMapping("/insertResearchResults")
-    public int insertResearchResults(List<ResearchResult> listResearchResult){
+    public int insertResearchResults(@RequestBody List<ResearchResult> listResearchResult){
         try{
             return administratorService.insertResearchResults(listResearchResult);
         }catch (RuntimeException e){
@@ -154,7 +154,7 @@ public class AdministratorController {
         return administratorMapper.deleteResearchResult(researchResultId);
     }
     @RequestMapping("/deleteResearchResults")
-    public int deleteResearchResults(List<Integer> listResearchResultId){
+    public int deleteResearchResults(@RequestBody List<Integer> listResearchResultId){
         try{
             return administratorService.deleteResearchResults(listResearchResultId);
         }catch (RuntimeException e){
@@ -168,7 +168,7 @@ public class AdministratorController {
         return administratorMapper.insertTeachPaper(teachPaper);
     }
     @RequestMapping("/insertTeachPapers")
-    public int insertTeachPapers(List<TeachPaper> listTeachPaper){
+    public int insertTeachPapers(@RequestBody List<TeachPaper> listTeachPaper){
         try{
             return administratorService.insertTeachPapers(listTeachPaper);
         }catch (RuntimeException e){
@@ -185,7 +185,7 @@ public class AdministratorController {
         return  administratorMapper.deleteTeachPaper(teachPaperId);
     }
     @RequestMapping("/deleteTeachPapers")
-    public int deleteTeachPapers(List<Integer> listTeachPaperId){
+    public int deleteTeachPapers(@RequestBody List<Integer> listTeachPaperId){
         try{
             return administratorService.deleteTeachPapers(listTeachPaperId);
         }catch (RuntimeException e){
