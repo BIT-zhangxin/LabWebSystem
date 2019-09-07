@@ -188,8 +188,8 @@ public interface InfoMapper {
     @Select("SELECT `id` as id, " +
             "`student_type` as studentType, " +
             "`skills_requirement` as skillsRequirement, " +
-            "`operating_hours` as operatingHours " +
-            "`contact` as contact " +
+            "`operating_hours` as operatingHours, " +
+            "`contact` as contact, " +
             "`other` as other " +
             "from t_admissions_information " +
             "WHERE student_type = #{param1} LIMIT 1;")
@@ -198,7 +198,7 @@ public interface InfoMapper {
     @Select("SELECT `id` as id, " +
             "`file_name` as fileName, " +
             "`path` as path, " +
-            "`size` as size " +
+            "`size` as size, " +
             "`dynamic_id` as dynamicId " +
             "from t_annex " +
             "WHERE dynamic_id = #{param1};")
