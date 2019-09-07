@@ -31,7 +31,7 @@ public interface InfoMapper {
             "WHERE title like #{param1} "+
             "OR conference like #{param1} "+
             "LIMIT #{param2}, #{param3};")
-    List<ResearchPaper> searchResearchPaper(String condition,int offset, int pageSize);
+    List<ResearchPaper> selectResearchPaperMyCondition(String condition,int offset, int pageSize);
 
     //专利
     @Select("SELECT `id` as id, "+"" +
@@ -50,7 +50,7 @@ public interface InfoMapper {
             "WHERE papent_name like #{param1} "+
             "OR papent_apply_id like #{param1} "+
             "LIMIT #{param2}, #{param3};")
-    List<Papent> searchPapent(String condition,int offset, int pageSize);
+    List<Papent> selectPapentMyCondition(String condition,int offset, int pageSize);
 
     //教材
     @Select("SELECT `id` as id, " +
@@ -68,7 +68,7 @@ public interface InfoMapper {
             "from t_teach_material " +
             "WHERE name like #{param1} "+
             "LIMIT #{param2}, #{param3};")
-    List<TeachMaterial> searchTeachMaterial(String condition,int offset, int pageSize);
+    List<TeachMaterial> selectTeachMaterialMyCondition(String condition,int offset, int pageSize);
 
     //教改
     @Select("SELECT `id` as id, " +
@@ -86,7 +86,7 @@ public interface InfoMapper {
             "from t_edu_reform " +
             "WHERE name like #{param1} "+
             "LIMIT #{param2}, #{param3};")
-    List<EduReform> searchEduReform(String condition,int offset, int pageSize);
+    List<EduReform> selectEduReformMyCondition(String condition,int offset, int pageSize);
 
     //国籍合作
     @Select("SELECT `id` as id, " +
@@ -106,7 +106,7 @@ public interface InfoMapper {
             "OR country like #{param1} " +
             "OR cooperation_projects like #{param1} " +
             "LIMIT #{param2}, #{param3};")
-    List<GlobalCooperation> searchGlobalCooperation(String condition,int offset, int pageSize);
+    List<GlobalCooperation> selectGlobalCooperationMyCondition(String condition,int offset, int pageSize);
 
     //招生信息
     @Select("SELECT `id` as id, " +
@@ -119,4 +119,13 @@ public interface InfoMapper {
             "WHERE student_type = #{param1} "+
             "LIMIT 1;")
     AdmissionsInformation selectAdmissionsInformation(String type);
+
+    @Select("SELECT `id` as id, " +
+            "`file_name` as fileName, " +
+            "`path` as path, " +
+            "`size` as size " +
+            "`dynamic_id` as dynamicId " +
+            "from t_annex " +
+            "WHERE dynamic_id = #{param1}; ")
+    List<Annex> selectAnnex(int dynamicId);
 }
