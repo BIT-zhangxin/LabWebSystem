@@ -16,7 +16,7 @@ public interface InfoMapper {
     @Select("SELECT id,job_number as jobNumber,name,last_name as lastName,first_name as firstName," +
             "sex,category,nationality,unit,job_title as jobTitle ,tutor_qualification as tutorQualification" +
             "position,laboratory_position as laboratoryPosition,birthday,email,mobile_phone as mobilePhone,office_phone as officePhone ,remarks,photo " +
-            "from t_teacher WHERE category` = #{param1};")
+            "from t_teacher WHERE `category` = #{param1};")
     List<Teacher> selectTeacher(int category);
 
     //对t_student表格进行操作
@@ -43,7 +43,7 @@ public interface InfoMapper {
     Dynamic selectDynamic(int dynamicId);
 
     @Select("SELECT `id`,`title` ,`time`,`editor_name` as editorName ,`content`,`category` " +
-            "FROM t_dynamic WHERE " +
+            "FROM t_dynamic " +
             "WHERE (`title` like #{param2} or `content` like #{param2}) AND `category' = #{param1};")
     List<Dynamic> selectDynamicByCondition(int type,String condition);
 

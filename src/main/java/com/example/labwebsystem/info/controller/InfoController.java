@@ -23,13 +23,13 @@ public class InfoController {
     //潘恋军
     //对t_teacher表格操作
     @RequestMapping("/selectTeacher")
-    public  List<Teacher> selectTeacher(int category){
+    public List<Teacher> selectTeacher(int category){
         return infoMapper.selectTeacher(category);
     }
 
     //对t_student表格进行操作
     @RequestMapping("/selectGraduate")
-    public  List<Student> selectGraduate(){
+    public List<Student> selectGraduate(){
         return infoMapper.selectGraduate();
     }
 
