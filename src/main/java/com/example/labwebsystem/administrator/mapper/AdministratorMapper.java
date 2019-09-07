@@ -32,7 +32,7 @@ public interface AdministratorMapper {
             "WHERE `t_dynamic`.`id`=#{id};")
     int updateDynamic(Dynamic dynamic);
 
-    @Delete("DELETE FROM t_dynamic" +
+    @Delete("DELETE FROM t_dynamic " +
             "WHERE `t_dynamic`.`id`=#{id};")
     int deleteDynamic(int dynamicId);
 
