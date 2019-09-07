@@ -9,4 +9,25 @@ public class Annex {
     private String path;//文件路径
     private String size;//文件大小
     private Integer dynamicId;//对应动态id
+
+
+    public void initAnnex(String fileName,String path,String size,int dynamicId){
+        this.id=0;
+        this.fileName=fileName;
+        this.path=path;
+        this.size=size;
+        this.dynamicId=dynamicId;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getPath() {
+        return path;
+    }
 }

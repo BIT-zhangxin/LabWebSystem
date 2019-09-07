@@ -12,5 +12,10 @@ spring:
   jackson:
     date-format: yyyy/MM/dd
     time-zone: Hongkong
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 52428800
+      max-request-size: 52428800
 server:
   port: 8070
