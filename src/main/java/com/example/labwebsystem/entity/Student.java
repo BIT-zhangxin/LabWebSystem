@@ -27,4 +27,30 @@ public class Student {
     private String mobilePhone;//移动电话
     private String remarks;//备注
     private String photo;//照片
+
+    public Student(){}
+
+    public Student(UserData userData){
+        this.id=userData.getId();
+        this.studentNumber=userData.getStudentNumber();
+        this.name=userData.getName();
+        this.lastName=userData.getLastName();
+        this.firstName=userData.getFirstName();
+        this.sex=userData.getSex();
+        this.category=userData.getCategory();
+        this.nationality=userData.getNationality();
+        this.admissionTime=userData.getAdmissionTime();
+        this.admissionTimeString=userData.getAdmissionTimeString();
+        this.graduationTime=userData.getGraduationTime();
+        this.graduationTimeString=userData.getGraduationTimeString();
+        this.firstEmploymentUnit=userData.getFirstEmploymentUnit();
+        this.tutorNumber=userData.getTutorNumber();
+        this.assistantTutorNumber=userData.getAssistantTutorNumber();
+        this.birthday=userData.getBirthday();
+        this.birthdayString=userData.getBirthdayString();
+        this.email=userData.getEmail();
+        this.mobilePhone=userData.getMobilePhone();
+        this.remarks=userData.getRemarks();
+        this.photo=userData.getPhoto();
+    }
 }

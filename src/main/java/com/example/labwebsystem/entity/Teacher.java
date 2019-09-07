@@ -26,4 +26,29 @@ public class Teacher {
     private String officePhone;//办公电话
     private String remarks;//备注
     private String photo;//照片
+
+    public Teacher(){}
+
+    public Teacher(UserData userData){
+        this.id=userData.getId();
+        this.jobNumber=userData.getJobNumber();
+        this.name=userData.getName();
+        this.lastName=userData.getLastName();
+        this.firstName=userData.getFirstName();
+        this.sex=userData.getSex();
+        this.category=userData.getCategory();
+        this.nationality=userData.getNationality();
+        this.unit=userData.getUnit();
+        this.jobTitle=userData.getJobTitle();
+        this.tutorQualification=userData.getTutorQualification();
+        this.position=userData.getPosition();
+        this.laboratoryPosition=userData.getLaboratoryPosition();
+        this.birthday=userData.getBirthday();
+        this.birthdayString=userData.getBirthdayString();
+        this.email=userData.getEmail();
+        this.mobilePhone=userData.getMobilePhone();
+        this.officePhone=userData.getOfficePhone();
+        this.remarks=userData.getRemarks();
+        this.photo=userData.getPhoto();
+    }
 }
