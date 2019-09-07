@@ -77,16 +77,6 @@ public interface InfoMapper {
     @Select("SELECT * FROM t_teach_result WHERE `name` like %#{param1}% ")
     List<TeachResult> selectTeachResultByCondition(String condition);
 
-//    //对t_research_paper表格操作
-//    @Select("SELECT `id`,`title`,`conference`,`conference_id` as conferenceId,`year`" +
-//            "FROM t_research_paper LIMIT offset,pageSize")
-//    List<ResearchPaper> selectResearchPaper(int offset,int pageSize);
-//
-//    @Select("SELECT `id`,`title`,`conference`,`conference_id` as conferenceId,`year`" +
-//            "FROM t_research_paper" +
-//            "WHERE `title` like %#{param1}% or `conference` like %#{param1}%")
-//    List<ResearchPaper> selectResearchPaperByCondition(String condition);
-
     //对t_teach_paper表格操作
     @Select("SELECT `id`,`title`,`conference`,`conference_id` as conferenceId,`year`" +
             "FROM t_teach_paper LIMIT offset,pageSize")

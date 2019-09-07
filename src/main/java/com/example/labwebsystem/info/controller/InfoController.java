@@ -75,17 +75,6 @@ public class InfoController {
         return infoMapper.selectScientificInformationByCondition(condition);
     }
 
-    //对t_research_result表格操作
-    @RequestMapping("/selectResearchResult")
-    public List<ResearchResult> selectResearchResult(int currentPage,int pageSize){
-        int offset = (currentPage -1 ) * pageSize;
-        return infoMapper.selectResearchResult(offset,pageSize);
-    }
-    @RequestMapping("/selectResearchResultByCondition")
-    public List<ResearchResult> selectResearchResultByCondition(String condition){
-        return infoMapper.selectResearchResultByCondition(condition);
-    }
-
     //对t_teach_result表格操作
     @RequestMapping("/selectTeachResult")
     public List<TeachResult> selectTeachResult(int currentPage,int pageSize){
@@ -97,16 +86,16 @@ public class InfoController {
         return infoMapper.selectTeachResultByCondition(condition);
     }
 
-//    //对t_research_paper表格操作
-//    @RequestMapping("/selectResearchPaper")
-//    public List<ResearchPaper> selectResearchPaper(int currentPage,int pageSize){
-//        int offset = (currentPage -1 ) * pageSize;
-//        return infoMapper.selectResearchPaper(offset,pageSize);
-//    }
-//    @RequestMapping("/selectResearchPaperByCondition")
-//    public List<ResearchPaper> selectResearchPaperByCondition(String condition){
-//        return infoMapper.selectResearchPaperByCondition(condition);
-//    }
+    //对t_research_result表格操作
+    @RequestMapping("/selectResearchResult")
+    public List<ResearchResult> selectResearchResult(int currentPage,int pageSize){
+        int offset = (currentPage -1 ) * pageSize;
+        return infoMapper.selectResearchResult(offset,pageSize);
+    }
+    @RequestMapping("/selectResearchResultByCondition")
+    public List<ResearchResult> selectResearchResultByCondition(String condition){
+        return infoMapper.selectResearchResultByCondition(condition);
+    }
 
     //对t_teach_paper表格操作
     @RequestMapping("/selectTeachPaper")
