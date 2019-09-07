@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
@@ -18,7 +19,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping(value="/user", method = {RequestMethod.POST,RequestMethod.GET})
 public class UserController {
 
     @Autowired

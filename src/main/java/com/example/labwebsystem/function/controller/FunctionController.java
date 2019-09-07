@@ -7,6 +7,7 @@ import com.example.labwebsystem.function.mapper.FunctionMapper;
 import com.example.labwebsystem.function.service.FunctionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Timestamp;
@@ -16,7 +17,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/function")
+@RequestMapping(value="/function", method = {RequestMethod.POST,RequestMethod.GET})
 public class FunctionController {
 
     @Autowired
