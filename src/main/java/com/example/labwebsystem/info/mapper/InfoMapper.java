@@ -58,11 +58,11 @@ public interface InfoMapper {
     List<TeachingInformation> selectTeachingInformationByCondition(String condition);
 
     //对t_scientific_information表格操作
-    @Select("SELECT `id`,`properties`,`name`,`teacherNumber` " +
+    @Select("SELECT `id`,`properties`,`name`,`teacher_number` as teacherNumber " +
             "FROM t_scientific_information;")
     List<ScientificInformation> selectScientificInformation();
 
-    @Select("SELECT `id`,`properties`,`name`,`teacherNumber `" +
+    @Select("SELECT `id`,`properties`,`name`,`teacher_number` as teacherNumber " +
             "FROM t_scientific_information " +
             "WHERE `name` like %#{param1}% or `teacher_number` like %#{param1}%;")
     List<ScientificInformation> selectScientificInformationByCondition(String condition);
