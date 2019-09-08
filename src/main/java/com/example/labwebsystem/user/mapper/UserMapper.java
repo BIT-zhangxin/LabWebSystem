@@ -21,7 +21,7 @@ public interface UserMapper {
             "VALUES(1,'admin',#{param1},4);")
     int insertAdmin(String password);
 
-    @Insert("CALL proc_insert_student(#{password},#{student.studentNumber},#{student.name},#{student.lastName},#{student.firstName}, " +
+    @Select("CALL proc_insert_student(#{password},#{student.studentNumber},#{student.name},#{student.lastName},#{student.firstName}, " +
             "#{student.sex},#{student.category},#{student.nationality},#{student.admissionTime},#{student.graduationTime},#{student.tutorNumber}, " +
             "#{student.assistantTutorNumber},#{student.birthday},#{student.email},#{student.mobilePhone},#{student.remarks},#{student.photo});")
     int insertStudent(Student student,String password);
@@ -92,7 +92,7 @@ public interface UserMapper {
             "WHERE student_number=#{param1} OR name LIKE #{param2};")
     List<Student> selectStudentByCondition(String condition1,String condition2);
 
-    @Insert("CALL proc_insert_teacher(#{password},#{teacher.jobNumber},#{teacher.name},#{teacher.lastName},#{teacher.firstName}, " +
+    @Select("CALL proc_insert_teacher(#{password},#{teacher.jobNumber},#{teacher.name},#{teacher.lastName},#{teacher.firstName}, " +
             "#{teacher.sex},#{teacher.category},#{teacher.nationality},#{teacher.unit},#{teacher.jobTitle},#{teacher.tutorQualification}, " +
             "#{teacher.position},#{teacher.laboratoryPosition},#{teacher.birthday},#{teacher.email},#{teacher.mobilePhone}, " +
             "#{teacher.officePhone},#{teacher.remarks},#{teacher.photo});")

@@ -9,12 +9,11 @@ import org.springframework.core.annotation.Order;
 @Order(1)
 public interface SecurityMapper {
 
-    //TODO：待修改
     @Select("select \n" +
-            "id as id, \n" +
-            "username as username, \n" +
-            "name as name, \n" +
-            "password as password \n" +
-            "from `user` where `user`.`username`=#{param1} limit 1;")
+            "`id` as id, \n" +
+            "`name` as name, \n" +
+            "`password` as password, \n" +
+            "`category` as category " +
+            "from t_user where `t_user`.`name`=#{param1} limit 1;")
     User getUser(String name);
 }
