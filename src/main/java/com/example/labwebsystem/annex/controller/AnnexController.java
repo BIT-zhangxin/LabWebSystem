@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/annex")
@@ -118,6 +119,11 @@ public class AnnexController {
         String fileName=filePath.substring(filePath.lastIndexOf('\\'));
         annex.initAnnex(fileName,filePath,dynamicId);
         return annexMapper.insertAnnex(annex);
+    }
+
+    @RequestMapping("/selectAnnex")
+    public List<Annex> selectAnnex(int dynamicId){
+        return annexMapper.selectAnnexByDynamicId(dynamicId);
     }
 
     //防止同一文件夹文件过多，以日期分文件夹
