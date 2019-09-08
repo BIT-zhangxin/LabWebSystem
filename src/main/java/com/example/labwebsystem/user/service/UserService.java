@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Service
@@ -26,6 +27,12 @@ public class UserService {
             if(userData.getUserType()==1){
                 Teacher teacher=new Teacher(userData);
                 String encodePassword=passwordEncoder.encode(teacher.getJobNumber());
+                SimpleDateFormat stringToDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    teacher.setBirthday(stringToDateFormat.parse(teacher.getBirthdayString()));
+                }catch (Exception e){
+                    throw new RuntimeException("时间转化出错");
+                }
                 int result=userMapper.insertTeacher(teacher,encodePassword);
                 if(result==0){
                     throw new RuntimeException("插入失败");
@@ -33,6 +40,14 @@ public class UserService {
             }else if(userData.getUserType()==2){
                 Student student=new Student(userData);
                 String encodePassword=passwordEncoder.encode(student.getStudentNumber());
+                SimpleDateFormat stringToDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    student.setAdmissionTime(stringToDateFormat.parse(student.getAdmissionTimeString()));
+                    student.setGraduationTime(stringToDateFormat.parse(student.getGraduationTimeString()));
+                    student.setBirthday(stringToDateFormat.parse(student.getBirthdayString()));
+                }catch (Exception e){
+                    throw new RuntimeException("时间转化出错");
+                }
                 int result=userMapper.insertStudent(student,encodePassword);
                 if(result==0){
                     throw new RuntimeException("插入失败");
