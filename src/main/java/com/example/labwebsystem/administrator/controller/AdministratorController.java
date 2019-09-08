@@ -27,17 +27,30 @@ public class AdministratorController {
         return administratorMapper.updateStaticContent(staticContent);
     }
 
+    //动态与附件
     @RequestMapping("/insertDynamic")
-    public int insertDynamic(Dynamic dynamic){
-        return administratorMapper.insertDynamic(dynamic);
+    public int insertDynamic(@RequestBody DynamicWithAnnex dynamicWithAnnex){
+        try{
+            return administratorService.insertDynamic(dynamicWithAnnex.getDynamic(),dynamicWithAnnex.getAnnexPath());
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
     }
+
     @RequestMapping("/updateDynamic")
     public int updateDynamic(Dynamic dynamic){
         return administratorMapper.updateDynamic(dynamic);
     }
+
     @RequestMapping("/deleteDynamic")
     public int deleteDynamic(int dynamicId){
-        return administratorMapper.deleteDynamic(dynamicId);
+        try{
+            return administratorService.deleteDynamic(dynamicId);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     @RequestMapping("/insertTeachingInformation")

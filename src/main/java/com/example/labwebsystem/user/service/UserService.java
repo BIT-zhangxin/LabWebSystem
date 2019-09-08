@@ -14,8 +14,8 @@ import java.util.List;
 @Service
 public class UserService {
 
-//    @Autowired
-//    UserMapper userMapper;
+    @Autowired
+    UserMapper userMapper;
 
     @Autowired
     PasswordEncoder passwordEncoder;

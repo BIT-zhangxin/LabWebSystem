@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.labwebsystem.entity.*;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
 import java.util.List;
 
 @Service
@@ -13,6 +14,50 @@ public class AdministratorService {
 
     @Autowired
     AdministratorMapper administratorMapper;
+
+    @Transactional
+    public int insertDynamic(Dynamic dynamic,List<String> annexPathList){
+        dynamic.setTime();
+        int dynamicResult = administratorMapper.insertDynamic(dynamic);
+        if(dynamicResult==0){
+            throw new RuntimeException("插入动态出错");
+        }
+        int dynamicId=dynamic.getId();
+        for (String annexPath:annexPathList){
+            Annex annex=new Annex();
+            String fileName=annexPath.substring(annexPath.lastIndexOf('\\'));
+            annex.initAnnex(fileName,annexPath,dynamicId);
+            int annexResult = administratorMapper.insertAnnex(annex);
+            if(annexResult==0){
+                throw new RuntimeException("插入附件出错");
+            }
+        }
+
+        return 1;
+    }
+
+    @Transactional
+    public int deleteDynamic(int dynamicId){
+        int result=administratorMapper.deleteDynamic(dynamicId);
+        if(result==0){
+            throw new RuntimeException("删除动态出错");
+        }
+        List<Annex> annexList=administratorMapper.selectAnnex(dynamicId);
+        for(Annex annex : annexList){
+            String filePath=annex.getPath();
+            String fileName=annex.getFileName();
+
+            File file=new File(filePath);
+            if(file.exists())
+                file.delete();
+        }
+        result=administratorMapper.deleteAnnexByDynamicId(dynamicId);
+        if(result==0){
+            throw new RuntimeException("删除动态附件出错");
+        }
+
+        return 1;
+    }
 
     //潘恋军
     @Transactional

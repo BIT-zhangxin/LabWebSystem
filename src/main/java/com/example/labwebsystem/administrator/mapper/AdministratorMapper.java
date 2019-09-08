@@ -1,15 +1,32 @@
 package com.example.labwebsystem.administrator.mapper;
 
 import com.example.labwebsystem.entity.*;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.core.annotation.Order;
+
+import java.util.List;
 
 @Mapper
 @Order(1)
 public interface AdministratorMapper {
+
+    //附件
+    @Insert("INSERT into t_annex "+
+            "(`file_name`,`path`,`dynamic_id`) "+
+            "VALUES(#{fileName},#{path},#{dynamicId});")
+    int insertAnnex(Annex annex);
+
+    @Delete("DELETE FROM t_annex "+
+            "WHERE `dynamic_id`=#{param1};")
+    int deleteAnnexByDynamicId(int dynamic_id);
+
+    @Select("SELECT `id` as id, " +
+            "`file_name` as fileName, " +
+            "`path` as path, " +
+            "`dynamic_id` as dynamicId " +
+            "from t_annex " +
+            "WHERE dynamic_id = #{param1};")
+    List<Annex> selectAnnex(int dynamicId);
 
     //潘恋军
     @Update("UPDATE t_static_content SET " +
@@ -21,6 +38,7 @@ public interface AdministratorMapper {
     @Insert("INSERT INTO t_dynamic"+
             "(`title`,`time`,`editor_name`,`content`,`category`) " +
             "VALUES(#{title},#{time},#{editorName},#{content},#{category});")
+    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")//加入该注解可以保持对象后，查看对象插入id
     int insertDynamic(Dynamic dynamic);
 
     @Update("UPDATE t_dynamic SET " +
