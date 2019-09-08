@@ -44,7 +44,7 @@ public interface InfoMapper {
 
     @Select("SELECT `id`,`title` ,`time`,`editor_name` as editorName ,`content`,`category` " +
             "FROM t_dynamic " +
-            "WHERE (`title` like #{param2} or `content` like #{param2}) AND `category' = #{param1};")
+            "WHERE (`title` like #{param2} or `content` like #{param2}) AND `category` = #{param1};")
     List<Dynamic> selectDynamicByCondition(int type,String condition);
 
     //对t_teaching_information表格操作

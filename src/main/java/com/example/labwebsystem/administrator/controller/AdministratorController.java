@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -22,28 +25,40 @@ public class AdministratorController {
     AdministratorMapper administratorMapper;
 
     //潘恋军
+    //静态内容
     @RequestMapping("/updateStaticContent")
     public int updateStaticContent(StaticContent staticContent){
         return administratorMapper.updateStaticContent(staticContent);
     }
 
+    //动态消息（包括照片墙和附件）
     @RequestMapping("/insertDynamic")
     public int insertDynamic(Dynamic dynamic){
+        LocalDate localDate = LocalDate.now();
+        Timestamp now= Timestamp.valueOf(LocalDateTime.now());
+        dynamic.setTime(now);
         return administratorMapper.insertDynamic(dynamic);
     }
+
     @RequestMapping("/updateDynamic")
     public int updateDynamic(Dynamic dynamic){
+        LocalDate localDate = LocalDate.now();
+        Timestamp now= Timestamp.valueOf(LocalDateTime.now());
+        dynamic.setTime(now);
         return administratorMapper.updateDynamic(dynamic);
     }
+
     @RequestMapping("/deleteDynamic")
     public int deleteDynamic(int dynamicId){
         return administratorMapper.deleteDynamic(dynamicId);
     }
 
+    //教学信息
     @RequestMapping("/insertTeachingInformation")
     public int insertTeachingInformation(TeachingInformation teachingInformation){
         return administratorMapper.insertTeachingInformation(teachingInformation);
     }
+
     @RequestMapping("/insertTeachingInformations")
     public int insertTeachingInformations(@RequestBody List<TeachingInformation> listTeachingInformation){
         try {
@@ -53,14 +68,17 @@ public class AdministratorController {
             return 0;
         }
     }
+
     @RequestMapping("/updateTeachingInformation")
     public int updateTeachingInformation(TeachingInformation teachingInformation){
         return administratorMapper.updateTeachingInformation(teachingInformation);
     }
+
     @RequestMapping("/deleteTeachingInformation")
     public int deleteTeachingInformation(int teachingInformationId){
         return administratorMapper.deleteTeachingInformation(teachingInformationId);
     }
+
     @RequestMapping("/deleteTeachingInformations")
     public int deleteTeachingInformations(@RequestBody List<Integer> listTeachingInformationId){
         try{
@@ -71,10 +89,12 @@ public class AdministratorController {
         }
     }
 
+    //科研信息
     @RequestMapping("/insertScientificInformation")
     public int insertScientificInformation(ScientificInformation scientificInformation){
         return administratorMapper.insertScientificInformation(scientificInformation);
     }
+
     @RequestMapping("/insertScientificInformations")
     public int insertScientificInformations(@RequestBody List<ScientificInformation> listScientificInformation){
         try{
@@ -84,14 +104,17 @@ public class AdministratorController {
             return 0;
         }
     }
+
     @RequestMapping("/updateScientificInformation")
     public int updateScientificInformation(ScientificInformation scientificInformation){
         return administratorMapper.updateScientificInformation(scientificInformation);
     }
+
     @RequestMapping("/deleteScientificInformation")
     public int deleteScientificInformation(int scientificInformationId){
         return administratorMapper.deleteScientificInformation(scientificInformationId);
     }
+
     @RequestMapping("/deleteScientificInformations")
     public int deleteScientificInformations(@RequestBody List<Integer> listScientificInformationId){
         try{
@@ -102,10 +125,12 @@ public class AdministratorController {
         }
     }
 
+    //教学成果
     @RequestMapping("/insertTeachResult")
     public int insertTeachResult(TeachResult teachResult){
         return administratorMapper.insertTeachResult(teachResult);
     }
+
     @RequestMapping("/insertTeachResults")
     public int insertTeachResults(@RequestBody List<TeachResult> listTeachResult){
         try{
@@ -115,14 +140,17 @@ public class AdministratorController {
             return 0;
         }
     }
+
     @RequestMapping("/updateTeachResult")
     public int updateTeachResult(TeachResult teachResult){
         return administratorMapper.updateTeachResult(teachResult);
     }
+
     @RequestMapping("/deleteTeachResult")
     public int deleteTeachResult(int teachResultId){
         return administratorMapper.deleteTeachResult(teachResultId);
     }
+
     @RequestMapping("/deleteTeachResults")
     public int deleteTeachResults(@RequestBody List<Integer> listTeachResultId){
         try{
@@ -133,10 +161,12 @@ public class AdministratorController {
         }
     }
 
+    //科研成果
     @RequestMapping("/insertResearchResult")
     public int insertResearchResult(ResearchResult researchResult){
         return administratorMapper.insertResearchResult(researchResult);
     }
+
     @RequestMapping("/insertResearchResults")
     public int insertResearchResults(@RequestBody List<ResearchResult> listResearchResult){
         try{
@@ -146,14 +176,17 @@ public class AdministratorController {
             return 0;
         }
     }
+
     @RequestMapping("/updateResearchResult")
     public int updateResearchResult(ResearchResult researchResult){
         return administratorMapper.updateResearchResult(researchResult);
     }
+
     @RequestMapping("/deleteResearchResult")
     public int deleteResearchResult(int researchResultId){
         return administratorMapper.deleteResearchResult(researchResultId);
     }
+
     @RequestMapping("/deleteResearchResults")
     public int deleteResearchResults(@RequestBody List<Integer> listResearchResultId){
         try{
@@ -164,10 +197,12 @@ public class AdministratorController {
         }
     }
 
+    //教学论文
     @RequestMapping("/insertTeachPaper")
     public int insertTeachPaper(TeachPaper teachPaper){
         return administratorMapper.insertTeachPaper(teachPaper);
     }
+
     @RequestMapping("/insertTeachPapers")
     public int insertTeachPapers(@RequestBody List<TeachPaper> listTeachPaper){
         try{
@@ -177,14 +212,17 @@ public class AdministratorController {
             return 0;
         }
     }
+
     @RequestMapping("/updateTeachPaper")
     public int updateTeachPaper(TeachPaper teachPaper){
         return administratorMapper.updateTeachPaper(teachPaper);
     }
+
     @RequestMapping("/deleteTeachPaper")
     public int deleteTeachPaper(int teachPaperId){
         return  administratorMapper.deleteTeachPaper(teachPaperId);
     }
+
     @RequestMapping("/deleteTeachPapers")
     public int deleteTeachPapers(@RequestBody List<Integer> listTeachPaperId){
         try{
@@ -206,11 +244,11 @@ public class AdministratorController {
         return administratorMapper.insertResearchPaper(researchPaper);
     }
 
-    @RequestMapping("/insertResearchPaperList")
-    public int insertResearchPaperList(@RequestBody List<ResearchPaper> researchPaperList) {
+    @RequestMapping("/insertResearchPapers")
+    public int insertResearchPapers(@RequestBody List<ResearchPaper> researchPaperList) {
         try{
 
-            return administratorService.insertResearchPaperList(researchPaperList);
+            return administratorService.insertResearchPapers(researchPaperList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -227,10 +265,10 @@ public class AdministratorController {
         return administratorMapper.deleteResearchPaper(id);
     }
 
-    @RequestMapping("/deleteResearchPaperList")
-    public int deleteResearchPaperList(@RequestBody List<Integer> researchPaperIdList){
+    @RequestMapping("/deleteResearchPapers")
+    public int deleteResearchPapers(@RequestBody List<Integer> researchPaperIdList){
         try{
-            return administratorService.deleteResearchPaperList(researchPaperIdList);
+            return administratorService.deleteResearchPapers(researchPaperIdList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -243,10 +281,10 @@ public class AdministratorController {
         return administratorMapper.insertPapent(papent);
     }
 
-    @RequestMapping("/insertPapentList")
-    public int insertPapentList(@RequestBody List<Papent> papentList) {
+    @RequestMapping("/insertPapents")
+    public int insertPapents(@RequestBody List<Papent> papentList) {
         try{
-            return administratorService.insertPapentList(papentList);
+            return administratorService.insertPapents(papentList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -263,10 +301,10 @@ public class AdministratorController {
         return administratorMapper.deletePapent(id);
     }
 
-    @RequestMapping("/deletePapentList")
-    public int deletePapentList(@RequestBody List<Integer> papentIdList){
+    @RequestMapping("/deletePapents")
+    public int deletePapents(@RequestBody List<Integer> papentIdList){
         try{
-            return administratorService.deletePapentList(papentIdList);
+            return administratorService.deletePapents(papentIdList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -279,10 +317,10 @@ public class AdministratorController {
         return administratorMapper.insertCopyRight(copyRight);
     }
 
-    @RequestMapping("/insertCopyRightList")
-    public int insertCopyRightList(@RequestBody List<CopyRight> copyRightList) {
+    @RequestMapping("/insertCopyRights")
+    public int insertCopyRights(@RequestBody List<CopyRight> copyRightList) {
         try{
-            return administratorService.insertCopyRightList(copyRightList);
+            return administratorService.insertCopyRights(copyRightList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -299,10 +337,10 @@ public class AdministratorController {
         return administratorMapper.deleteCopyRight(id);
     }
 
-    @RequestMapping("/deleteCopyRightList")
-    public int deleteCopyRightList(@RequestBody List<Integer> copyRightIdList){
+    @RequestMapping("/deleteCopyRights")
+    public int deleteCopyRights(@RequestBody List<Integer> copyRightIdList){
         try{
-            return administratorService.deleteCopyRightList(copyRightIdList);
+            return administratorService.deleteCopyRights(copyRightIdList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -315,10 +353,10 @@ public class AdministratorController {
         return administratorMapper.insertTeachMaterial(teachMaterial);
     }
 
-    @RequestMapping("/insertTeachMaterialList")
-    public int insertTeachMaterialList(@RequestBody List<TeachMaterial> teachMaterialList) {
+    @RequestMapping("/insertTeachMaterials")
+    public int insertTeachMaterials(@RequestBody List<TeachMaterial> teachMaterialList) {
         try{
-            return administratorService.insertTeachMaterialList(teachMaterialList);
+            return administratorService.insertTeachMaterials(teachMaterialList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -335,10 +373,10 @@ public class AdministratorController {
         return administratorMapper.deleteTeachMaterial(id);
     }
 
-    @RequestMapping("/deleteTeachMaterialList")
-    public int deleteTeachMaterialList(@RequestBody List<Integer> teachMaterialIdList){
+    @RequestMapping("/deleteTeachMaterials")
+    public int deleteTeachMaterials(@RequestBody List<Integer> teachMaterialIdList){
         try{
-            return administratorService.deleteTeachMaterialList(teachMaterialIdList);
+            return administratorService.deleteTeachMaterials(teachMaterialIdList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -351,10 +389,10 @@ public class AdministratorController {
         return administratorMapper.insertEduReform(eduReform);
     }
 
-    @RequestMapping("/insertEduReformList")
-    public int insertEduReformList(@RequestBody List<EduReform> eduReformList) {
+    @RequestMapping("/insertEduReforms")
+    public int insertEduReforms(@RequestBody List<EduReform> eduReformList) {
         try{
-            return administratorService.insertEduReformList(eduReformList);
+            return administratorService.insertEduReforms(eduReformList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -371,10 +409,10 @@ public class AdministratorController {
         return administratorMapper.deleteEduReform(id);
     }
 
-    @RequestMapping("/deleteEduReformList")
-    public int deleteEduReformList(@RequestBody List<Integer> eduReformIdList){
+    @RequestMapping("/deleteEduReforms")
+    public int deleteEduReforms(@RequestBody List<Integer> eduReformIdList){
         try{
-            return administratorService.deleteEduReformList(eduReformIdList);
+            return administratorService.deleteEduReforms(eduReformIdList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -387,10 +425,10 @@ public class AdministratorController {
         return administratorMapper.insertGlobalCooperation(globalCooperation);
     }
 
-    @RequestMapping("/insertGlobalCooperationList")
-    public int insertGlobalCooperationList(@RequestBody List<GlobalCooperation> globalCooperationList) {
+    @RequestMapping("/insertGlobalCooperations")
+    public int insertGlobalCooperations(@RequestBody List<GlobalCooperation> globalCooperationList) {
         try{
-            return administratorService.insertGlobalCooperationList(globalCooperationList);
+            return administratorService.insertGlobalCooperations(globalCooperationList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;
@@ -407,10 +445,10 @@ public class AdministratorController {
         return administratorMapper.deleteGlobalCooperation(id);
     }
 
-    @RequestMapping("/deleteGlobalCooperationList")
-    public int deleteGlobalCooperationList(@RequestBody List<Integer> globalCooperationIdList){
+    @RequestMapping("/deleteGlobalCooperations")
+    public int deleteGlobalCooperations(@RequestBody List<Integer> globalCooperationIdList){
         try{
-            return administratorService.deleteGlobalCooperationList(globalCooperationIdList);
+            return administratorService.deleteGlobalCooperations(globalCooperationIdList);
         }catch (RuntimeException e){
             e.printStackTrace();
             return 0;

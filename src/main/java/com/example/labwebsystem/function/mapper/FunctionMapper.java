@@ -24,7 +24,7 @@ public interface FunctionMapper {
             "WHERE `id`=#{id};")
     int updateGrouping(Grouping grouping);
 
-    @Delete("CALL proc_delete_grouping(#{param1});")
+    @Select("CALL proc_delete_grouping(#{param1});")
     int deleteGrouping(int groupingId);
 
     @Select("SELECT " +
