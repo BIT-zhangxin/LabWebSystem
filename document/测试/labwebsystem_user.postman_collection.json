@@ -1,0 +1,635 @@
+{
+	"info": {
+		"_postman_id": "1627e534-d0e7-4db7-a40e-6e439e3f81e8",
+		"name": "labwebsystem_user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "insertstu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/insertStudent?studentNumber=1120161966&name=张嘉熙&lastName=zhang&firstName=xin&sex=0&category=0&nationality=中国&admissionTimeString=2016-8-26&graduationTimeString=2020-8-26&tutorNumber=62011324&assistantTutorNumber=62011373&birthdayString=1998-8-2&email=1047632321@qq.com&mobilePhone=13001211122&remarks=这是一条测试数据&photo=暂无",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"insertStudent"
+					],
+					"query": [
+						{
+							"key": "studentNumber",
+							"value": "1120161966"
+						},
+						{
+							"key": "name",
+							"value": "张嘉熙"
+						},
+						{
+							"key": "lastName",
+							"value": "zhang"
+						},
+						{
+							"key": "firstName",
+							"value": "xin"
+						},
+						{
+							"key": "sex",
+							"value": "0"
+						},
+						{
+							"key": "category",
+							"value": "0"
+						},
+						{
+							"key": "nationality",
+							"value": "中国"
+						},
+						{
+							"key": "admissionTimeString",
+							"value": "2016-8-26"
+						},
+						{
+							"key": "graduationTimeString",
+							"value": "2020-8-26"
+						},
+						{
+							"key": "tutorNumber",
+							"value": "62011324"
+						},
+						{
+							"key": "assistantTutorNumber",
+							"value": "62011373"
+						},
+						{
+							"key": "birthdayString",
+							"value": "1998-8-2"
+						},
+						{
+							"key": "email",
+							"value": "1047632321@qq.com"
+						},
+						{
+							"key": "mobilePhone",
+							"value": "13001211122"
+						},
+						{
+							"key": "remarks",
+							"value": "这是一条测试数据"
+						},
+						{
+							"key": "photo",
+							"value": "暂无"
+						}
+					]
+				},
+				"description": "学生注册测试"
+			},
+			"response": []
+		},
+		{
+			"name": "selectuser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/selectUser?userId=19",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"selectUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteuser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/deleteUser?userId=22",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"deleteUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "22"
+						}
+					]
+				},
+				"description": "测试"
+			},
+			"response": []
+		},
+		{
+			"name": "updateStudent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/updateStudent?id=23&studentNumber=1120161966&name=张嘉熙&lastName=jiaxi&firstName=zhang&sex=0&category=2&nationality=中国&admissionTimeString=2016-9-01&graduationTimeString=2020-8-26&tutorNumber=11111&assistantTutorNumber=2222&birthdayString=1998-10-24&email=1047632321@qq.com&mobilePhone=13001211122&remarks=这是一条测试数据&photo=暂无",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"updateStudent"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "23"
+						},
+						{
+							"key": "studentNumber",
+							"value": "1120161966"
+						},
+						{
+							"key": "name",
+							"value": "张嘉熙"
+						},
+						{
+							"key": "lastName",
+							"value": "jiaxi"
+						},
+						{
+							"key": "firstName",
+							"value": "zhang"
+						},
+						{
+							"key": "sex",
+							"value": "0"
+						},
+						{
+							"key": "category",
+							"value": "2"
+						},
+						{
+							"key": "nationality",
+							"value": "中国"
+						},
+						{
+							"key": "admissionTimeString",
+							"value": "2016-9-01"
+						},
+						{
+							"key": "graduationTimeString",
+							"value": "2020-8-26"
+						},
+						{
+							"key": "tutorNumber",
+							"value": "11111"
+						},
+						{
+							"key": "assistantTutorNumber",
+							"value": "2222"
+						},
+						{
+							"key": "birthdayString",
+							"value": "1998-10-24"
+						},
+						{
+							"key": "email",
+							"value": "1047632321@qq.com"
+						},
+						{
+							"key": "mobilePhone",
+							"value": "13001211122"
+						},
+						{
+							"key": "remarks",
+							"value": "这是一条测试数据"
+						},
+						{
+							"key": "photo",
+							"value": "暂无"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectStudent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/selectStudent?currentPage=1&pageSize=10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"selectStudent"
+					],
+					"query": [
+						{
+							"key": "currentPage",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectStudentByCondition?condition=张",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/selectStudentByCondition?condition=张",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"selectStudentByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "张"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectStudentByCondition?condition=1120161966",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/selectStudentByCondition?condition=1120161966",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"selectStudentByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "1120161966"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertteacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/insertTeacher?jobNumber=6120103556&name=薛静锋&lastName=xue&firstName=jingfeng&sex=0&category=0&nationality=中国&unit=unit&jobTitle=教授&tutorQualification=博士生导师 硕士生导师&position=软件学院教学副院长 软件评测中心主任&laboratoryPosition=实验室主任&birthdayString=1970-01-01&email=email&mobilePhone=mobilePhone&officePhone=officePhone&remarks=这是一条测试数据&photo=暂无",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"insertTeacher"
+					],
+					"query": [
+						{
+							"key": "jobNumber",
+							"value": "6120103556"
+						},
+						{
+							"key": "name",
+							"value": "薛静锋"
+						},
+						{
+							"key": "lastName",
+							"value": "xue"
+						},
+						{
+							"key": "firstName",
+							"value": "jingfeng"
+						},
+						{
+							"key": "sex",
+							"value": "0"
+						},
+						{
+							"key": "category",
+							"value": "0"
+						},
+						{
+							"key": "nationality",
+							"value": "中国"
+						},
+						{
+							"key": "unit",
+							"value": "unit"
+						},
+						{
+							"key": "jobTitle",
+							"value": "教授"
+						},
+						{
+							"key": "tutorQualification",
+							"value": "博士生导师 硕士生导师"
+						},
+						{
+							"key": "position",
+							"value": "软件学院教学副院长 软件评测中心主任"
+						},
+						{
+							"key": "laboratoryPosition",
+							"value": "实验室主任"
+						},
+						{
+							"key": "birthdayString",
+							"value": "1970-01-01"
+						},
+						{
+							"key": "email",
+							"value": "email"
+						},
+						{
+							"key": "mobilePhone",
+							"value": "mobilePhone"
+						},
+						{
+							"key": "officePhone",
+							"value": "officePhone"
+						},
+						{
+							"key": "remarks",
+							"value": "这是一条测试数据"
+						},
+						{
+							"key": "photo",
+							"value": "暂无"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTeacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/updateTeacher?id=19&jobNumber=6120103556&name=薛静锋&lastName=xue&firstName=jingfeng&sex=0&category=0&nationality=中国&unit=unit&jobTitle=教授&tutorQualification=博士生导师 硕士生导师&position=软件学院教学副院长 软件评测中心主任&laboratoryPosition=实验室主任1&birthdayString=1970-01-01&email=email&mobilePhone=mobilePhone&officePhone=officePhone&remarks=这是一条测试数据&photo=暂无",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"updateTeacher"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "19"
+						},
+						{
+							"key": "jobNumber",
+							"value": "6120103556"
+						},
+						{
+							"key": "name",
+							"value": "薛静锋"
+						},
+						{
+							"key": "lastName",
+							"value": "xue"
+						},
+						{
+							"key": "firstName",
+							"value": "jingfeng"
+						},
+						{
+							"key": "sex",
+							"value": "0"
+						},
+						{
+							"key": "category",
+							"value": "0"
+						},
+						{
+							"key": "nationality",
+							"value": "中国"
+						},
+						{
+							"key": "unit",
+							"value": "unit"
+						},
+						{
+							"key": "jobTitle",
+							"value": "教授"
+						},
+						{
+							"key": "tutorQualification",
+							"value": "博士生导师 硕士生导师"
+						},
+						{
+							"key": "position",
+							"value": "软件学院教学副院长 软件评测中心主任"
+						},
+						{
+							"key": "laboratoryPosition",
+							"value": "实验室主任1"
+						},
+						{
+							"key": "birthdayString",
+							"value": "1970-01-01"
+						},
+						{
+							"key": "email",
+							"value": "email"
+						},
+						{
+							"key": "mobilePhone",
+							"value": "mobilePhone"
+						},
+						{
+							"key": "officePhone",
+							"value": "officePhone"
+						},
+						{
+							"key": "remarks",
+							"value": "这是一条测试数据"
+						},
+						{
+							"key": "photo",
+							"value": "暂无"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeacher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/selectTeacher?currentPage=2&pageSize=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"selectTeacher"
+					],
+					"query": [
+						{
+							"key": "currentPage",
+							"value": "2"
+						},
+						{
+							"key": "pageSize",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeacherByCondition?condition=薛",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/selectTeacherByCondition?condition=薛",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"selectTeacherByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "薛"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeacherByCondition?condition=6120103556",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/selectTeacherByCondition?condition=6120103556",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"selectTeacherByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "6120103556"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

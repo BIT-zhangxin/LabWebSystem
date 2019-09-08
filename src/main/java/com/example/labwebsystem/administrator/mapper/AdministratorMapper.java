@@ -76,7 +76,7 @@ public interface AdministratorMapper {
             "VALUES (#{name},#{level},#{year});")
     int insertTeachResult(TeachResult teachResult);
 
-    @Update("UPDATE SET " +
+    @Update("UPDATE t_teach_result SET " +
             "`name` = #{name}, " +
             "`level` = #{level}, " +
             "`year` = #{year} " +
@@ -92,7 +92,7 @@ public interface AdministratorMapper {
             "VALUES (#{name},#{level},#{year});")
     int insertResearchResult(ResearchResult researchResult);
 
-    @Update("UPDATE SET " +
+    @Update("UPDATE t_research_result SET " +
             "`name` = #{name}, " +
             "`level` = #{level}, " +
             "`year` = #{year} " +
@@ -107,7 +107,7 @@ public interface AdministratorMapper {
             "VALUES (#{title},#{conference},#{conferenceId},#{year});")
     int insertTeachPaper(TeachPaper teachPaper);
 
-    @Update("UPDATE SET " +
+    @Update("UPDATE t_teach_paper SET " +
             "`title` = #{title}, " +
             "`conference` = #{conference}, " +
             "`conference_id` = #{conferenceId}, " +
