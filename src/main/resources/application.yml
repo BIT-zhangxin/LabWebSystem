@@ -7,6 +7,7 @@ spring:
     hikari:
       minimum-idle: 2
 
+
   resources:
     static-locations: classpath:static/,file:static/
   freemarker:

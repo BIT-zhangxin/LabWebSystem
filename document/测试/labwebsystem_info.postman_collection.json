@@ -1,0 +1,759 @@
+{
+	"info": {
+		"_postman_id": "bbe0a828-0e44-408c-a6c1-3c85947c4b1e",
+		"name": "labwebsystem_info",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "selectTeacher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeacher?category=0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeacher"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectGraduate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectGraduate",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectGraduate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "staticContentId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectStaticContent?staticContentId=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectStaticContent"
+					],
+					"query": [
+						{
+							"key": "staticContentId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectDynamicByType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectDynamicByType?type=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectDynamicByType"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectDynamic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectDynamic?dynamicId=26",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectDynamic"
+					],
+					"query": [
+						{
+							"key": "dynamicId",
+							"value": "26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectDynamicByCondition?type=0&condition=asd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectDynamicByCondition?type=0&condition=asd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectDynamicByCondition"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "0"
+						},
+						{
+							"key": "condition",
+							"value": "asd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeachingInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeachingInformation",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeachingInformation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeachingInformationByCondition?condition=英",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeachingInformationByCondition?condition=英",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeachingInformationByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "英"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectScientificInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectScientificInformation",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectScientificInformation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectScientificInformationByCondition?condition=凤",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectScientificInformationByCondition?condition=凤",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectScientificInformationByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "凤"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeachResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeachResult",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeachResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeachResultByCondition?condition=asd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeachResultByCondition?condition=asd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeachResultByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "asd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectResearchResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectResearchResult",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectResearchResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectResearchResultByCondition?condition=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectResearchResultByCondition?condition=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectResearchResultByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeachPaper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeachPaper",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeachPaper"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeachPaperByCondition?condition=豆腐",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeachPaperByCondition?condition=豆腐",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeachPaperByCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "豆腐"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectResearchPaper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectResearchPaper",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectResearchPaper"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectResearchPaperMyCondition?condition=ads",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectResearchPaperMyCondition?condition=ads",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectResearchPaperMyCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "ads"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectPapent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectPapent",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectPapent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectPapentMyCondition?condition=sdf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectPapentMyCondition?condition=sdf",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectPapentMyCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "sdf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeachMaterial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeachMaterial",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeachMaterial"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectTeachMaterialMyCondition?condition=a",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectTeachMaterialMyCondition?condition=a",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectTeachMaterialMyCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectEduReform",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectEduReform",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectEduReform"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectEduReformMyCondition?condition=a",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectEduReformMyCondition?condition=a",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectEduReformMyCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectGlobalCooperation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectGlobalCooperation",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectGlobalCooperation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectGlobalCooperationMyCondition?condition=国",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectGlobalCooperationMyCondition?condition=国",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectGlobalCooperationMyCondition"
+					],
+					"query": [
+						{
+							"key": "condition",
+							"value": "国"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "selectAnnex",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/selectAnnex?dynamicId=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"selectAnnex"
+					],
+					"query": [
+						{
+							"key": "dynamicId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchAdmissionsInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/info/searchAdmissionsInformation?type=本科生",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"info",
+						"searchAdmissionsInformation"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "本科生"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
