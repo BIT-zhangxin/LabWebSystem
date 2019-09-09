@@ -21,18 +21,6 @@ public class InfoController {
     InfoMapper infoMapper;
 
     //潘恋军
-    //查询专职或兼职教师
-    @RequestMapping("/selectTeacher")
-    public List<Teacher> selectTeacher(int category){
-        return infoMapper.selectTeacher(category);
-    }
-
-    //查询在校生或毕业生
-    @RequestMapping("/selectGraduate")
-    public List<Student> selectGraduate(){
-        return infoMapper.selectGraduate();
-    }
-
     //查询静态内容
     @RequestMapping("/selectStaticContent")
     public StaticContent selectStaticContent(int staticContentId){

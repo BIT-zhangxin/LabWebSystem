@@ -12,21 +12,6 @@ import java.util.List;
 public interface InfoMapper {
 
     //潘恋军
-    //对t_teacher表格操作
-    @Select("SELECT id,job_number as jobNumber,name,last_name as lastName,first_name as firstName," +
-            "sex,category,nationality,unit,job_title as jobTitle ,tutor_qualification as tutorQualification" +
-            "position,laboratory_position as laboratoryPosition,birthday,email,mobile_phone as mobilePhone,office_phone as officePhone ,remarks,photo " +
-            "from t_teacher WHERE `category` = #{param1};")
-    List<Teacher> selectTeacher(int category);
-
-    //对t_student表格进行操作
-    @Select("SELECT id,student_number as studentNumber,name,last_name as lastName ,first_name as firstName," +
-            "sex,category,nationality,admission_time as admissionTime,graduation_time as graduationTime," +
-            "first_employment_unit as firstEmploymentUnit,tutor_number as tutorNumber,assistant_tutor_number as assistantTutorNumber," +
-            "birthday,email,mobile_phone as mobilePhone,remarks,photo " +
-            "from t_student WHERE `graduation_time` > now();")
-    List<Student> selectGraduate();
-
     //对t_static_content表格进行操作
     @Select("SELECT * FROM t_static_content WHERE `t_static_content`.id = #{param1};")
     StaticContent selectStaticContent(int staticContentId);

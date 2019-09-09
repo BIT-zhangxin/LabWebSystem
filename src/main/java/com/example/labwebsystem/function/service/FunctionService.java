@@ -14,7 +14,6 @@ public class FunctionService {
     @Autowired
     FunctionMapper functionMapper;
 
-
     @Transactional
     public int addGroupingUsers(List<UserGrouping> listUserGrouping) throws RuntimeException {
         for(UserGrouping userGrouping:listUserGrouping){
@@ -25,7 +24,6 @@ public class FunctionService {
         }
         return 1;
     }
-
 
     @Transactional
     public int deleteGroupingUsers(List<UserGrouping> listUserGrouping) throws RuntimeException {

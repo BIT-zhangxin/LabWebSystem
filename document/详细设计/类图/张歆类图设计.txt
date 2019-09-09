@@ -1,76 +1,82 @@
 UserController
 -userService: UserService
 -userMapper: UserMapper
-+GetUserInfo(): User
-+InsertStudent(Student student): int
-+UpdateStudent(Student student): int
-+SelectStudent(int currentPage,int pageSize): List<Student>
-+SelectStudentByCondition(String condition) :List<Student>
-+InsertTeacher(Teacher teacher): int
-+UpdateTeacher(Teacher teacher): int
-+SelectTeacher(int currentPage,int pageSize): List<Teacher>
-+SelectTeacherByCondition(String condition): List<Teacher>
-+SelectUser(int userId): UserData
-+SelectUserName(int userId): String
-+DeleteUser(int userId): int
-+CreateUsers(List<UserData> listUserData): int
-+DeleteUsers(List<int> listUserId): int
++login(String name,String password): User
++updatePassword(int userId,String oldPassword,newPassword): int
++insertStudent(Student student): int
++updateStudent(Student student): int
++selectStudent(int currentPage,int pageSize): List<Student>
++selectStudentByType(int type): List<Student>
++selectStudentByCondition(String condition) :List<Student>
++insertTeacher(Teacher teacher): int
++updateTeacher(Teacher teacher): int
++selectTeacher(int currentPage,int pageSize): List<Teacher>
++selectTeacherByCondition(String condition): List<Teacher>
++selectUser(int userId): UserData
++deleteUser(int userId): int
++createUsers(List<UserData> listUserData): int
++deleteUsers(List<int> listUserId): int
 
 UserService
 -userMapper: UserMapper
-+CreateUsers(List<UserData> listUserData): int
-+DeleteUsers(List<int> listUserId): int
++updatePassword(int userId,String oldPassword,String newPassword): int
++createUsers(List<UserData> listUserData): int
++deleteUsers(List<int> listUserId): int
 
 UserMapper
-+InsertStudent(Student student): int
-+UpdateStudent(Student studnet): int
-+SelectStudent(int currentPage,int pageSize): List<Student>
-+SelectStudentByCondition(String condition) :List<Student>
-+InsertTeacher(Teacher teacher): int
-+UpdateTeacher(Teacher teacher): int
-+SelectTeacher(int currentPage,int pageSize): List<Teacher>
-+SelectTeacherByCondition(String condition): List<Teacher>
-+SelectUser(int userId): UserData
-+SelectUserName(int userId): String
-+DeleteUser(int userId): int
++login(String name,String password): User
++selectPassword(int userId): String
++updatePassword(int userId,String password): int
++insertStudent(Student student): int
++updateStudent(Student studnet): int
++selectStudent(int currentPage,int pageSize): List<Student>
++selectStudentByType(String sign): List<Student>
++selectStudentByCondition(String condition) :List<Student>
++insertTeacher(Teacher teacher): int
++updateTeacher(Teacher teacher): int
++selectTeacher(int currentPage,int pageSize): List<Teacher>
++selectTeacherByCondition(String condition): List<Teacher>
++selectUser(int userId): UserData
++selectUserName(int userId): String
++deleteUser(int userId): int
 
 FunctionController
 -functionService: FunctionService
 -functionMapper: FunctionMapper
-+CreateGrouping(Grouping grouping): int
-+UpdateGrouping(Grouping grouping): int
-+DeleteGrouping(int groupingId): int
-+SelectGroupingMembers(int groupingId): List<int>
-+SelectJoinGrouping(int userId): List<Grouping>
-+SelectCreateGrouping(int userId): List<Grouping>
-+AddGroupingUsers(int groupingId,List<int> listUserId): int
-+DeleteGroupingUsers(int groupingId,List<int> listUserId): int
-+CreateAnnouncement(Announcement announcement): int
-+UpdateAnnouncement(Announcement announcement): int
-+SelectJoinAnnouncement(int userId): int
-+SelectCreateAnnouncement(int userId): int
-+DeleteAnnouncement(int announcementId): int
-+CreateCheckin(): int
-+UpdateCheckin(int checkinId): int
++createGrouping(Grouping grouping): int
++updateGrouping(Grouping grouping): int
++deleteGrouping(int groupingId): int
++selectGroupingMembers(int groupingId): List<int>
++selectJoinGrouping(int userId): List<Grouping>
++selectCreateGrouping(int userId): List<Grouping>
++addGroupingUsers(int groupingId,List<int> listUserId): int
++deleteGroupingUsers(int groupingId,List<int> listUserId): int
++createAnnouncement(Announcement announcement): int
++updateAnnouncement(Announcement announcement): int
++selectJoinAnnouncement(int userId): int
++selectCreateAnnouncement(int userId): int
++deleteAnnouncement(int announcementId): int
++createCheckin(): int
++updateCheckin(int checkinId): int
 
 FunctionService
 -functionMapper: FunctionMapper
-+AddGroupingUsers(int groupingId,List<int> listUserId): int
-+DeleteGroupingUsers(int groupingId,List<int> listUserId): int
++addGroupingUsers(int groupingId,List<int> listUserId): int
++deleteGroupingUsers(int groupingId,List<int> listUserId): int
 
 FunctionMapper
-+CreateGrouping(Grouping grouping): int
-+UpdateGrouping(Grouping grouping): int
-+DeleteGrouping(int groupingId): int
-+SelectGroupingMembers(int groupingId): List<int>
-+SelectJoinGrouping(int userId): List<Grouping>
-+SelectCreateGrouping(int userId): List<Grouping>
-+AddGroupingUser(int groupingId,int userId): int
-+DeleteGroupingUser(int groupingId,int userId): int
-+CreateAnnouncement(Announcement announcement): int
-+UpdateAnnouncement(Announcement announcement): int
-+SelectJoinAnnouncement(int userId): int
-+SelectCreateAnnouncement(int userId): int
-+DeleteAnnouncement(int announcementId): int
-+CreateCheckin(): int
-+UpdateCheckin(int checkinId): int
++createGrouping(Grouping grouping): int
++updateGrouping(Grouping grouping): int
++deleteGrouping(int groupingId): int
++selectGroupingMembers(int groupingId): List<int>
++selectJoinGrouping(int userId): List<Grouping>
++selectCreateGrouping(int userId): List<Grouping>
++addGroupingUser(int groupingId,int userId): int
++deleteGroupingUser(int groupingId,int userId): int
++createAnnouncement(Announcement announcement): int
++updateAnnouncement(Announcement announcement): int
++selectJoinAnnouncement(int userId): int
++selectCreateAnnouncement(int userId): int
++deleteAnnouncement(int announcementId): int
++createCheckin(): int
++updateCheckin(int checkinId): int
