@@ -5,7 +5,7 @@ import com.example.labwebsystem.entity.Teacher;
 import com.example.labwebsystem.entity.UserData;
 import com.example.labwebsystem.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,11 +18,24 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+
+
+    @Transactional
+    public int updatePassword(int userId,String oldPassword,String newPassword){
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+        String oldEncodePassword=userMapper.selectPassword(userId);
+        if(passwordEncoder.matches(oldPassword,oldEncodePassword)){
+            String newEncodePassword=passwordEncoder.encode(newPassword);
+            return userMapper.updatePassword(userId,newEncodePassword);
+        }
+        else {
+            return -1;
+        }
+    }
 
     @Transactional
     public int createUsers(List<UserData> listUserData) throws RuntimeException {
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         for(UserData userData:listUserData){
             if(userData.getUserType()==1){
                 Teacher teacher=new Teacher(userData);

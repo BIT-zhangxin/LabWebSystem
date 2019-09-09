@@ -1,6 +1,5 @@
 package com.example.labwebsystem;
 
-import com.example.labwebsystem.security.entity.UserDetail;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -20,7 +19,6 @@ public class Swagger2 {
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .ignoredParameterTypes(UserDetail.class)
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.labwebsystem"))

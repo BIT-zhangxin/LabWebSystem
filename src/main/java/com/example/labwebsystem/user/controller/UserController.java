@@ -4,15 +4,11 @@ import com.example.labwebsystem.entity.Student;
 import com.example.labwebsystem.entity.Teacher;
 import com.example.labwebsystem.entity.User;
 import com.example.labwebsystem.entity.UserData;
-import com.example.labwebsystem.security.entity.UserDetail;
 import com.example.labwebsystem.user.mapper.UserMapper;
 import com.example.labwebsystem.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -28,9 +24,6 @@ public class UserController {
     @Autowired
     UserMapper userMapper;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
-
     //测试
     @RequestMapping("/test")
     public int test(){
@@ -40,35 +33,34 @@ public class UserController {
     //创建管理员账号
     @RequestMapping("/insertAdmin")
     public int insertAdmin(){
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         String password=passwordEncoder.encode("123456");
         return userMapper.insertAdmin(password);
     }
 
-    //获取用户信息（需要登录状态）
-    @RequestMapping("/getUserInfo")
-    public User getUserInfo(UserDetail userDetail){
-        User user =new User();
-        user.setId(userDetail.getId());
-        user.setName(userDetail.getName());
-        user.setCategory(userDetail.getCategory());
-        return user;
-    }
-
-    //修改密码（需要登录状态），未测试
-    @RequestMapping("/updatePassword")
-    public int updatePassword(UserDetail userDetail,String oldPassword,String newPassword){
-        if(passwordEncoder.matches(oldPassword,userDetail.getPassword())){
-            String encodePassword=passwordEncoder.encode(newPassword);
-            return userMapper.updatePassword(userDetail.getId(),encodePassword);
+    //登录
+    @PostMapping("/login")
+    public User login(String name,String password){
+        User user=userMapper.login(name);
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+        if(passwordEncoder.matches(password,user.getPassword())){
+            return user;
         }
         else{
-            return -1;
+            return null;
         }
     }
 
-    //添加一个学生账户，已测试
+    //修改密码
+    @RequestMapping("/updatePassword")
+    public int updatePassword(int userId,String oldPassword,String newPassword){
+        return userService.updatePassword(userId,oldPassword,newPassword);
+    }
+
+    //添加一个学生账户
     @RequestMapping("/insertStudent")
     public int insertStudent(Student student){
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         String encodePassword=passwordEncoder.encode(student.getStudentNumber());
 
         SimpleDateFormat stringToDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -110,9 +102,10 @@ public class UserController {
         return userMapper.selectStudentByCondition(condition,"%"+condition+"%");
     }
 
-    //添加一个教师账户，已测试
+    //添加一个教师账户
     @RequestMapping("/insertTeacher")
     public int insertTeacher(Teacher teacher){
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         String encodePassword=passwordEncoder.encode(teacher.getJobNumber());
 
         SimpleDateFormat stringToDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -150,13 +143,13 @@ public class UserController {
         return userMapper.selectTeacherByCondition(condition,"%"+condition+"%");
     }
 
-    //根据id查询用户（除去管理员的所有用户），已测试
+    //根据id查询用户（除去管理员的所有用户）
     @RequestMapping("/selectUser")
     public UserData selectUser(int userId){
         return userMapper.selectUser(userId);
     }
 
-    //根据id删除用户（除去管理员的所有用户），已测试
+    //根据id删除用户（除去管理员的所有用户）
     @RequestMapping("/deleteUser")
     public int deleteUser(int userId){
         return userMapper.deleteUser(userId);
