@@ -13,7 +13,7 @@ spring:
   freemarker:
     suffix: .html
   jackson:
-    date-format: yyyy/MM/dd
+    date-format: yyyy-MM-dd
     time-zone: Hongkong
 server:
   port: 8070
