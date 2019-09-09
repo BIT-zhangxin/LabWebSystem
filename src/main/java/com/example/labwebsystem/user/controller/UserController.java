@@ -40,7 +40,7 @@ public class UserController {
 
     //登录
     @PostMapping("/login")
-    public User login(String name,String password){
+    public User login(@RequestBody String name,@RequestBody String password){
         User user=userMapper.login(name);
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
         if(passwordEncoder.matches(password,user.getPassword())){
@@ -52,8 +52,8 @@ public class UserController {
     }
 
     //修改密码
-    @RequestMapping("/updatePassword")
-    public int updatePassword(int userId,String oldPassword,String newPassword){
+    @PostMapping("/updatePassword")
+    public int updatePassword(@RequestBody int userId,@RequestBody String oldPassword,@RequestBody String newPassword){
         return userService.updatePassword(userId,oldPassword,newPassword);
     }
 
