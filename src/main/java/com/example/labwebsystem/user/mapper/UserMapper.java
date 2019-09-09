@@ -2,6 +2,7 @@ package com.example.labwebsystem.user.mapper;
 
 import com.example.labwebsystem.entity.Student;
 import com.example.labwebsystem.entity.Teacher;
+import com.example.labwebsystem.entity.User;
 import com.example.labwebsystem.entity.UserData;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -20,6 +21,26 @@ public interface UserMapper {
             "(`id`,`name`,`password`,`category`) " +
             "VALUES(1,'admin',#{param1},4);")
     int insertAdmin(String password);
+
+    @Select("SELECT " +
+            "`id` as id, " +
+            "`name` as name, " +
+            "`password` as password, " +
+            "`category` as category " +
+            "FROM t_user " +
+            "WHERE `name`=#{param1};")
+    User login(String name);
+
+    @Select("SELECT " +
+            "`password` as password " +
+            "FROM t_user " +
+            "WHERE `id`={param1};")
+    String selectPassword(int userId);
+
+    @Update("UPDATE t_user " +
+            "SET `password`=#{param2} " +
+            "WHERE `id`=#{param1};")
+    int updatePassword(int userId,String password);
 
     @Select("CALL proc_insert_student(#{password},#{student.studentNumber},#{student.name},#{student.lastName},#{student.firstName}, " +
             "#{student.sex},#{student.category},#{student.nationality},#{student.admissionTime},#{student.graduationTime},#{student.tutorNumber}, " +
@@ -172,9 +193,4 @@ public interface UserMapper {
 
     @Select("CALL proc_delete_user(#{param1});")
     int deleteUser(int userId);
-
-    @Update("UPDATE t_user " +
-            "SET `password`=#{param2} " +
-            "WHERE `id`=#{param1};")
-    int updatePassword(int userId,String password);
 }
