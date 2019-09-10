@@ -60,8 +60,10 @@ public class AdministratorController {
     @PostMapping("/importFile")
     public String importFile(MultipartFile file, HttpServletRequest req) throws IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd/");
+
+
         String format = sdf.format(new Date());
-        String realPath = "D://upload" + format;
+        String realPath = req.getServletContext().getRealPath("/upload") + format;
         File folder = new File(realPath);
         if (!folder.exists()) {
             folder.mkdirs();
@@ -69,8 +71,16 @@ public class AdministratorController {
         String oldName = file.getOriginalFilename();
         String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."));
         file.transferTo(new File(folder,newName));
-        String url = "D://upload" + format+ newName;
+        String url = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/upload" + format + newName;
         System.out.println(url);
+
+        Annex annex=new Annex();
+        annex.setPath(url);
+        annex.setId(1);
+        annex.setContent(" ");
+        annex.setFileName(oldName);
+        insertAnnex(annex);
+
         return url;
     }
 
