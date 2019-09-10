@@ -103,7 +103,7 @@ public class UserController {
     }
     
     //查询毕业生
-    @RequestMapping("/selectStudentType")
+    @RequestMapping("/selectGraduatedStudent")
     public List<Student> selectGraduatedStudent(){
         return userMapper.selectGraduatedStudent();
     }

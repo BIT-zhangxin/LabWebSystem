@@ -4,15 +4,19 @@ import com.example.labwebsystem.administrator.mapper.AdministratorMapper;
 import com.example.labwebsystem.administrator.service.AdministratorService;
 import com.example.labwebsystem.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value="/administrator", method = {RequestMethod.POST,RequestMethod.GET})
@@ -24,7 +28,6 @@ public class AdministratorController {
     @Autowired
     AdministratorMapper administratorMapper;
 
-    //潘恋军
     //静态内容
     @RequestMapping("/updateStaticContent")
     public int updateStaticContent(StaticContent staticContent){
@@ -51,6 +54,46 @@ public class AdministratorController {
     @RequestMapping("/deleteDynamic")
     public int deleteDynamic(int dynamicId){
         return administratorMapper.deleteDynamic(dynamicId);
+    }
+
+    //上传文件
+    @PostMapping("/importFile")
+    public String importFile(MultipartFile file, HttpServletRequest req) throws IOException {
+        SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd/");
+        String format = sdf.format(new Date());
+        String realPath = "D://upload" + format;
+        File folder = new File(realPath);
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        String oldName = file.getOriginalFilename();
+        String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."));
+        file.transferTo(new File(folder,newName));
+        String url = "D://upload" + format+ newName;
+        System.out.println(url);
+        return url;
+    }
+
+    //创建附件
+    @RequestMapping("/insertAnnex")
+    public int insertAnnex(Annex annex){
+        LocalDate localDate = LocalDate.now();
+        Timestamp now= Timestamp.valueOf(LocalDateTime.now());
+        annex.setTime(now);
+        return administratorMapper.insertAnnex(annex);
+    }
+
+    @RequestMapping("/updateAnnex")
+    public int updateAnnex(Annex annex){
+        LocalDate localDate = LocalDate.now();
+        Timestamp now= Timestamp.valueOf(LocalDateTime.now());
+        annex.setTime(now);
+        return administratorMapper.updateAnnex(annex);
+    }
+
+    @RequestMapping("/deleteAnnex")
+    public int deleteAnnex(int annexId){
+        return administratorMapper.deleteAnnex(annexId);
     }
 
     //教学信息
@@ -233,11 +276,6 @@ public class AdministratorController {
         }
     }
 
-
-
-
-
-    //何祎君
     //科研论文
     @RequestMapping("/insertResearchPaper")
     public int insertResearchPaper(ResearchPaper researchPaper){
