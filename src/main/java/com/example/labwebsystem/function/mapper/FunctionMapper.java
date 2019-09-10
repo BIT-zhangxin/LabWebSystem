@@ -108,9 +108,7 @@ public interface FunctionMapper {
             "WHERE `id`=#{param1};")
     int deleteAnnouncement(int announcementId);
 
-    @Insert("INSERT INTO t_checkin " +
-            "(`checkin_time`,`checkout_time`,`user_id`) " +
-            "VALUES(#{param1},#{param1},#{param2});")
+    @Select("CALL proc_create_checkin(#{param1},#{param2});")
     int createCheckin(Timestamp now,int userId);
 
     @Update("UPDATE t_checkin " +
