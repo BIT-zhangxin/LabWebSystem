@@ -11,12 +11,11 @@ import java.util.List;
 @Order(1)
 public interface InfoMapper {
 
-    //潘恋军
-    //对t_static_content表格进行操作
+    //静态内容
     @Select("SELECT * FROM t_static_content WHERE `t_static_content`.id = #{param1};")
     StaticContent selectStaticContent(int staticContentId);
 
-    //对t_dynamic表格操作
+    //动态消息
     @Select("SELECT `id`,`title` ,`time`,`editor_name` as editorName ,`content`,`category` " +
             "FROM t_dynamic " +
             "WHERE `category` = #{param1};")
@@ -32,7 +31,17 @@ public interface InfoMapper {
             "WHERE (`title` like #{param2} or `content` like #{param2}) AND `category` = #{param1};")
     List<Dynamic> selectDynamicByCondition(int type,String condition);
 
-    //对t_teaching_information表格操作
+    //附件
+    @Select("SELECT " +
+            "`id` as id, " +
+            "`file_name` as fileName, " +
+            "`path` as path, " +
+            "`content` as content, " +
+            "`time` as time " +
+            "FROM t_annex;")
+    List<Annex> selectAnnex();
+
+    //教学信息
     @Select("SELECT `id`,`numbering`,`name`,`properties`,`teacher_number` as teacherNumber,`teaching_time` as teachingTime,`student_level` as studentLevel " +
             "FROM t_teaching_information;")
     List<TeachingInformation> selectTeachingInformation();
@@ -42,7 +51,7 @@ public interface InfoMapper {
             "WHERE `name` like #{param1} or `teaching_time` like #{param1} or `student_level` like #{param1};")
     List<TeachingInformation> selectTeachingInformationByCondition(String condition);
 
-    //对t_scientific_information表格操作
+    //科研信息
     @Select("SELECT `id`,`properties`,`name`,`teacher_number` as teacherNumber " +
             "FROM t_scientific_information;")
     List<ScientificInformation> selectScientificInformation();
@@ -52,21 +61,21 @@ public interface InfoMapper {
             "WHERE `name` like #{param1} or `teacher_number` like #{param1};")
     List<ScientificInformation> selectScientificInformationByCondition(String condition);
 
-    //对t_research_result表格操作
-    @Select("SELECT * FROM t_research_result;")
-    List<ResearchResult> selectResearchResult();
-
-    @Select("SELECT * FROM t_research_result WHERE `name` like #{param1};")
-    List<ResearchResult> selectResearchResultByCondition(String condition);
-
-    //对t_teach_result表格操作
+    //教学成果
     @Select("SELECT * FROM t_teach_result;")
     List<TeachResult> selectTeachResult();
 
     @Select("SELECT * FROM t_teach_result WHERE `name` like #{param1};")
     List<TeachResult> selectTeachResultByCondition(String condition);
 
-    //对t_teach_paper表格操作
+    //研究成果
+    @Select("SELECT * FROM t_research_result;")
+    List<ResearchResult> selectResearchResult();
+
+    @Select("SELECT * FROM t_research_result WHERE `name` like #{param1};")
+    List<ResearchResult> selectResearchResultByCondition(String condition);
+
+    //教学论文
     @Select("SELECT `id`,`title`,`conference`,`conference_id` as conferenceId,`year` " +
             "FROM t_teach_paper;")
     List<TeachPaper> selectTeachPaper();
@@ -76,13 +85,6 @@ public interface InfoMapper {
             "WHERE `title` like #{param1} or `conference` like #{param1};")
     List<TeachPaper> selectTeachPaperByCondition(String condition);
 
-
-
-
-
-
-
-    //何祎君
     //科研论文
     @Select("SELECT `id` as id, " +
             "`title` as title, " +
@@ -179,13 +181,4 @@ public interface InfoMapper {
             "from t_admissions_information " +
             "WHERE student_type = #{param1} LIMIT 1;")
     AdmissionsInformation selectAdmissionsInformation(String type);
-
-    @Select("SELECT `id` as id, " +
-            "`file_name` as fileName, " +
-            "`path` as path, " +
-            "`size` as size, " +
-            "`dynamic_id` as dynamicId " +
-            "from t_annex " +
-            "WHERE dynamic_id = #{param1};")
-    List<Annex> selectAnnex(int dynamicId);
 }

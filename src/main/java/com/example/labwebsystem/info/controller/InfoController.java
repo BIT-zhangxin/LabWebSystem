@@ -20,7 +20,6 @@ public class InfoController {
     @Autowired
     InfoMapper infoMapper;
 
-    //潘恋军
     //查询静态内容
     @RequestMapping("/selectStaticContent")
     public StaticContent selectStaticContent(int staticContentId){
@@ -43,6 +42,11 @@ public class InfoController {
     @RequestMapping("/selectDynamicByCondition")
     public List<Dynamic> selectDynamicByCondition(int type,String condition){
         return infoMapper.selectDynamicByCondition(type,"%"+condition+"%");
+    }
+
+    @RequestMapping("/selectAnnex")
+    public List<Annex> selectAnnex(){
+        return infoMapper.selectAnnex();
     }
 
     //查询教学信息
@@ -105,15 +109,6 @@ public class InfoController {
         return infoMapper.selectTeachPaperByCondition("%"+condition+"%");
     }
 
-
-
-
-
-
-
-
-
-    //何祎君
     //查询科研论文
     @RequestMapping("/selectResearchPaper")
     public List<ResearchPaper> selectResearchPaper(){
@@ -178,11 +173,5 @@ public class InfoController {
     @RequestMapping("/searchAdmissionsInformation")
     public AdmissionsInformation searchAdmissionsInformation(String type){
         return infoMapper.selectAdmissionsInformation(type);
-    }
-
-    //id查询附件
-    @RequestMapping("/selectAnnex")
-    public List<Annex> selectAnnex(int dynamicId){
-        return infoMapper.selectAnnex(dynamicId);
     }
 }

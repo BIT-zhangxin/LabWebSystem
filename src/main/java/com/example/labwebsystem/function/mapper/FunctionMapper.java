@@ -79,17 +79,15 @@ public interface FunctionMapper {
     int updateAnnouncement(Announcement announcement);
 
     @Select("SELECT " +
-            "t_announcement.`id` AS `id`, " +
-            "t_announcement.`title` AS `title`, " +
-            "t_announcement.`time` AS `time`, " +
-            "t_announcement.`editor_name` AS `editorName`, " +
-            "t_announcement.`content` AS `content`, " +
-            "t_announcement.`grouping_id` AS `groupingId` " +
-            "FROM t_announcement,t_grouping " +
-            "WHERE t_announcement.`grouping_id`=t_grouping.`id` " +
-            "AND ((t_grouping.`category`=3) " +
-            "OR (t_grouping.`category`=0 AND #{param1} IN (SELECT t_user_grouping.`user_id` FROM t_user_grouping WHERE t_grouping.`id`=t_user_grouping.`grouping_id`)) " +
-            "OR (t_grouping.`category`=(SELECT t_user.`category` FROM t_user WHERE t_user.`id`=#{param1} LIMIT 1)));")
+            "`id` AS `id`, " +
+            "`title` AS `title`, " +
+            "`time` AS `time`, " +
+            "`editor_name` AS `editorName`, " +
+            "`content` AS `content`, " +
+            "`grouping_id` AS `groupingId` " +
+            "FROM t_announcement " +
+            "WHERE `grouping_id`=3 " +
+            "OR `grouping_id`=#{param1};")
     List<Announcement> selectJoinAnnouncement(int userId);
 
     @Select("SELECT " +
@@ -108,13 +106,11 @@ public interface FunctionMapper {
             "WHERE `id`=#{param1};")
     int deleteAnnouncement(int announcementId);
 
-    @Insert("INSERT INTO t_checkin " +
-            "(`checkin_time`,`checkout_time`,`user_id`) " +
-            "VALUES(#{param1},#{param1},#{param2});")
+    @Select("CALL proc_create_checkin(#{param1},#{param2});")
     int createCheckin(Timestamp now,int userId);
 
     @Update("UPDATE t_checkin " +
             "SET `checkout_time`=#{param1} " +
-            "WHERE `user_id`=#{param2};")
-    int updateCheckin(Timestamp now,int userId);
+            "WHERE `id`=#{param2};")
+    int updateCheckin(Timestamp now,int checkinId);
 }

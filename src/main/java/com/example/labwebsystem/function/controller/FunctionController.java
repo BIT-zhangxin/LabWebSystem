@@ -131,9 +131,9 @@ public class FunctionController {
 
     //更新签到
     @RequestMapping("/updateCheckin")
-    public int updateCheckin(int userId){
+    public int updateCheckin(int checkinId){
         LocalDate localDate = LocalDate.now();
         Timestamp now= Timestamp.valueOf(LocalDateTime.now());
-        return functionMapper.updateCheckin(now,userId);
+        return functionMapper.updateCheckin(now,checkinId);
     }
 }

@@ -4,6 +4,7 @@ InfoController
 +selectDynamicByType(int type,int currentPage,int pageSize): List<Dynamic>
 +selectDynamic(int dynamic): Dynamic
 +selectDynamicByCondition(int type,String condition): List<Dynamic>
++selectAnnex(): List<Annex>
 +selectTeachingInformation(int currentPage,int pageSize): List<TeachingInformation>
 +selectTeachingInformationMyCondition(String condition): List<TeachingInformation>
 +selectScientificInformation(int currentPage,int pageSize): List<ScientificInformation>
@@ -34,6 +35,7 @@ InfoMapper
 +selectDynamicByType(int type,int currentPage,int pageSize): List<Dynamic>
 +selectDynamic(int dynamic): Dynamic
 +selectDynamicByCondition(int type,String condition): List<Dynamic>
++selectAnnex(): List<Annex>
 +selectTeachingInformation(int currentPage,int pageSize): List<TeachingInformation>
 +selectTeachingInformationMyCondition(String condition): List<TeachingInformation>
 +selectScientificInformation(int currentPage,int pageSize): List<ScientificInformation>

@@ -11,7 +11,6 @@ import org.springframework.core.annotation.Order;
 @Order(1)
 public interface AdministratorMapper {
 
-    //潘恋军
     @Update("UPDATE t_static_content SET " +
             "`title` = #{title}, " +
             "`content` = #{content} " +
@@ -35,6 +34,23 @@ public interface AdministratorMapper {
     @Delete("DELETE FROM t_dynamic " +
             "WHERE `t_dynamic`.`id`=#{id};")
     int deleteDynamic(int dynamicId);
+
+    @Insert("INSERT INTO t_annex" +
+            "(`file_name`,`path`,`content`,`time`) " +
+            "VALUES(#{fileName},#{path},#{content},#{time});")
+    int insertAnnex(Annex annex);
+
+    @Update("UPDATE t_annex SET " +
+            "`file_name`=#{fileName}, " +
+            "`path`=#{path}, " +
+            "`content`=#{content}, " +
+            "`time`=#{time} " +
+            "WHERE `id`=#{id};")
+    int updateAnnex(Annex annex);
+
+    @Delete("DELETE FROM t_annex " +
+            "WHERE `id`=#{param1};")
+    int deleteAnnex(int annexId);
 
     @Insert("INSERT INTO t_teaching_information" +
             "(`numbering`,`name`,`properties`,`teacher_number`,`teaching_time`,`student_level`) " +
@@ -119,13 +135,6 @@ public interface AdministratorMapper {
             "WHERE `t_teach_paper`.`id`=#{id};")
     int deleteTeachPaper(int teachPaperId);
 
-
-
-
-
-
-
-    //何祎君
     //科研论文
     @Insert("INSERT INTO t_research_paper "+
             "(`title`,`conference`,`conference_id`,`year`) "+

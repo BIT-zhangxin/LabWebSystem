@@ -39,11 +39,12 @@ public class UserController {
     }
 
     //登录
-    @PostMapping("/login")
-    public User login(@RequestBody String name,@RequestBody String password){
+    @RequestMapping("/login")
+    public User login(String name,String password){
         User user=userMapper.login(name);
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
-        if(passwordEncoder.matches(password,user.getPassword())){
+        if(user!=null&&passwordEncoder.matches(password,user.getPassword())){
+            user.setPassword(null);
             return user;
         }
         else{
@@ -52,8 +53,8 @@ public class UserController {
     }
 
     //修改密码
-    @PostMapping("/updatePassword")
-    public int updatePassword(@RequestBody int userId,@RequestBody String oldPassword,@RequestBody String newPassword){
+    @RequestMapping("/updatePassword")
+    public int updatePassword(int userId,String oldPassword,String newPassword){
         return userService.updatePassword(userId,oldPassword,newPassword);
     }
 
@@ -96,16 +97,16 @@ public class UserController {
         return userMapper.selectStudent();
     }
 
-    //查询在校生和毕业生，0代表在校生，1代表毕业生
-    @RequestMapping("/selectStudentType")
-    public List<Student> selectStudentByType(int type){
-        if(type==0){
-            return userMapper.selectStudentByType(">");
-        }
-        else{
-            return userMapper.selectStudentByType("<=");
-        }
-
+    //查询在校生
+    @RequestMapping("/selectUnderGraduatedStudent")
+    public List<Student> selectUnderGraduatedStudent(){
+        return userMapper.selectUnderGraduatedStudent();
+    }
+    
+    //查询毕业生
+    @RequestMapping("/selectGraduatedStudent")
+    public List<Student> selectGraduatedStudent(){
+        return userMapper.selectGraduatedStudent();
     }
 
     //条件查询学生
@@ -165,6 +166,24 @@ public class UserController {
     @RequestMapping("/deleteUser")
     public int deleteUser(int userId){
         return userMapper.deleteUser(userId);
+    }
+
+    //查询用户id
+    @RequestMapping("/selectUserName")
+    public String selectUserName(int userId,int category){
+        if(category==1||category==3){
+            return userMapper.selectTeacherName(userId);
+        }
+        else if(category==2){
+            return userMapper.selectStudentName(userId);
+        }
+        else if(category==4){
+            return "管理员";
+        }
+        else{
+            return null;
+        }
+
     }
 
     //批量添加用户

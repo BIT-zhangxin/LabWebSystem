@@ -34,7 +34,7 @@ public interface UserMapper {
     @Select("SELECT " +
             "`password` as password " +
             "FROM t_user " +
-            "WHERE `id`={param1};")
+            "WHERE `id`=#{param1};")
     String selectPassword(int userId);
 
     @Update("UPDATE t_user " +
@@ -110,8 +110,31 @@ public interface UserMapper {
             "`remarks` AS `remarks`,\n" +
             "`photo` AS `photo` " +
             "FROM t_student " +
-            "WHERE graduation_time #{param1} now();")
-    List<Student> selectStudentByType(String sign);
+            "WHERE graduation_time > now();")
+    List<Student> selectUnderGraduatedStudent();
+
+    @Select("SELECT " +
+            "`id` AS `id`,\n" +
+            "`student_number` AS `studentNumber`,\n" +
+            "`name` AS `name`,\n" +
+            "`last_name` AS `lastName`,\n" +
+            "`first_name` AS `firstName`,\n" +
+            "`sex` AS `sex`,\n" +
+            "`category` AS `category`,\n" +
+            "`nationality` AS `nationality`,\n" +
+            "`admission_time` AS `admissionTime`,\n" +
+            "`graduation_time` AS `graduationTIme`,\n" +
+            "`first_employment_unit` AS `firstEmploymentUnit`,\n" +
+            "`tutor_number` AS `tutorNumber`,\n" +
+            "`assistant_tutor_number` AS `assistantTutorNumber`,\n" +
+            "`birthday` AS `birthday`,\n" +
+            "`email` AS `email`,\n" +
+            "`mobile_phone` AS `mobilePhone`,\n" +
+            "`remarks` AS `remarks`,\n" +
+            "`photo` AS `photo` " +
+            "FROM t_student " +
+            "WHERE graduation_time <= now();")
+    List<Student> selectGraduatedStudent();
 
     @Select("SELECT " +
             "`id` AS `id`,\n" +
@@ -210,6 +233,12 @@ public interface UserMapper {
             "FROM t_teacher " +
             "WHERE job_number=#{param1} OR name LIKE #{param2};")
     List<Teacher> selectTeacherByCondition(String condition1,String condition2);
+
+    @Select("SELECT name FROM t_teacher WHERE id=#{param1};")
+    String selectTeacherName(int userId);
+
+    @Select("SELECT name FROM t_student WHERE id=#{param1};")
+    String selectStudentName(int userId);
 
     @Select("CALL proc_select_user(#{param1});")
     UserData selectUser(int userId);
