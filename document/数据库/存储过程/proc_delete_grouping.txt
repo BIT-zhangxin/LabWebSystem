@@ -1,0 +1,35 @@
+USE `labwebsystem`;
+DROP PROCEDURE
+IF
+	EXISTS `proc_delete_grouping`;
+
+delimiter //
+CREATE PROCEDURE `proc_delete_grouping` ( IN `id` INT ) BEGIN
+	DECLARE
+		tmp INT;
+	START TRANSACTION;
+	
+	SET tmp = ( SELECT count( 1 ) FROM t_grouping WHERE t_grouping.`id` = `id` );
+	IF
+		( tmp = 0 ) THEN
+		SELECT
+			0;
+		
+		ELSEIF ( tmp = 1 ) THEN
+		DELETE 
+		FROM
+			t_user_grouping 
+		WHERE
+			`grouping_id` = `id`;
+		DELETE 
+		FROM
+			t_grouping 
+		WHERE
+			t_grouping.`id` = `id`;
+		SELECT
+			1;
+		
+	END IF;
+	COMMIT;
+
+END //

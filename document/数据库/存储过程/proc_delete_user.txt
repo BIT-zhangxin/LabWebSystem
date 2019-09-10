@@ -1,0 +1,53 @@
+USE `labwebsystem`;
+DROP PROCEDURE
+IF
+	EXISTS `proc_delete_user`;
+
+delimiter //
+CREATE PROCEDURE `proc_delete_user` ( IN `id` INT ) BEGIN
+	DECLARE
+		tmp INT;
+	START TRANSACTION;
+	
+	SET tmp = ( SELECT `category` FROM t_user WHERE t_user.`id` = `id` );
+	IF
+		tmp IS NULL THEN
+		SELECT
+			- 1;
+		
+		ELSEIF ( tmp = 4 ) THEN
+		SELECT
+			0;
+		
+		ELSEIF ( tmp = 1 OR tmp = 3 ) THEN
+		DELETE 
+		FROM
+			t_teacher 
+		WHERE
+			t_teacher.`id` = `id`;
+		DELETE 
+		FROM
+			t_user 
+		WHERE
+			t_user.`id` = `id`;
+		SELECT
+			1;
+		
+		ELSEIF ( tmp = 2 ) THEN
+		DELETE 
+		FROM
+			t_student 
+		WHERE
+			t_student.`id` = `id`;
+		DELETE 
+		FROM
+			t_user 
+		WHERE
+			t_user.`id` = `id`;
+		SELECT
+			1;
+		
+	END IF;
+	COMMIT;
+
+END //

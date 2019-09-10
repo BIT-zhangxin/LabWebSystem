@@ -1,0 +1,83 @@
+USE `labwebsystem`;
+DROP PROCEDURE
+IF
+	EXISTS `proc_insert_teacher`;
+
+delimiter //
+CREATE PROCEDURE `proc_insert_teacher` (
+	IN `password` VARCHAR ( 60 ),
+	IN `job_number` VARCHAR ( 20 ),
+	IN `name` VARCHAR ( 20 ),
+	IN `last_name` VARCHAR ( 40 ),
+	IN `first_name` VARCHAR ( 40 ),
+	IN `sex` INT,
+	IN `category` INT,
+	IN `nationality` VARCHAR ( 100 ),
+	IN `unit` VARCHAR ( 100 ),
+	IN `job_title` VARCHAR ( 20 ),
+	IN `tutor_qualification` VARCHAR ( 20 ),
+	IN `position` VARCHAR ( 50 ),
+	IN `laboratory_position` VARCHAR ( 50 ),
+	IN `birthday` date,
+	IN `email` VARCHAR ( 255 ),
+	IN `mobile_phone` VARCHAR ( 20 ),
+	IN `office_phone` VARCHAR ( 20 ),
+	IN `remarks` VARCHAR ( 1000 ),
+	IN `photo` VARCHAR ( 100 ) 
+	) BEGIN
+	DECLARE
+		tmp INT;
+	START TRANSACTION;
+	INSERT INTO t_user ( `name`, `password`, `category` )
+	VALUES
+		( `job_number`, `password`, 1 );
+	
+	SET tmp = ( SELECT LAST_INSERT_ID( ) );
+	INSERT INTO t_teacher (
+		`id`,
+		`job_number`,
+		`name`,
+		`last_name`,
+		`first_name`,
+		`sex`,
+		`category`,
+		`nationality`,
+		`unit`,
+		`job_title`,
+		`tutor_qualification`,
+		`position`,
+		`laboratory_position`,
+		`birthday`,
+		`email`,
+		`mobile_phone`,
+		`office_phone`,
+		`remarks`,
+		`photo` 
+	)
+	VALUES
+		(
+			`tmp`,
+			`job_number`,
+			`name`,
+			`last_name`,
+			`first_name`,
+			`sex`,
+			`category`,
+			`nationality`,
+			`unit`,
+			`job_title`,
+			`tutor_qualification`,
+			`position`,
+			`laboratory_position`,
+			`birthday`,
+			`email`,
+			`mobile_phone`,
+			`office_phone`,
+			`remarks`,
+			`photo` 
+		);
+	SELECT
+		1;
+	COMMIT;
+
+END //

@@ -1,0 +1,18 @@
+USE `labwebsystem`;
+DROP PROCEDURE
+IF
+	EXISTS `proc_create_checkin`;
+
+delimiter //
+CREATE PROCEDURE `proc_create_checkin` ( IN `now` TIMESTAMP, IN `user_id` INT ) BEGIN
+	DECLARE
+		tmp INT;
+	INSERT INTO t_checkin ( `checkin_time`, `checkout_time`, `user_id` )
+	VALUES
+		( `now`, `now`, `user_id` );
+	
+	SET tmp = ( SELECT LAST_INSERT_ID( ) );
+	SELECT
+		tmp;
+
+END //

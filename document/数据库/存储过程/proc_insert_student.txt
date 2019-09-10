@@ -1,0 +1,77 @@
+USE `labwebsystem`;
+DROP PROCEDURE
+IF
+	EXISTS `proc_insert_student`;
+
+delimiter //
+CREATE PROCEDURE `proc_insert_student` (
+	IN `password` VARCHAR ( 60 ),
+	IN `student_number` VARCHAR ( 20 ),
+	IN `name` VARCHAR ( 20 ),
+	IN `last_name` VARCHAR ( 40 ),
+	IN `first_name` VARCHAR ( 40 ),
+	IN `sex` INT,
+	IN `category` INT,
+	IN `nationality` VARCHAR ( 100 ),
+	IN `admission_time` date,
+	IN `graduation_time` date,
+	IN `tutor_number` VARCHAR ( 20 ),
+	IN `assistant_tutor_number` VARCHAR ( 20 ),
+	IN `birthday` date,
+	IN `email` VARCHAR ( 255 ),
+	IN `mobile_phone` VARCHAR ( 20 ),
+	IN `remarks` VARCHAR ( 1000 ),
+	IN `photo` VARCHAR ( 100 ) 
+	) BEGIN
+	DECLARE
+		tmp INT;
+	START TRANSACTION;
+	INSERT INTO t_user ( `name`, `password`, `category` )
+	VALUES
+		( `student_number`, `password`, 2 );
+	
+	SET tmp = ( SELECT LAST_INSERT_ID( ) );
+	INSERT INTO t_student (
+		`id`,
+		`student_number`,
+		`name`,
+		`last_name`,
+		`first_name`,
+		`sex`,
+		`category`,
+		`nationality`,
+		`admission_time`,
+		`graduation_time`,
+		`tutor_number`,
+		`assistant_tutor_number`,
+		`birthday`,
+		`email`,
+		`mobile_phone`,
+		`remarks`,
+		`photo` 
+	)
+	VALUES
+		(
+			`tmp`,
+			`student_number`,
+			`name`,
+			`last_name`,
+			`first_name`,
+			`sex`,
+			`category`,
+			`nationality`,
+			`admission_time`,
+			`graduation_time`,
+			`tutor_number`,
+			`assistant_tutor_number`,
+			`birthday`,
+			`email`,
+			`mobile_phone`,
+			`remarks`,
+			`photo` 
+		);
+	SELECT
+		1;
+	COMMIT;
+
+END //

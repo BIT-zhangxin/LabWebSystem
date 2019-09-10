@@ -1,0 +1,72 @@
+USE `labwebsystem`;
+DROP PROCEDURE
+IF
+	EXISTS `proc_select_user`;
+
+delimiter //
+CREATE PROCEDURE `proc_select_user` ( IN `id` INT ) BEGIN
+	DECLARE
+		tmp INT;
+	
+	SET tmp = ( SELECT `category` FROM t_user WHERE t_user.`id` = `id` );
+	IF
+		( tmp IS NULL OR tmp = 4 ) THEN
+		SELECT
+			'不存在该用户，查询失败' AS `remarks`;
+		
+		ELSEIF ( tmp = 1 OR tmp = 3 ) THEN
+		SELECT
+			1 AS `userType`,
+			`id` AS `id`,
+			`job_number` AS `jobNumber`,
+			`name` AS `name`,
+			`last_name` AS `lastName`,
+			`first_name` AS `firstName`,
+			`sex` AS `sex`,
+			`category` AS `category`,
+			`nationality` AS `nationality`,
+			`unit` AS `unit`,
+			`job_title` AS `jobTitle`,
+			`tutor_qualification` AS `tutorQualification`,
+			`position` AS `position`,
+			`laboratory_position` AS `laboratoryPosition`,
+			`birthday` AS `birthday`,
+			`email` AS `email`,
+			`mobile_phone` AS `mobilePhone`,
+			`office_phone` AS `officePhone`,
+			`remarks` AS `remarks`,
+			`photo` AS `photo` 
+		FROM
+			t_teacher 
+		WHERE
+			t_teacher.`id` = `id`;
+		
+		ELSEIF ( tmp = 2 ) THEN
+		SELECT
+			2 AS `userType`,
+			`id` AS `id`,
+			`student_number` AS `studentNumber`,
+			`name` AS `name`,
+			`last_name` AS `lastName`,
+			`first_name` AS `firstName`,
+			`sex` AS `sex`,
+			`category` AS `category`,
+			`nationality` AS `nationality`,
+			`admission_time` AS `admissionTime`,
+			`graduation_time` AS `graduationTIme`,
+			`first_employment_unit` AS `firstEmploymentUnit`,
+			`tutor_number` AS `tutorNumber`,
+			`assistant_tutor_number` AS `assistantTutorNumber`,
+			`birthday` AS `birthday`,
+			`email` AS `email`,
+			`mobile_phone` AS `mobilePhone`,
+			`remarks` AS `remarks`,
+			`photo` AS `photo` 
+		FROM
+			t_student 
+		WHERE
+			t_student.`id` = `id`;
+		
+	END IF;
+
+END //
