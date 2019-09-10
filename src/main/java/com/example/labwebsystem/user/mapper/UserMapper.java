@@ -34,7 +34,7 @@ public interface UserMapper {
     @Select("SELECT " +
             "`password` as password " +
             "FROM t_user " +
-            "WHERE `id`={param1};")
+            "WHERE `id`=#{param1};")
     String selectPassword(int userId);
 
     @Update("UPDATE t_user " +
