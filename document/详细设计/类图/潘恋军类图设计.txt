@@ -5,6 +5,10 @@ AdministratorController
 +insertDynamic(Dynamic dynamic): int
 +updateDynamic(Dynamic dynamic): int
 +deleteDynamic(int dynamicId): int
++importFile(MultipartFile file): String
++insertAnnex(Annex annex): int
++updateAnnex(Annex annex): int
++deleteAnnex(int annexId): int
 +insertTeachingInformation(TeachingInformation teachingInformation): int
 +insertTeachingInformations(List<TeachingInformation> listTeachingInformation): int
 +updateTeachingInformation(TeachingInformation teachingInformation): int
@@ -92,6 +96,9 @@ AdministratorMapper
 +insertDynamic(Dynamic dynamic): int
 +updateDynamic(Dynamic dynamic): int
 +deleteDynamic(int dynamicId): int
++insertAnnex(Annex annex): int
++updateAnnex(Annex annex): int
++deleteAnnex(int annexId): int
 +insertTeachingInformation(TeachingInformation teachingInformation): int
 +updateTeachingInformation(TeachingInformation teachingInformation): int
 +deleteTeachingInformation(int teachingInformationId): int

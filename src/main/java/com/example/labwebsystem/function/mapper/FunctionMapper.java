@@ -115,6 +115,6 @@ public interface FunctionMapper {
 
     @Update("UPDATE t_checkin " +
             "SET `checkout_time`=#{param1} " +
-            "WHERE `user_id`=#{param2};")
-    int updateCheckin(Timestamp now,int userId);
+            "WHERE `id`=#{param2};")
+    int updateCheckin(Timestamp now,int checkinId);
 }

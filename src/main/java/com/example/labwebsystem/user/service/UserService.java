@@ -18,8 +18,6 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-
-
     @Transactional
     public int updatePassword(int userId,String oldPassword,String newPassword){
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();

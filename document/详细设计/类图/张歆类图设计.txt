@@ -56,7 +56,7 @@ FunctionController
 +selectJoinAnnouncement(int userId): int
 +selectCreateAnnouncement(int userId): int
 +deleteAnnouncement(int announcementId): int
-+createCheckin(): int
++createCheckin(int userId): int
 +updateCheckin(int checkinId): int
 
 FunctionService
@@ -78,5 +78,5 @@ FunctionMapper
 +selectJoinAnnouncement(int userId): int
 +selectCreateAnnouncement(int userId): int
 +deleteAnnouncement(int announcementId): int
-+createCheckin(): int
++createCheckin(int userId): int
 +updateCheckin(int checkinId): int
