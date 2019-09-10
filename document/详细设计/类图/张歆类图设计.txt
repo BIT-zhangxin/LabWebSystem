@@ -14,6 +14,7 @@ UserController
 +selectTeacherByCondition(String condition): List<Teacher>
 +selectUser(int userId): UserData
 +deleteUser(int userId): int
++selectUserName(int userId,int category): String
 +createUsers(List<UserData> listUserData): int
 +deleteUsers(List<int> listUserId): int
 
@@ -37,6 +38,8 @@ UserMapper
 +selectTeacher(int currentPage,int pageSize): List<Teacher>
 +selectTeacherByCondition(String condition): List<Teacher>
 +selectUser(int userId): UserData
++selectTeacherName(int userId): String
++selectStudentName(int userId): String
 +selectUserName(int userId): String
 +deleteUser(int userId): int
 

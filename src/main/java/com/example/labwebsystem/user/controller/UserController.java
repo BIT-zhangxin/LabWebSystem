@@ -43,7 +43,7 @@ public class UserController {
     public User login(String name,String password){
         User user=userMapper.login(name);
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
-        if(passwordEncoder.matches(password,user.getPassword())){
+        if(user!=null&&passwordEncoder.matches(password,user.getPassword())){
             user.setPassword(null);
             return user;
         }
@@ -166,6 +166,24 @@ public class UserController {
     @RequestMapping("/deleteUser")
     public int deleteUser(int userId){
         return userMapper.deleteUser(userId);
+    }
+
+    //查询用户id
+    @RequestMapping("/selectUserName")
+    public String selectUserName(int userId,int category){
+        if(category==1||category==3){
+            return userMapper.selectTeacherName(userId);
+        }
+        else if(category==2){
+            return userMapper.selectStudentName(userId);
+        }
+        else if(category==4){
+            return "管理员";
+        }
+        else{
+            return null;
+        }
+
     }
 
     //批量添加用户

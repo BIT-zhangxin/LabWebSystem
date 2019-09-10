@@ -234,6 +234,12 @@ public interface UserMapper {
             "WHERE job_number=#{param1} OR name LIKE #{param2};")
     List<Teacher> selectTeacherByCondition(String condition1,String condition2);
 
+    @Select("SELECT name FROM t_teacher WHERE id=#{param1};")
+    String selectTeacherName(int userId);
+
+    @Select("SELECT name FROM t_student WHERE id=#{param1};")
+    String selectStudentName(int userId);
+
     @Select("CALL proc_select_user(#{param1});")
     UserData selectUser(int userId);
 
