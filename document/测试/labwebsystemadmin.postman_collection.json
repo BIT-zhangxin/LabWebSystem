@@ -1,0 +1,2189 @@
+{
+	"info": {
+		"_postman_id": "9385d583-796b-493a-b0ac-2dec1e5d4edf",
+		"name": "labwebsystemadmin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "updateStaticContent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateStaticContent?id=1&title=test&content=testcontent",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateStaticContent"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "title",
+							"value": "test"
+						},
+						{
+							"key": "content",
+							"value": "testcontent"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertDynamic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertDynamic?title=testdynamic&editorName=zjx&content=aaaaa&category=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertDynamic"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "testdynamic"
+						},
+						{
+							"key": "editorName",
+							"value": "zjx"
+						},
+						{
+							"key": "content",
+							"value": "aaaaa"
+						},
+						{
+							"key": "category",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateDynamic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateDynamic?id=47&title=testupdatedynamic&editorName=zjx&content=aaaaa&category=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateDynamic"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "47"
+						},
+						{
+							"key": "title",
+							"value": "testupdatedynamic"
+						},
+						{
+							"key": "editorName",
+							"value": "zjx"
+						},
+						{
+							"key": "content",
+							"value": "aaaaa"
+						},
+						{
+							"key": "category",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteDynamic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteDynamic?dynamicId=47",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteDynamic"
+					],
+					"query": [
+						{
+							"key": "dynamicId",
+							"value": "47"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTeachingInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertTeachingInformation?numbering=111&name=111&properties=111&teacherNumber=111&teachingTime=111&studentLevel=111",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertTeachingInformation"
+					],
+					"query": [
+						{
+							"key": "numbering",
+							"value": "111"
+						},
+						{
+							"key": "name",
+							"value": "111"
+						},
+						{
+							"key": "properties",
+							"value": "111"
+						},
+						{
+							"key": "teacherNumber",
+							"value": "111"
+						},
+						{
+							"key": "teachingTime",
+							"value": "111"
+						},
+						{
+							"key": "studentLevel",
+							"value": "111"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTeachingInformations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n{\t\n\t\"numbering\":\"111\",\n\t\"name\":\"111\",\n\t\"properties\":\"111\",\n\t\"teacherNumber\":\"111\",\n\t\"teachingTime\":\"111\",\n\t\"studentLevel\":\"111\"\n},\n{\t\n\t\"numbering\":\"222\",\n\t\"name\":\"222\",\n\t\"properties\":\"222\",\n\t\"teacherNumber\":\"222\",\n\t\"teachingTime\":\"222\",\n\t\"studentLevel\":\"222\"\n},\n{\t\n\t\"numbering\":\"333\",\n\t\"name\":\"333\",\n\t\"properties\":\"333\",\n\t\"teacherNumber\":\"333\",\n\t\"teachingTime\":\"333\",\n\t\"studentLevel\":\"333\"\n}\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertTeachingInformations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertTeachingInformations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTeachingInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateTeachingInformation?id=18&numbering=111&name=111&properties=111&teacherNumber=111&teachingTime=111&studentLevel=333",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateTeachingInformation"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "18"
+						},
+						{
+							"key": "numbering",
+							"value": "111"
+						},
+						{
+							"key": "name",
+							"value": "111"
+						},
+						{
+							"key": "properties",
+							"value": "111"
+						},
+						{
+							"key": "teacherNumber",
+							"value": "111"
+						},
+						{
+							"key": "teachingTime",
+							"value": "111"
+						},
+						{
+							"key": "studentLevel",
+							"value": "333"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTeachingInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteTeachingInformation?teachingInformationId=18",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteTeachingInformation"
+					],
+					"query": [
+						{
+							"key": "teachingInformationId",
+							"value": "18"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTeachingInformations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[19,20,21]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteTeachingInformations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteTeachingInformations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertScientificInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertScientificInformation?properties=aaa&name=aaa&teacherNumber=aaa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertScientificInformation"
+					],
+					"query": [
+						{
+							"key": "properties",
+							"value": "aaa"
+						},
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "teacherNumber",
+							"value": "aaa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertScientificInformations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n{properties\":\"aaa\",\n\"name\":\"aaa\",\n\"teacherNumber\":\"aaa\"},\n{properties\":\"aaa\",\n\"name\":\"aaa\",\n\"teacherNumber\":\"aaa\"},\n{properties\":\"aaa\",\n\"name\":\"aaa\",\n\"teacherNumber\":\"aaa\"},\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertScientificInformations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertScientificInformations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateScientificInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateScientificInformation?properties=aaa&name=aaa&teacherNumber=aaa&id=16",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateScientificInformation"
+					],
+					"query": [
+						{
+							"key": "properties",
+							"value": "aaa"
+						},
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "teacherNumber",
+							"value": "aaa"
+						},
+						{
+							"key": "id",
+							"value": "16"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteScientificInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteScientificInformation?scientificInformationId=16",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteScientificInformation"
+					],
+					"query": [
+						{
+							"key": "scientificInformationId",
+							"value": "16"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteScientificInformations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[17,18,19]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteScientificInformations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteScientificInformations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTeachResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertTeachResult?name=aaa&level=aaa&year=2001",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertTeachResult"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "level",
+							"value": "aaa"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTeachResults",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t},\n\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t},\n\t\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t}\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertTeachResults",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertTeachResults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTeachResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateTeachResult?id=16&name=aaa&level=aaa&year=2001",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateTeachResult"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "16"
+						},
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "level",
+							"value": "aaa"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTeachResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteTeachResult?teachResultId=16",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteTeachResult"
+					],
+					"query": [
+						{
+							"key": "teachResultId",
+							"value": "16"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTeachResults",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[17,18,19]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteTeachResults",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteTeachResults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertResearchResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertResearchResult?name=aaa&level=aaa&year=2001",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertResearchResult"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "level",
+							"value": "aaa"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertResearchResults",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t},\n\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t},\n\t\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t}\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertResearchResults",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertResearchResults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateResearchResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateResearchResult?id=16&name=aaa&level=aaa&year=2001",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateResearchResult"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "16"
+						},
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "level",
+							"value": "aaa"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteResearchResult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteResearchResult?researchResultId=7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteResearchResult"
+					],
+					"query": [
+						{
+							"key": "researchResultId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteResearchResults",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[8,9,10]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteResearchResults",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteResearchResults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTeachPaper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertTeachPaper?title=aaa&conference=aaa&conferenceId=111&year=2000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertTeachPaper"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "aaa"
+						},
+						{
+							"key": "conference",
+							"value": "aaa"
+						},
+						{
+							"key": "conferenceId",
+							"value": "111"
+						},
+						{
+							"key": "year",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTeachPapers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"title\":\"aaa\",\n\"conference\":\"aaa\",\n\"conferenceId\":\"111\",\n\"year\":\"2000\"},\n{\"title\":\"aaa\",\n\"conference\":\"aaa\",\n\"conferenceId\":\"111\",\n\"year\":\"2000\"},\n{\"title\":\"aaa\",\n\"conference\":\"aaa\",\n\"conferenceId\":\"111\",\n\"year\":\"2000\"}]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertTeachPapers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertTeachPapers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTeachPaper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateTeachPaper?title=aaa&conference=aaa&conferenceId=111&year=2000&id=8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateTeachPaper"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "aaa"
+						},
+						{
+							"key": "conference",
+							"value": "aaa"
+						},
+						{
+							"key": "conferenceId",
+							"value": "111"
+						},
+						{
+							"key": "year",
+							"value": "2000"
+						},
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTeachPaper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteTeachPaper?teachPaperId=8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteTeachPaper"
+					],
+					"query": [
+						{
+							"key": "teachPaperId",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTeachPapers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[9,10,11]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteTeachPapers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteTeachPapers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertResearchPaper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertResearchPaper?title=aaa&conference=aaa&conferenceId=111&year=2000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertResearchPaper"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "aaa"
+						},
+						{
+							"key": "conference",
+							"value": "aaa"
+						},
+						{
+							"key": "conferenceId",
+							"value": "111"
+						},
+						{
+							"key": "year",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertResearchPapers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"title\":\"aaa\",\n\"conference\":\"aaa\",\n\"conferenceId\":\"111\",\n\"year\":\"2000\"},\n{\"title\":\"aaa\",\n\"conference\":\"aaa\",\n\"conferenceId\":\"111\",\n\"year\":\"2000\"},\n{\"title\":\"aaa\",\n\"conference\":\"aaa\",\n\"conferenceId\":\"111\",\n\"year\":\"2000\"}]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertResearchPapers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertResearchPapers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateResearchPaper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateResearchPaper?title=aaa&conference=aaa&conferenceId=111&year=2000&id=8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateResearchPaper"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "aaa"
+						},
+						{
+							"key": "conference",
+							"value": "aaa"
+						},
+						{
+							"key": "conferenceId",
+							"value": "111"
+						},
+						{
+							"key": "year",
+							"value": "2000"
+						},
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteResearchPaper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteResearchPaper?id=7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteResearchPaper"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteResearchPapers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[8,9,10]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteResearchPapers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteResearchPapers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertPapent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertPapent?applier=aaa&papentName=aaa&papentApplyId=aaaa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertPapent"
+					],
+					"query": [
+						{
+							"key": "applier",
+							"value": "aaa"
+						},
+						{
+							"key": "papentName",
+							"value": "aaa"
+						},
+						{
+							"key": "papentApplyId",
+							"value": "aaaa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertPapents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"applier\":\"aaa\",\n\"papentName\":\"aaa\",\n\"papentApplyId\":\"aaaa\"},\n{\"applier\":\"aaa\",\n\"papentName\":\"aaa\",\n\"papentApplyId\":\"aaaa\"},\n{\"applier\":\"aaa\",\n\"papentName\":\"aaa\",\n\"papentApplyId\":\"aaaa\"}]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertPapents",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertPapents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePapent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updatePapent?applier=aaa&papentName=aaa&papentApplyId=aaaa&id=4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updatePapent"
+					],
+					"query": [
+						{
+							"key": "applier",
+							"value": "aaa"
+						},
+						{
+							"key": "papentName",
+							"value": "aaa"
+						},
+						{
+							"key": "papentApplyId",
+							"value": "aaaa"
+						},
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePapent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deletePapent?id=4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deletePapent"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePapents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[4,5,6]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deletePapents",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deletePapents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertCopyRight",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertCopyRight?code=aaa&righter=aaa&rightName=aaa&signedId=aaa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertCopyRight"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "aaa"
+						},
+						{
+							"key": "righter",
+							"value": "aaa"
+						},
+						{
+							"key": "rightName",
+							"value": "aaa"
+						},
+						{
+							"key": "signedId",
+							"value": "aaa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertCopyRights",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n{\"code\":\"aaa\",\n\"righter\":\"aaa\",\n\"rightName\":\"aaa\",\n\"signedId\":\"aaa\"},\n{\"code\":\"aaa\",\n\"righter\":\"aaa\",\n\"rightName\":\"aaa\",\n\"signedId\":\"aaa\"},\n{\"code\":\"aaa\",\n\"righter\":\"aaa\",\n\"rightName\":\"aaa\",\n\"signedId\":\"aaa\"}\n\t]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertCopyRights",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertCopyRights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCopyRight",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateCopyRight?code=aaa&righter=aaa&rightName=aaa&signedId=aaa&id=7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateCopyRight"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "aaa"
+						},
+						{
+							"key": "righter",
+							"value": "aaa"
+						},
+						{
+							"key": "rightName",
+							"value": "aaa"
+						},
+						{
+							"key": "signedId",
+							"value": "aaa"
+						},
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCopyRight",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteCopyRight?id=8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteCopyRight"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCopyRights",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[9,10,11]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteCopyRights",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteCopyRights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTeachMaterial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertTeachMaterial?name=aaa&prizeInfo=aaa&year=2001",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertTeachMaterial"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "prizeInfo",
+							"value": "aaa"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertTeachMaterials",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\"name\":\"aaa\",\n\"prizeInfo\":\"aaa\",\n\"year\":\"2001\"},\n{\"name\":\"aaa\",\n\"prizeInfo\":\"aaa\",\n\"year\":\"2001\"},\n{\"name\":\"aaa\",\n\"prizeInfo\":\"aaa\",\n\"year\":\"2001\"}\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertTeachMaterials",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertTeachMaterials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTeachMaterial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateTeachMaterial?name=aaa&prizeInfo=aaa&year=2001&id=7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateTeachMaterial"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "prizeInfo",
+							"value": "aaa"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						},
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTeachMaterial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteTeachMaterial?id=7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteTeachMaterial"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTeachMaterials",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[8,9,10]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteTeachMaterials",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteTeachMaterials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEduReform",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateEduReform?id=16&name=aaa&level=aaa&year=2001",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateEduReform"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "16"
+						},
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "level",
+							"value": "aaa"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertEduReform",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertEduReform?name=aaa&level=aaa&year=2001",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertEduReform"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aaa"
+						},
+						{
+							"key": "level",
+							"value": "aaa"
+						},
+						{
+							"key": "year",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertEduReforms",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t},\n\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t},\n\t\t{\n\t\t\"name\":\"aaa\",\n\t\t\"level\":\"aaa\",\n\t\t\"year\":2001\n\t}\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertEduReforms",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertEduReforms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEduReform",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteEduReform?id=7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteEduReform"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEduReforms",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[9,10,11]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteEduReforms",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteEduReforms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertGlobalCooperation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertGlobalCooperation?institutionName=aaa&country=aaa&cooperationProjects=aaa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertGlobalCooperation"
+					],
+					"query": [
+						{
+							"key": "institutionName",
+							"value": "aaa"
+						},
+						{
+							"key": "country",
+							"value": "aaa"
+						},
+						{
+							"key": "cooperationProjects",
+							"value": "aaa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertGlobalCooperations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\"institutionName\":\"aaa\",\n\"country\":\"aaa\",\n\"cooperationProjects\":\"aaa\"},\n{\"institutionName\":\"aaa\",\n\"country\":\"aaa\",\n\"cooperationProjects\":\"aaa\"},\n{\"institutionName\":\"aaa\",\n\"country\":\"aaa\",\n\"cooperationProjects\":\"aaa\"}\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/insertGlobalCooperations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"insertGlobalCooperations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateGlobalCooperatio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/?institutionName=aaa&country=aaa&cooperationProjects=aaa&id=8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						""
+					],
+					"query": [
+						{
+							"key": "institutionName",
+							"value": "aaa"
+						},
+						{
+							"key": "country",
+							"value": "aaa"
+						},
+						{
+							"key": "cooperationProjects",
+							"value": "aaa"
+						},
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteGlobalCooperation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteGlobalCooperation?id=8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteGlobalCooperation"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteGlobalCooperations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[9,10,11]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/deleteGlobalCooperations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"deleteGlobalCooperations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAdmissionsInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8070/administrator/updateAdmissionsInformation?id=1&studentType=aaa&skillsRequirement=aaa&operatingHours=aaa&contact=aaa&other=aaa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"administrator",
+						"updateAdmissionsInformation"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "studentType",
+							"value": "aaa"
+						},
+						{
+							"key": "skillsRequirement",
+							"value": "aaa"
+						},
+						{
+							"key": "operatingHours",
+							"value": "aaa"
+						},
+						{
+							"key": "contact",
+							"value": "aaa"
+						},
+						{
+							"key": "other",
+							"value": "aaa"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

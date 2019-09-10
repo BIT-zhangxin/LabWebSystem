@@ -1,14 +1,17 @@
 {
 	"info": {
-		"_postman_id": "1627e534-d0e7-4db7-a40e-6e439e3f81e8",
+		"_postman_id": "edaad41f-25da-4067-9d20-353c99083cdd",
 		"name": "labwebsystem_user",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "insertstu",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "formdata",
@@ -131,7 +134,7 @@
 		{
 			"name": "deleteuser",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "http://127.0.0.1:8070/user/deleteUser?userId=22",
@@ -161,7 +164,7 @@
 		{
 			"name": "updateStudent",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "http://127.0.0.1:8070/user/updateStudent?id=23&studentNumber=1120161966&name=张嘉熙&lastName=jiaxi&firstName=zhang&sex=0&category=2&nationality=中国&admissionTimeString=2016-9-01&graduationTimeString=2020-8-26&tutorNumber=11111&assistantTutorNumber=2222&birthdayString=1998-10-24&email=1047632321@qq.com&mobilePhone=13001211122&remarks=这是一条测试数据&photo=暂无",
@@ -345,7 +348,7 @@
 		{
 			"name": "insertteacher",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "http://127.0.0.1:8070/user/insertTeacher?jobNumber=6120103556&name=薛静锋&lastName=xue&firstName=jingfeng&sex=0&category=0&nationality=中国&unit=unit&jobTitle=教授&tutorQualification=博士生导师 硕士生导师&position=软件学院教学副院长 软件评测中心主任&laboratoryPosition=实验室主任&birthdayString=1970-01-01&email=email&mobilePhone=mobilePhone&officePhone=officePhone&remarks=这是一条测试数据&photo=暂无",
@@ -442,7 +445,7 @@
 		{
 			"name": "updateTeacher",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "http://127.0.0.1:8070/user/updateTeacher?id=19&jobNumber=6120103556&name=薛静锋&lastName=xue&firstName=jingfeng&sex=0&category=0&nationality=中国&unit=unit&jobTitle=教授&tutorQualification=博士生导师 硕士生导师&position=软件学院教学副院长 软件评测中心主任&laboratoryPosition=实验室主任1&birthdayString=1970-01-01&email=email&mobilePhone=mobilePhone&officePhone=officePhone&remarks=这是一条测试数据&photo=暂无",
@@ -626,6 +629,74 @@
 							"key": "condition",
 							"value": "6120103556"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUsers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"userType\":2,\n    \"name\":\"aaa\",\n    \"lastName\":\"aaa\",\n    \"firstName\":\"aaa\",\n    \"sex\":0,\n    \"category\":1,\n    \"nationality\":\"aaa\",\n    \"Date birthday\":\"1998-10-24\",\n    \"birthdayString\":\"1998-10-24\",\n    \"email\":\"aaa\",\n    \"mobilePhone\":\"aaa\",\n    \"remarks\":\"aaa\",\n    \"photo\":\"aaa\",\n    \"jobNumber\":\"aaa\",\n    \"unit\":\"aaa\",\t\n    \"jobTitle\":\"aaa\",\n    \"tutorQualification\":\"aaa\",\n    \"position\":\"aaa\",\n    \"laboratoryPosition\":\"aaa\",\n    \"officePhone\":\"aaa\",\n    \"studentNumber\":\"aaa\",\n    \"Date admissionTime\":\"2001-10-10\",\n    \"admissionTimeString\":\"2001-10-10\",\n    \"Date graduationTime\":\"2001-10-10\",\n    \"graduationTimeString\":\"2002-10-10\",\n    \"firstEmploymentUnit\":\"aaa\",\n    \"tutorNumber\":\"aaa\",\n    \"assistantTutorNumber\":\"aaa\"\n},\n{\n    \"userType\":2,\n    \"name\":\"ccc\",\n    \"lastName\":\"ccc\",\n    \"firstName\":\"ccc\",\n    \"sex\":0,\n    \"category\":1,\n    \"nationality\":\"ccc\",\n    \"Date birthday\":\"1998-10-24\",\n    \"birthdayString\":\"1998-10-24\",\n    \"email\":\"ccc\",\n    \"mobilePhone\":\"ccc\",\n    \"remarks\":\"ccc\",\n    \"photo\":\"ccc\",\n    \"jobNumber\":\"ccc\",\n    \"unit\":\"ccc\",\t\n    \"jobTitle\":\"ccc\",\n    \"tutorQualification\":\"ccc\",\n    \"position\":\"ccc\",\n    \"laboratoryPosition\":\"ccc\",\n    \"officePhone\":\"ccc\",\n    \"studentNumber\":\"ccc\",\n    \"Date admissionTime\":\"2001-10-10\",\n    \"admissionTimeString\":\"2001-10-10\",\n    \"Date graduationTime\":\"2001-10-10\",\n    \"graduationTimeString\":\"2002-10-10\",\n    \"firstEmploymentUnit\":\"ccc\",\n    \"tutorNumber\":\"ccc\",\n    \"assistantTutorNumber\":\"ccc\"\n},\n{\n    \"userType\":2,\n    \"name\":\"bbb\",\n    \"lastName\":\"bbb\",\n    \"firstName\":\"bbb\",\n    \"sex\":0,\n    \"category\":1,\n    \"nationality\":\"bbb\",\n    \"Date birthday\":\"1998-10-24\",\n    \"birthdayString\":\"1998-10-24\",\n    \"email\":\"bbb\",\n    \"mobilePhone\":\"bbb\",\n    \"remarks\":\"bbb\",\n    \"photo\":\"bbb\",\n    \"jobNumber\":\"bbb\",\n    \"unit\":\"bbb\",\t\n    \"jobTitle\":\"bbb\",\n    \"tutorQualification\":\"bbb\",\n    \"position\":\"bbb\",\n    \"laboratoryPosition\":\"bbb\",\n    \"officePhone\":\"bbb\",\n    \"studentNumber\":\"bbb\",\n    \"Date admissionTime\":\"2001-10-10\",\n    \"admissionTimeString\":\"2001-10-10\",\n    \"Date graduationTime\":\"2001-10-10\",\n    \"graduationTimeString\":\"2002-10-10\",\n    \"firstEmploymentUnit\":\"bbb\",\n    \"tutorNumber\":\"bbb\",\n    \"assistantTutorNumber\":\"bbb\"\n}\n\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/createUsers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"createUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUsers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[41,42]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8070/user/deleteUsers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8070",
+					"path": [
+						"user",
+						"deleteUsers"
 					]
 				}
 			},
