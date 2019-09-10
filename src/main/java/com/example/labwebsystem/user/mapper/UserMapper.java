@@ -110,8 +110,31 @@ public interface UserMapper {
             "`remarks` AS `remarks`,\n" +
             "`photo` AS `photo` " +
             "FROM t_student " +
-            "WHERE graduation_time #{param1} now();")
-    List<Student> selectStudentByType(String sign);
+            "WHERE graduation_time > now();")
+    List<Student> selectUnderGraduatedStudent();
+
+    @Select("SELECT " +
+            "`id` AS `id`,\n" +
+            "`student_number` AS `studentNumber`,\n" +
+            "`name` AS `name`,\n" +
+            "`last_name` AS `lastName`,\n" +
+            "`first_name` AS `firstName`,\n" +
+            "`sex` AS `sex`,\n" +
+            "`category` AS `category`,\n" +
+            "`nationality` AS `nationality`,\n" +
+            "`admission_time` AS `admissionTime`,\n" +
+            "`graduation_time` AS `graduationTIme`,\n" +
+            "`first_employment_unit` AS `firstEmploymentUnit`,\n" +
+            "`tutor_number` AS `tutorNumber`,\n" +
+            "`assistant_tutor_number` AS `assistantTutorNumber`,\n" +
+            "`birthday` AS `birthday`,\n" +
+            "`email` AS `email`,\n" +
+            "`mobile_phone` AS `mobilePhone`,\n" +
+            "`remarks` AS `remarks`,\n" +
+            "`photo` AS `photo` " +
+            "FROM t_student " +
+            "WHERE graduation_time <= now();")
+    List<Student> selectGraduatedStudent();
 
     @Select("SELECT " +
             "`id` AS `id`,\n" +

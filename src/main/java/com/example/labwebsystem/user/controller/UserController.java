@@ -96,16 +96,16 @@ public class UserController {
         return userMapper.selectStudent();
     }
 
-    //查询在校生和毕业生，0代表在校生，1代表毕业生
+    //查询在校生
+    @RequestMapping("/selectUnderGraduatedStudent")
+    public List<Student> selectUnderGraduatedStudent(){
+        return userMapper.selectUnderGraduatedStudent();
+    }
+    
+    //查询毕业生
     @RequestMapping("/selectStudentType")
-    public List<Student> selectStudentByType(int type){
-        if(type==0){
-            return userMapper.selectStudentByType(">");
-        }
-        else{
-            return userMapper.selectStudentByType("<=");
-        }
-
+    public List<Student> selectGraduatedStudent(){
+        return userMapper.selectGraduatedStudent();
     }
 
     //条件查询学生
