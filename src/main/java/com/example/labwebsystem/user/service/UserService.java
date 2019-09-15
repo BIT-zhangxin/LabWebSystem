@@ -37,7 +37,7 @@ public class UserService {
         for(UserData userData:listUserData){
             if(userData.getUserType()==1){
                 Teacher teacher=new Teacher(userData);
-                String encodePassword=passwordEncoder.encode(teacher.getJobNumber());
+                String encodePassword=passwordEncoder.encode("123456");
                 SimpleDateFormat stringToDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     teacher.setBirthday(stringToDateFormat.parse(teacher.getBirthdayString()));
@@ -50,7 +50,7 @@ public class UserService {
                 }
             }else if(userData.getUserType()==2){
                 Student student=new Student(userData);
-                String encodePassword=passwordEncoder.encode(student.getStudentNumber());
+                String encodePassword=passwordEncoder.encode("123456");
                 SimpleDateFormat stringToDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     student.setAdmissionTime(stringToDateFormat.parse(student.getAdmissionTimeString()));

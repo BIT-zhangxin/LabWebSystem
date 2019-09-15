@@ -62,7 +62,7 @@ public class UserController {
     @RequestMapping("/insertStudent")
     public int insertStudent(Student student){
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
-        String encodePassword=passwordEncoder.encode(student.getStudentNumber());
+        String encodePassword=passwordEncoder.encode("123456");
 
         SimpleDateFormat stringToDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
@@ -119,7 +119,7 @@ public class UserController {
     @RequestMapping("/insertTeacher")
     public int insertTeacher(Teacher teacher){
         BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
-        String encodePassword=passwordEncoder.encode(teacher.getJobNumber());
+        String encodePassword=passwordEncoder.encode("123456");
 
         SimpleDateFormat stringToDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
